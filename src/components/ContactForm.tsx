@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { submitContact } from "@/lib/actions";
 import { serviceCategories } from "@/config/services";
+import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
 
 const BUDGETS = [
   "$200 – $500",
@@ -24,6 +25,8 @@ export default function ContactForm() {
     startTransition(async () => {
       const result = await submitContact(formData);
       if (result.success) {
+        trackGA4Lead();
+        trackPixelLead();
         setSubmitted(true);
       } else {
         setError(result.error ?? "Something went wrong. Please try again.");

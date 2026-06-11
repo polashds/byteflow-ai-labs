@@ -176,6 +176,7 @@ export async function POST(req: NextRequest) {
       reply = rawText;
     }
 
+    let leadSaved = false;
     if (capturedLead) {
       try {
         const lastUserMessage = [...messages]
@@ -201,12 +202,13 @@ export async function POST(req: NextRequest) {
           source: lead.source,
           createdAt: lead.createdAt,
         });
+        leadSaved = true;
       } catch (e) {
         console.error("Chatbot lead creation failed", e);
       }
     }
 
-    return NextResponse.json({ reply });
+    return NextResponse.json({ reply, ...(leadSaved ? { leadCaptured: true } : {}) });
   } catch (e) {
     console.error("Chat route error", e);
     return NextResponse.json({ reply: FALLBACK_REPLY });

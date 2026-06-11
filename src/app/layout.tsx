@@ -3,6 +3,8 @@ import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import PublicShell from "@/components/PublicShell";
 import { brand } from "@/config/branding";
+import GA4Script from "@/components/analytics/GA4Script";
+import MetaPixelScript from "@/components/analytics/MetaPixelScript";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +62,9 @@ const organizationSchema = {
   sameAs: Object.values(brand.social),
 };
 
+const ga4Id = process.env.GA4_ID;
+const pixelId = process.env.META_PIXEL_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,6 +80,8 @@ export default function RootLayout({
       </head>
       <body className="bg-brand-bg text-brand-text font-body antialiased flex flex-col min-h-screen">
         <PublicShell>{children}</PublicShell>
+        {ga4Id && <GA4Script id={ga4Id} />}
+        {pixelId && <MetaPixelScript id={pixelId} />}
       </body>
     </html>
   );

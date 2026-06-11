@@ -7,9 +7,11 @@ export const brand = {
   email: "hello@byteflow.ai",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com",
   social: {
-    twitter: "https://twitter.com/byteflowai",
-    linkedin: "https://linkedin.com/company/byteflow-ai-labs",
-    github: "https://github.com/byteflow-ai-labs",
+    facebook: "https://www.facebook.com/profile.php?id=61573260581403",
+    linkedin: "https://www.linkedin.com/groups/14521611/",
+    instagram: "https://www.instagram.com/byteflowailabs/",
+    youtube: "https://www.youtube.com/@ByteFlowAILabs",
+    twitter: "https://x.com/byteflowailabs",
   },
   nav: [
     { href: "/", label: "Home" },

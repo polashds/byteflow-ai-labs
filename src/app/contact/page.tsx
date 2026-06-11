@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { COMPANY_EMAIL } from "@/lib/constants";
 import ContactForm from "@/components/ContactForm";
+import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
   title: "Contact Us — ByteFlow AI Labs",
@@ -121,6 +122,33 @@ export default function ContactPage() {
                   Monday – Friday<br />
                   9:00 AM – 6:00 PM (GMT+6)
                 </p>
+              </div>
+
+              <div>
+                <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-3">
+                  Follow Us
+                </p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {(
+                    [
+                      { label: "Facebook", href: brand.social.facebook },
+                      { label: "LinkedIn", href: brand.social.linkedin },
+                      { label: "Instagram", href: brand.social.instagram },
+                      { label: "YouTube", href: brand.social.youtube },
+                      { label: "X", href: brand.social.twitter },
+                    ] as const
+                  ).map(({ label, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body text-[10px] tracking-[0.15em] uppercase text-brand-muted border border-primary/15 px-2.5 py-1.5 hover:text-accent hover:border-accent/40 transition-colors duration-200"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </aside>

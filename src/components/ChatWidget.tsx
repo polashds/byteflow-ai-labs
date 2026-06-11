@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
 
 interface Message {
   role: "user" | "assistant";
@@ -50,6 +51,10 @@ export default function ChatWidget() {
         body: JSON.stringify({ messages: newHistory }),
       });
       const data = await res.json();
+      if (data.leadCaptured) {
+        trackGA4Lead();
+        trackPixelLead();
+      }
       setMessages((prev) => [
         ...prev,
         { role: "assistant", text: data.reply ?? "Sorry, something went wrong." },
