@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!post) return {};
   const description = post.excerpt ?? post.body.slice(0, 155);
   return {
-    title: `${post.title} — Mustaraka Properties Blog`,
+    title: `${post.title} — ByteFlow AI Labs Blog`,
     description,
     openGraph: {
       title: post.title,
@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
   const htmlBody = await marked.parse(post.body, { async: true });
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mustarakaproperties.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflow.ai";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -64,12 +64,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     ...(post.featuredImage && { image: post.featuredImage }),
     author: {
       "@type": "Organization",
-      name: "Mustaraka Properties",
+      name: "ByteFlow AI Labs",
       url: siteUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "Mustaraka Properties",
+      name: "ByteFlow AI Labs",
       url: siteUrl,
     },
   };
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         {/* Back */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 font-body text-xs text-brand-muted hover:text-gold transition-colors tracking-[0.15em] uppercase mb-10"
+          className="inline-flex items-center gap-2 font-body text-xs text-brand-muted hover:text-accent transition-colors tracking-[0.15em] uppercase mb-10"
         >
           <span aria-hidden>&#8592;</span> All Posts
         </Link>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         {/* Meta */}
         <div className="flex items-center gap-4 mb-6">
           {post.category && (
-            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 px-2 py-0.5">
+            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-accent border border-accent/30 px-2 py-0.5">
               {post.category.name}
             </span>
           )}
@@ -119,33 +119,33 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         </div>
 
         {/* Title */}
-        <h1 className="font-heading font-light text-brand-text text-4xl sm:text-5xl leading-[1.1] mb-10">
+        <h1 className="font-heading font-semibold text-brand-text text-4xl sm:text-5xl leading-[1.1] mb-10">
           {post.title}
         </h1>
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-10">
-          <span className="h-px flex-1 bg-gold/15" />
-          <span className="w-1 h-1 rounded-full bg-gold/40" />
-          <span className="h-px flex-1 bg-gold/15" />
+          <span className="h-px flex-1 bg-primary/15" />
+          <span className="w-1 h-1 rounded-full bg-primary/40" />
+          <span className="h-px flex-1 bg-primary/15" />
         </div>
 
         {/* Body */}
         <div
           className="
             font-body text-sm text-brand-muted leading-relaxed
-            [&_h1]:font-heading [&_h1]:font-light [&_h1]:text-brand-text [&_h1]:text-3xl [&_h1]:mt-10 [&_h1]:mb-4
-            [&_h2]:font-heading [&_h2]:font-light [&_h2]:text-brand-text [&_h2]:text-2xl [&_h2]:mt-8 [&_h2]:mb-3
-            [&_h3]:font-heading [&_h3]:font-light [&_h3]:text-brand-text [&_h3]:text-xl [&_h3]:mt-6 [&_h3]:mb-3
+            [&_h1]:font-heading [&_h1]:font-semibold [&_h1]:text-brand-text [&_h1]:text-3xl [&_h1]:mt-10 [&_h1]:mb-4
+            [&_h2]:font-heading [&_h2]:font-semibold [&_h2]:text-brand-text [&_h2]:text-2xl [&_h2]:mt-8 [&_h2]:mb-3
+            [&_h3]:font-heading [&_h3]:font-semibold [&_h3]:text-brand-text [&_h3]:text-xl [&_h3]:mt-6 [&_h3]:mb-3
             [&_p]:mb-4
             [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_ul]:space-y-1
             [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-4 [&_ol]:space-y-1
-            [&_a]:text-gold [&_a]:underline [&_a]:hover:text-gold-light
+            [&_a]:text-accent [&_a]:underline [&_a]:hover:text-primary
             [&_strong]:text-brand-text [&_strong]:font-medium
-            [&_blockquote]:border-l-2 [&_blockquote]:border-gold/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-brand-muted/80 [&_blockquote]:my-6
-            [&_code]:bg-brand-surface [&_code]:text-gold [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-xs [&_code]:font-mono
-            [&_pre]:bg-brand-surface [&_pre]:border [&_pre]:border-gold/15 [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre]:text-xs [&_pre]:font-mono
-            [&_hr]:border-gold/15 [&_hr]:my-8
+            [&_blockquote]:border-l-2 [&_blockquote]:border-primary/40 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-brand-muted/80 [&_blockquote]:my-6
+            [&_code]:bg-brand-surface [&_code]:text-accent [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-xs [&_code]:font-mono
+            [&_pre]:bg-brand-surface [&_pre]:border [&_pre]:border-primary/15 [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:mb-4 [&_pre]:text-xs [&_pre]:font-mono
+            [&_hr]:border-primary/15 [&_hr]:my-8
           "
           dangerouslySetInnerHTML={{ __html: htmlBody }}
         />

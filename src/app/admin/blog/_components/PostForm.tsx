@@ -45,10 +45,10 @@ function FieldError({ msg }: { msg?: string }) {
 }
 
 const inputCls =
-  "w-full bg-brand-bg border border-gold/20 px-4 py-2.5 font-body text-sm text-brand-text placeholder-brand-muted/40 focus:outline-none focus:border-gold/50 transition-colors";
+  "w-full bg-brand-bg border border-primary/20 px-4 py-2.5 font-body text-sm text-brand-text placeholder-brand-muted/40 focus:outline-none focus:border-primary/50 transition-colors";
 
 const selectCls =
-  "w-full bg-brand-bg border border-gold/20 px-4 py-2.5 font-body text-sm text-brand-text focus:outline-none focus:border-gold/50 transition-colors cursor-pointer";
+  "w-full bg-brand-bg border border-primary/20 px-4 py-2.5 font-body text-sm text-brand-text focus:outline-none focus:border-primary/50 transition-colors cursor-pointer";
 
 export default function PostForm({ mode, postId, defaultValues }: Props) {
   const [submitting, setSubmitting] = useState(false);
@@ -97,8 +97,8 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Core */}
-      <section className="bg-brand-surface border border-gold/15 p-6 space-y-5">
-        <h2 className="font-heading font-light text-brand-text text-xl mb-1">Post Details</h2>
+      <section className="bg-brand-surface border border-primary/15 p-6 space-y-5">
+        <h2 className="font-heading font-semibold text-brand-text text-xl mb-1">Post Details</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
@@ -107,13 +107,13 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
               {...register("title")}
               onBlur={handleTitleBlur}
               className={inputCls}
-              placeholder="Market Insights Q2 2026"
+              placeholder="Building AI Workflows with n8n"
             />
             <FieldError msg={errors.title?.message} />
           </div>
           <div>
             <Label>Slug *</Label>
-            <input {...register("slug")} className={inputCls} placeholder="market-insights-q2-2026" />
+            <input {...register("slug")} className={inputCls} placeholder="building-ai-workflows-n8n" />
             <FieldError msg={errors.slug?.message} />
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
             <input
               {...register("category")}
               className={inputCls}
-              placeholder="Market Insights"
+              placeholder="AI Automation"
             />
           </div>
           <div>
@@ -149,8 +149,8 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
       </section>
 
       {/* Body */}
-      <section className="bg-brand-surface border border-gold/15 p-6 space-y-3">
-        <h2 className="font-heading font-light text-brand-text text-xl mb-1">Body (Markdown)</h2>
+      <section className="bg-brand-surface border border-primary/15 p-6 space-y-3">
+        <h2 className="font-heading font-semibold text-brand-text text-xl mb-1">Body (Markdown)</h2>
         <textarea
           {...register("body")}
           rows={20}
@@ -161,8 +161,8 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
       </section>
 
       {/* Status */}
-      <section className="bg-brand-surface border border-gold/15 p-6">
-        <h2 className="font-heading font-light text-brand-text text-xl mb-4">Status</h2>
+      <section className="bg-brand-surface border border-primary/15 p-6">
+        <h2 className="font-heading font-semibold text-brand-text text-xl mb-4">Status</h2>
         <div className="w-48">
           <select {...register("status")} className={selectCls}>
             <option value="Draft">Draft</option>
@@ -177,7 +177,8 @@ export default function PostForm({ mode, postId, defaultValues }: Props) {
         <button
           type="submit"
           disabled={submitting}
-          className="px-8 py-3 bg-gold text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-colors disabled:opacity-60"
+          className="px-8 py-3 text-white font-body text-xs font-medium tracking-[0.15em] uppercase transition-opacity disabled:opacity-60"
+          style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
         >
           {submitting ? "Saving…" : mode === "create" ? "Publish Post" : "Save Changes"}
         </button>

@@ -22,7 +22,7 @@ export default function PostActions({ id, status }: Props) {
     <div className="flex items-center gap-4">
       <a
         href={`/admin/blog/${id}/edit`}
-        className="font-body text-xs text-gold hover:text-gold-light tracking-[0.1em] uppercase transition-colors"
+        className="font-body text-xs text-accent hover:text-primary tracking-[0.1em] uppercase transition-colors"
       >
         Edit
       </a>

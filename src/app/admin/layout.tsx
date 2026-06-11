@@ -4,7 +4,7 @@ import AdminLayoutShell from "./_components/AdminLayoutShell";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Admin — Mustaraka Properties",
+  title: "Admin — ByteFlow AI Labs",
 };
 
 // Route protection is handled by proxy.ts — all /admin/* routes except

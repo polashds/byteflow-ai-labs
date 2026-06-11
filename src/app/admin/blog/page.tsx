@@ -22,16 +22,17 @@ export default async function AdminBlogPage() {
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-4 mb-2">
-            <span className="h-px w-8 bg-gold/40" />
-            <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
+            <span className="h-px w-8 bg-primary/40" />
+            <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
               Content
             </p>
           </div>
-          <h1 className="font-heading font-light text-brand-text text-4xl">Blog Posts</h1>
+          <h1 className="font-heading font-semibold text-brand-text text-4xl">Blog Posts</h1>
         </div>
         <Link
           href="/admin/blog/new"
-          className="px-5 py-2.5 bg-gold text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-colors shrink-0 mt-2"
+          className="px-5 py-2.5 text-white font-body text-xs font-medium tracking-[0.15em] uppercase shrink-0 mt-2 transition-opacity hover:opacity-90"
+          style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
         >
           + New Post
         </Link>
@@ -41,15 +42,15 @@ export default async function AdminBlogPage() {
       {posts.length === 0 ? (
         <p className="font-body text-sm text-brand-muted py-8">
           No posts yet.{" "}
-          <Link href="/admin/blog/new" className="text-gold hover:underline">
+          <Link href="/admin/blog/new" className="text-accent hover:underline">
             Write the first one.
           </Link>
         </p>
       ) : (
-        <div className="border border-gold/15 overflow-x-auto">
+        <div className="border border-primary/15 overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-gold/15 bg-brand-surface/50">
+              <tr className="border-b border-primary/15 bg-brand-surface/50">
                 {["Title", "Category", "Status", "Date", "Actions"].map((h) => (
                   <th
                     key={h}
@@ -60,7 +61,7 @@ export default async function AdminBlogPage() {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gold/8">
+            <tbody className="divide-y divide-primary/8">
               {posts.map((post) => (
                 <tr key={post.id} className="hover:bg-brand-surface/40 transition-colors">
                   <td className="px-4 py-4">

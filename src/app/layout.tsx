@@ -1,64 +1,50 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import PublicShell from "@/components/PublicShell";
+import { brand } from "@/config/branding";
 
-const cormorant = Cormorant_Garamond({
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-geist",
   display: "swap",
 });
-
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mustarakaproperties.com";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE),
+  metadataBase: new URL(brand.siteUrl),
   title: {
-    default: "Mustaraka Properties — Premium Real Estate in Bangladesh",
-    template: "%s — Mustaraka Properties",
+    default: `${brand.name} — ${brand.tagline}`,
+    template: `%s — ${brand.name}`,
   },
-  description:
-    "Discover premium apartments, homes, and commercial spaces across Dhaka, Chittagong, Sylhet, and Rajshahi.",
+  description: brand.description,
   openGraph: {
     type: "website",
-    siteName: "Mustaraka Properties",
-    title: "Mustaraka Properties — Premium Real Estate in Bangladesh",
-    description:
-      "Discover premium apartments, homes, and commercial spaces across Dhaka, Chittagong, Sylhet, and Rajshahi.",
-    url: BASE,
+    siteName: brand.name,
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.description,
+    url: brand.siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mustaraka Properties — Premium Real Estate in Bangladesh",
-    description:
-      "Discover premium apartments, homes, and commercial spaces across Dhaka, Chittagong, Sylhet, and Rajshahi.",
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.description,
   },
 };
 
-const localBusinessSchema = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  name: "Mustaraka Properties",
-  url: BASE,
-  telephone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
-    ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`
-    : undefined,
-  description:
-    "Premium real estate brokerage specialising in residential and commercial properties across Dhaka, Chittagong, Sylhet, and Rajshahi.",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "BD",
-    addressRegion: "Dhaka",
-  },
-  areaServed: ["Dhaka", "Chittagong", "Sylhet", "Rajshahi"],
+  "@type": "Organization",
+  name: brand.name,
+  url: brand.siteUrl,
+  description: brand.description,
+  email: brand.email,
+  sameAs: Object.values(brand.social),
 };
 
 export default function RootLayout({
@@ -67,11 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geist.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
       <body className="bg-brand-bg text-brand-text font-body antialiased flex flex-col min-h-screen">

@@ -2,27 +2,26 @@
 
 @theme {
   /* Brand colors */
-  --color-gold: #C9A84C;
-  --color-gold-light: #E8CC7A;
-  --color-brand-bg: #0A0A0A;
-  --color-brand-surface: #1E1E1E;
-  --color-brand-text: #F0EDE8;
-  --color-brand-muted: #8A8580;
-  --color-whatsapp: #2d7a2d;
+  --color-primary: #2563EB;
+  --color-accent: #22D3EE;
+  --color-brand-bg: #070B16;
+  --color-brand-surface: #0F1729;
+  --color-brand-text: #E6EDF7;
+  --color-brand-muted: #8B95A7;
 
   /* Brand fonts — CSS vars injected by next/font on <html> at runtime */
-  --font-heading: var(--font-cormorant);
-  --font-body: var(--font-dm-sans);
+  --font-heading: var(--font-geist);
+  --font-body: var(--font-inter);
 
   /* Custom animations */
-  --animate-pulse-gold: pulseGold 2.2s ease-in-out infinite;
+  --animate-pulse-primary: pulsePrimary 2.2s ease-in-out infinite;
   --animate-slide-up: slideUp 0.28s cubic-bezier(0.16,1,0.3,1) both;
   --animate-type-dot: typeDot 1.3s ease-in-out infinite;
 }
 
-@keyframes pulseGold {
-  0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,0.45), 0 0 0 0 rgba(201,168,76,0.25); }
-  50%       { box-shadow: 0 4px 32px rgba(201,168,76,0.75), 0 0 0 10px rgba(201,168,76,0); }
+@keyframes pulsePrimary {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,99,235,0.45), 0 0 0 0 rgba(37,99,235,0.25); }
+  50%       { box-shadow: 0 4px 32px rgba(37,99,235,0.75), 0 0 0 10px rgba(37,99,235,0); }
 }
 
 @keyframes slideUp {

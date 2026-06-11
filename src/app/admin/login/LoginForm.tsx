@@ -44,7 +44,7 @@ export default function LoginForm({ callbackUrl }: { callbackUrl: string }) {
           onChange={(e) => setEmail(e.target.value)}
           required
           autoComplete="email"
-          className="w-full bg-brand-bg border border-gold/20 px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-gold/50 transition-colors"
+          className="w-full bg-brand-bg border border-primary/20 px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-primary/50 transition-colors"
           placeholder="admin@example.com"
         />
       </div>
@@ -59,7 +59,7 @@ export default function LoginForm({ callbackUrl }: { callbackUrl: string }) {
           onChange={(e) => setPassword(e.target.value)}
           required
           autoComplete="current-password"
-          className="w-full bg-brand-bg border border-gold/20 px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-gold/50 transition-colors"
+          className="w-full bg-brand-bg border border-primary/20 px-4 py-3 font-body text-sm text-brand-text placeholder-brand-muted/50 focus:outline-none focus:border-primary/50 transition-colors"
           placeholder="••••••••"
         />
       </div>
@@ -71,7 +71,8 @@ export default function LoginForm({ callbackUrl }: { callbackUrl: string }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-gold text-brand-bg font-body text-xs font-medium tracking-[0.2em] uppercase py-3.5 hover:bg-gold-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+        className="w-full text-white font-body text-xs font-medium tracking-[0.2em] uppercase py-3.5 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+        style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
       >
         {loading ? "Signing in…" : "Sign In"}
       </button>

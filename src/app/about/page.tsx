@@ -1,28 +1,23 @@
 import { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Us — Mustaraka Properties",
-  description:
-    "Learn about Mustaraka Properties, our founder, and our commitment to premium real estate in Bangladesh.",
+  title: "About Us — ByteFlow AI Labs",
+  description: "Learn about ByteFlow AI Labs — who we are, what drives us, and why we build AI automation systems.",
 };
 
 const values = [
   {
-    title: "Integrity",
-    body: "Every transaction is conducted with full transparency. We never compromise on honesty — with our clients, our partners, or ourselves.",
+    title: "Clarity",
+    body: "We cut through the AI hype and build things that genuinely work — systems you understand, own, and can maintain.",
   },
   {
-    title: "Excellence",
-    body: "We curate only the finest listings and deliver service that exceeds expectations at every step of the journey.",
+    title: "Speed",
+    body: "We ship fast. Most projects go from scoping to live automation within days, not months.",
   },
   {
-    title: "Expertise",
-    body: "Deep market knowledge built over years in Dhaka, Chittagong, Sylhet, and Rajshahi gives our clients a decisive advantage.",
-  },
-  {
-    title: "Care",
-    body: "Buying or renting a property is one of life's most significant decisions. We treat it with the weight it deserves.",
+    title: "Craft",
+    body: "Every pipeline, every prompt, every integration is built with care. We don't ship spaghetti.",
   },
 ];
 
@@ -30,93 +25,74 @@ export default function AboutPage() {
   return (
     <div className="bg-brand-bg">
       {/* Hero */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(201,168,76,0.07)_0%,transparent_65%)]" />
+      <section className="relative py-24 lg:py-28 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(37,99,235,0.10)_0%,transparent_65%)]" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="h-px w-8 bg-gold/40" />
-            <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
-              Our Story
+            <span className="h-px w-8 bg-primary/40" />
+            <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
+              Who We Are
             </p>
-            <span className="h-px w-8 bg-gold/40" />
+            <span className="h-px w-8 bg-primary/40" />
           </div>
-          <h1 className="font-heading font-light text-brand-text text-[1.75rem] sm:text-5xl md:text-6xl leading-[1.08] mb-8">
-            Built on Trust,<br />
-            <span className="italic text-gold">Driven by Purpose</span>
+          <h1 className="font-heading font-semibold text-brand-text text-[1.75rem] sm:text-5xl md:text-6xl leading-[1.08] mb-6">
+            Built on{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Purpose
+            </span>
           </h1>
           <p className="font-body text-brand-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Mustaraka Properties was founded with a single conviction: that every client deserves
-            access to premium real estate with complete transparency and genuine care.
+            ByteFlow AI Labs is an AI automation agency. We exist to make AI useful — not as a demo
+            or a slide deck, but as running, reliable systems that free up human time.
           </p>
         </div>
       </section>
 
-      {/* Founder */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden border border-gold/20">
-              <Image
-                src="/assets/polash.jpg"
-                alt="Polash — Founder, Mustaraka Properties"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            {/* Gold accent line */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 border-b border-r border-gold/30" />
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <span className="h-px w-8 bg-gold/40" />
-              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
-                Founder &amp; Principal
-              </p>
-            </div>
-            <h2 className="font-heading font-light text-brand-text text-4xl">Polash</h2>
-            <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
-              <p>
-                With over a decade of experience navigating Bangladesh&apos;s most competitive
-                property markets, Polash established Mustaraka Properties to bridge the gap between
-                discerning buyers and truly exceptional properties.
-              </p>
-              <p>
-                His approach is rooted in patience, precision, and an unwavering commitment to his
-                clients&apos; long-term interests — never the transaction. He believes that the
-                right property, presented honestly, sells itself.
-              </p>
-              <p>
-                Based in Dhaka, he personally oversees every listing and client relationship,
-                ensuring that the Mustaraka standard is upheld without exception.
-              </p>
-            </div>
-          </div>
+      {/* Mission */}
+      <section className="max-w-5xl mx-auto px-6 lg:px-8 pb-24">
+        <div className="border border-primary/15 bg-brand-surface p-10 lg:p-16">
+          <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-6">Our Mission</p>
+          <p className="font-heading font-semibold text-brand-text text-2xl sm:text-3xl leading-snug max-w-3xl">
+            Every business has repetitive, manual work that shouldn&apos;t need a human.
+            We find it, automate it, and hand back the hours.
+          </p>
         </div>
       </section>
 
       {/* Values */}
-      <section className="bg-brand-surface border-t border-gold/10 py-20">
+      <section className="bg-brand-surface border-t border-primary/10 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-px w-8 bg-gold/40" />
-              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
-                What We Stand For
+              <span className="h-px w-8 bg-primary/40" />
+              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
+                What Drives Us
               </p>
-              <span className="h-px w-8 bg-gold/40" />
+              <span className="h-px w-8 bg-primary/40" />
             </div>
-            <h2 className="font-heading font-light text-brand-text text-4xl">Our Values</h2>
+            <h2 className="font-heading font-semibold text-brand-text text-4xl">Our Values</h2>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {values.map((v) => (
-              <div
-                key={v.title}
-                className="border border-gold/15 bg-brand-bg p-8 hover:border-gold/35 transition-colors"
-              >
-                <h3 className="font-heading font-light text-gold text-xl mb-4">{v.title}</h3>
+              <div key={v.title} className="border border-primary/15 bg-brand-bg p-8 hover:border-primary/35 transition-colors">
+                <h3
+                  className="font-heading font-semibold text-xl mb-4"
+                  style={{
+                    background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {v.title}
+                </h3>
                 <p className="font-body text-sm text-brand-muted leading-relaxed">{v.body}</p>
               </div>
             ))}
@@ -124,23 +100,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {[
-            { value: "500+", label: "Properties Transacted" },
-            { value: "12+", label: "Years of Experience" },
-            { value: "4", label: "Cities Covered" },
-            { value: "98%", label: "Client Satisfaction" },
-          ].map((s) => (
-            <div key={s.label} className="border border-gold/15 bg-brand-surface p-8">
-              <p className="font-heading font-light text-gold text-4xl mb-2">{s.value}</p>
-              <p className="font-body text-[11px] text-brand-muted tracking-[0.2em] uppercase">
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
+      {/* CTA */}
+      <section className="max-w-3xl mx-auto px-6 lg:px-8 py-24 text-center">
+        <h2 className="font-heading font-semibold text-brand-text text-3xl mb-6">
+          Let&apos;s work together
+        </h2>
+        <p className="font-body text-brand-muted mb-10 leading-relaxed">
+          Tell us what you&apos;d like to automate and we&apos;ll figure out the best path forward.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center px-10 py-4 text-white font-body text-xs font-medium tracking-[0.2em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+          style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
+        >
+          Get in Touch
+        </Link>
       </section>
     </div>
   );

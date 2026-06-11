@@ -1,11 +1,10 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import LoginForm from "./LoginForm";
 
 export const metadata: Metadata = {
-  title: "Admin Login — Mustaraka Properties",
+  title: "Admin Login — ByteFlow AI Labs",
 };
 
 export default async function LoginPage({
@@ -20,32 +19,38 @@ export default async function LoginPage({
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center px-4">
-      {/* Radial glow */}
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(201,168,76,0.07)_0%,transparent_70%)]" />
+      {/* Blue radial glow */}
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(37,99,235,0.10)_0%,transparent_70%)]" />
 
       <div className="relative w-full max-w-sm">
-        {/* Logo */}
+        {/* Logo lockup */}
         <div className="flex justify-center mb-10">
-          <Image
-            src="/assets/logo.png"
-            alt="Mustaraka Properties"
-            width={160}
-            height={44}
-            className="h-11 w-auto object-contain"
-            priority
-          />
+          <div className="flex items-center gap-2.5">
+            <span
+              className="font-heading font-semibold text-[26px]"
+              style={{
+                background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              ByteFlow
+            </span>
+            <span className="font-heading font-light text-[26px] text-brand-text">AI Labs</span>
+          </div>
         </div>
 
         {/* Card */}
-        <div className="bg-brand-surface border border-gold/15 p-8">
+        <div className="bg-brand-surface border border-primary/15 p-8">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
-              <span className="h-px w-6 bg-gold/40" />
-              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
+              <span className="h-px w-6 bg-primary/40" />
+              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
                 Admin Access
               </p>
             </div>
-            <h1 className="font-heading font-light text-brand-text text-3xl">
+            <h1 className="font-heading font-semibold text-brand-text text-3xl">
               Sign In
             </h1>
           </div>

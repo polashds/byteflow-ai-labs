@@ -18,7 +18,7 @@ export default function LeadStatusButton({ id, current }: { id: number; current:
     <button
       disabled={isPending}
       onClick={() => startTransition(() => updateLeadStatus(id, action.status))}
-      className="font-body text-[10px] tracking-[0.15em] uppercase text-gold hover:text-gold-light transition-colors disabled:opacity-40"
+      className="font-body text-[10px] tracking-[0.15em] uppercase text-accent hover:text-primary transition-colors disabled:opacity-40"
     >
       {isPending ? "…" : action.label}
     </button>

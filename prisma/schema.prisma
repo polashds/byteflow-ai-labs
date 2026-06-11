@@ -10,26 +10,8 @@ enum UserRole {
   ADMIN
 }
 
-enum PropertyType {
-  Apartment
-  House
-  Commercial
-  Land
-}
-
-enum ListingType {
-  Sale
-  Rent
-}
-
-enum PropertyStatus {
-  Draft
-  Published
-}
-
 enum LeadSource {
   Contact
-  Property
   Chatbot
 }
 
@@ -44,46 +26,24 @@ enum PostStatus {
   Published
 }
 
-model Property {
-  id          Int            @id @default(autoincrement())
-  title       String
-  slug        String         @unique
-  description String
-  price       Decimal        @db.Decimal(15, 2)
-  type        PropertyType
-  listingType ListingType
-  status      PropertyStatus @default(Draft)
-  bedrooms     Int?
-  bathrooms    Int?
-  area         Float?
-  floor        Int?
-  parking      Int?
-  landAreaUnit String?
-  roadWidth    Float?
-  landUse      String?
-  address      String
-  city         String
-  latitude     Float?
-  longitude    Float?
-  featured     Boolean        @default(false)
-  hot          Boolean        @default(false)
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-  images      PropertyImage[]
-  leads       Lead[]
+model User {
+  id             Int      @id @default(autoincrement())
+  email          String   @unique
+  hashedPassword String
+  role           UserRole @default(ADMIN)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Lead {
-  id         Int        @id @default(autoincrement())
-  name       String
-  email      String?
-  phone      String?
-  message    String?
-  source     LeadSource
-  propertyId Int?
-  property   Property?  @relation(fields: [propertyId], references: [id], onDelete: SetNull)
-  status     LeadStatus @default(New)
-  createdAt  DateTime   @default(now())
+  id        Int        @id @default(autoincrement())
+  name      String
+  email     String?
+  phone     String?
+  message   String?
+  source    LeadSource
+  status    LeadStatus @default(New)
+  createdAt DateTime   @default(now())
 }
 
 model Category {
@@ -105,21 +65,4 @@ model Post {
   category      Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
-}
-
-model PropertyImage {
-  id         Int      @id @default(autoincrement())
-  url        String
-  alt        String
-  propertyId Int
-  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
-}
-
-model User {
-  id             Int      @id @default(autoincrement())
-  email          String   @unique
-  hashedPassword String
-  role           UserRole @default(ADMIN)
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
 }

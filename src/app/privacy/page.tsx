@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Mustaraka Properties",
+  title: "Privacy Policy — ByteFlow AI Labs",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="space-y-3">
-      <h2 className="font-heading font-light text-brand-text text-xl">{title}</h2>
+      <h2 className="font-heading font-semibold text-brand-text text-xl">{title}</h2>
       <div className="font-body text-sm text-brand-muted leading-relaxed space-y-3">{children}</div>
     </section>
   );
@@ -18,18 +18,18 @@ export default function PrivacyPage() {
     <div className="bg-brand-bg">
       <div className="max-w-3xl mx-auto px-6 lg:px-8 py-24">
         <div className="flex items-center gap-4 mb-4">
-          <span className="h-px w-8 bg-gold/40" />
-          <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
+          <span className="h-px w-8 bg-primary/40" />
+          <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
             Legal
           </p>
         </div>
-        <h1 className="font-heading font-light text-brand-text text-5xl mb-3">Privacy Policy</h1>
+        <h1 className="font-heading font-semibold text-brand-text text-5xl mb-3">Privacy Policy</h1>
         <p className="font-body text-xs text-brand-muted mb-12">Last updated: June 2026</p>
 
         <div className="space-y-10">
           <Section title="1. Introduction">
             <p>
-              Mustaraka Properties Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your
+              ByteFlow AI Labs (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your
               personal information. This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website or engage with our services.
             </p>
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
                 <strong className="text-brand-text">Name</strong> — so we know who we&apos;re speaking with
               </li>
               <li>
-                <strong className="text-brand-text">Phone number</strong> — for WhatsApp or call follow-ups
+                <strong className="text-brand-text">Phone number</strong> — for follow-up calls or messages
               </li>
               <li>
                 <strong className="text-brand-text">Email address</strong> — if you choose to provide one
@@ -60,9 +60,6 @@ export default function PrivacyPage() {
                 <strong className="text-brand-text">Contact form</strong> — the enquiry form on our website
               </li>
               <li>
-                <strong className="text-brand-text">Facebook lead ads</strong> — if you submit a lead form on our Facebook or Instagram ads
-              </li>
-              <li>
                 <strong className="text-brand-text">Website chatbot</strong> — if you share your name and phone while chatting with our AI assistant
               </li>
             </ul>
@@ -75,8 +72,8 @@ export default function PrivacyPage() {
           <Section title="3. How We Use Your Information">
             <p>We use your information solely to:</p>
             <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>Respond to your property enquiry by phone, WhatsApp, or email</li>
-              <li>Follow up with relevant listings or information you requested</li>
+              <li>Respond to your enquiry by phone or email</li>
+              <li>Follow up with relevant information you requested</li>
               <li>Improve our website and service quality</li>
               <li>Comply with legal obligations</li>
             </ul>
@@ -87,12 +84,6 @@ export default function PrivacyPage() {
               privacy policies:
             </p>
             <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>
-                <strong className="text-brand-text">Meta (Facebook / Instagram)</strong> — when you submit a lead form via our ads
-              </li>
-              <li>
-                <strong className="text-brand-text">Google</strong> — for analytics and advertising measurement
-              </li>
               <li>
                 <strong className="text-brand-text">Automation tools</strong> — we use workflow automation software (such as n8n) to route your enquiry to our team and log it in our CRM. These tools process your data on our behalf and do not use it for any other purpose.
               </li>
@@ -126,8 +117,8 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To exercise any of these rights — including requesting deletion — email us at{" "}
-              <a href="mailto:info@mustarakaproperties.com" className="text-gold hover:underline">
-                info@mustarakaproperties.com
+              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
+                hello@byteflow.ai
               </a>{" "}
               with the subject line <em>&ldquo;Data Request&rdquo;</em>. Please include the name and
               contact details you used when submitting your enquiry so we can locate your record.
@@ -160,8 +151,8 @@ export default function PrivacyPage() {
           <Section title="9. Contact">
             <p>
               For questions or concerns about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:info@mustarakaproperties.com" className="text-gold hover:underline">
-                info@mustarakaproperties.com
+              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
+                hello@byteflow.ai
               </a>
               .
             </p>

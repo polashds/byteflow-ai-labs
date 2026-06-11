@@ -13,7 +13,7 @@ interface GeminiResponse {
 }
 
 const FALLBACK_REPLY =
-  "I'm having trouble connecting right now. For immediate help, please WhatsApp us at +8801721926800 or email info@mustarakaproperties.com — we'll respond promptly.";
+  "I'm having trouble connecting right now. For immediate assistance, please email us at hello@byteflow.ai — we'll get back to you promptly.";
 
 function fireWebhook(payload: Record<string, unknown>) {
   const url = process.env.N8N_LEAD_WEBHOOK_URL;
@@ -39,49 +39,28 @@ function extractJson(raw: string): unknown {
   return null;
 }
 
-async function buildListingsContext(): Promise<string> {
-  try {
-    const props = await prisma.property.findMany({
-      where: { status: "Published" },
-      orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
-      take: 25,
-      select: {
-        title: true,
-        type: true,
-        listingType: true,
-        city: true,
-        price: true,
-        bedrooms: true,
-        bathrooms: true,
-        area: true,
-        slug: true,
-      },
-    });
+const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — an AI automation agency.
+Be helpful, professional, and concise.
 
-    if (!props.length) return "No properties are currently listed.";
+Company details:
+- Name: ByteFlow AI Labs
+- What we do: design, build, and deploy AI automation systems for businesses
+- Services: workflow automation, AI chatbots, data pipelines, custom AI integrations, n8n automation, API orchestration
+- Email: hello@byteflow.ai
 
-    return (
-      "CURRENT INVENTORY (reference these and link as /properties/[slug]):\n" +
-      props
-        .map((p) => {
-          const parts: string[] = [
-            `• ${p.title}`,
-            `${p.type} for ${p.listingType}`,
-            p.city,
-            `BDT ${Number(p.price).toLocaleString()}`,
-          ];
-          if (p.bedrooms != null) parts.push(`${p.bedrooms}BR`);
-          if (p.bathrooms != null) parts.push(`${p.bathrooms}BA`);
-          if (p.area != null) parts.push(`${p.area} sqft`);
-          parts.push(`/properties/${p.slug}`);
-          return parts.join(" | ");
-        })
-        .join("\n")
-    );
-  } catch {
-    return "";
-  }
-}
+Guidelines:
+1. Answer questions about AI automation, our services, how we work, and pricing (say pricing is discussed on a project basis).
+2. If the visitor has a specific automation need, help them articulate it and offer to connect them with the team.
+3. Keep replies concise — 2–4 sentences unless more detail is asked for.
+4. Encourage serious inquiries to email hello@byteflow.ai or use the contact form.
+
+LEAD CAPTURE: When the visitor provides both a NAME and a PHONE NUMBER in any message, set the "lead" field.
+
+IMPORTANT — Reply with ONLY a valid JSON object in exactly this shape, no extra text:
+{"reply": "<your response>", "lead": null}
+
+When you detect name + phone:
+{"reply": "<your response acknowledging you've passed their details to the team>", "lead": {"name": "<name>", "phone": "<phone>"}}`;
 
 export async function POST(req: NextRequest) {
   let messages: ChatMessage[] = [];
@@ -106,37 +85,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply: FALLBACK_REPLY });
   }
 
-  const listingsContext = await buildListingsContext();
-
-  const systemInstruction = `You are the virtual property assistant for Mustaraka Properties Ltd — a premium real-estate company in Bangladesh.
-Be warm, professional, and concise.
-
-Company details:
-- Name: Mustaraka Properties Ltd
-- Locations: Dhaka, Chittagong, Cox's Bazar, Mymensingh
-- Services: property sales, rentals, investment advisory, property management
-- WhatsApp: +8801721926800
-- Email: info@mustarakaproperties.com
-
-${listingsContext}
-
-Guidelines:
-1. Answer questions about buying, renting, areas, prices, and the purchase/rental process in Bangladesh.
-2. Recommend and link actual listings from the inventory above using their /properties/[slug] path.
-3. If a property type or location isn't in the current inventory, say so and offer to take the visitor's details so the team can follow up.
-4. Always invite serious buyers or renters to connect via WhatsApp: +8801721926800.
-5. Keep replies concise — 2–4 sentences unless the visitor asks for more detail.
-6. Reply in English by default. If the visitor writes in Bengali, reply in Bengali.
-
-LEAD CAPTURE: When the visitor provides both a NAME and a PHONE NUMBER in any message, set the "lead" field.
-
-IMPORTANT — You must reply with ONLY a valid JSON object in exactly this shape, no extra text:
-{"reply": "<your response>", "lead": null}
-
-When you detect name + phone:
-{"reply": "<your response acknowledging you've passed their details to the team>", "lead": {"name": "<name>", "phone": "<phone>"}}`;
-
-  // Gemini requires contents to start with "user"; skip any leading assistant messages
   const firstUserIdx = messages.findIndex((m) => m.role === "user");
   const contents = messages.slice(firstUserIdx).map((m) => ({
     role: m.role === "user" ? "user" : "model",

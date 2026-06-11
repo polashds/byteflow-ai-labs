@@ -1,0 +1,36 @@
+export const brand = {
+  name: "ByteFlow AI Labs",
+  tagline: "AI Automation for Modern Business",
+  description:
+    "We design, build, and deploy AI automation systems that help businesses save time, reduce costs, and scale intelligently.",
+  logo: "/assets/logo.png",
+  email: "hello@byteflow.ai",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflow.ai",
+  social: {
+    twitter: "https://twitter.com/byteflowai",
+    linkedin: "https://linkedin.com/company/byteflow-ai-labs",
+    github: "https://github.com/byteflow-ai-labs",
+  },
+  nav: [
+    { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/blog", label: "Blog" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ],
+  legalNav: [
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Use" },
+  ],
+  colors: {
+    primary: "#2563EB",
+    accent: "#22D3EE",
+    bg: "#070B16",
+    surface: "#0F1729",
+    text: "#E6EDF7",
+    muted: "#8B95A7",
+    border: "rgba(45,125,249,0.16)",
+    lightBg: "#FFFFFF",
+    lightSurface: "#F6F8FC",
+  },
+} as const;

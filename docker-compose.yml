@@ -1,4 +1,4 @@
-name: mustaraka-app
+name: byteflow-app
 services:
   app:
     build: .
@@ -15,17 +15,17 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
-      - "traefik.http.routers.mustaraka.rule=Host(`mustarakaproperties.com`) || Host(`www.mustarakaproperties.com`)"
-      - "traefik.http.routers.mustaraka.entrypoints=websecure"
-      - "traefik.http.routers.mustaraka.tls.certresolver=le"
-      - "traefik.http.services.mustaraka.loadbalancer.server.port=3000"
+      - "traefik.http.routers.byteflow.rule=Host(`byteflow.ai`) || Host(`www.byteflow.ai`)"
+      - "traefik.http.routers.byteflow.entrypoints=websecure"
+      - "traefik.http.routers.byteflow.tls.certresolver=le"
+      - "traefik.http.services.byteflow.loadbalancer.server.port=3000"
   db:
     image: postgres:16
     restart: unless-stopped
     environment:
-      POSTGRES_USER: mustaraka
+      POSTGRES_USER: byteflow
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: mustaraka
+      POSTGRES_DB: byteflow
     networks:
       - internal
     volumes:

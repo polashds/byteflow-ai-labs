@@ -1,5 +1,5 @@
 {
-  "name": "mustaraka-properties",
+  "name": "byteflow-ai-labs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,7 @@
     "lint": "eslint",
     "create-admin": "tsx scripts/create-admin.ts"
   },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  },
-  "dependencies": {
+"dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",

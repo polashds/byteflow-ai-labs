@@ -18,15 +18,15 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="py-16 text-center border border-gold/20 bg-brand-surface">
+      <div className="py-16 text-center border border-primary/20 bg-brand-surface">
         <div className="flex items-center justify-center gap-4 mb-4">
-          <span className="h-px w-8 bg-gold/40" />
-          <p className="font-body text-[10px] font-medium tracking-[0.35em] text-gold uppercase">
+          <span className="h-px w-8 bg-primary/40" />
+          <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
             Message Received
           </p>
-          <span className="h-px w-8 bg-gold/40" />
+          <span className="h-px w-8 bg-primary/40" />
         </div>
-        <h2 className="font-heading font-light text-brand-text text-3xl mb-3">
+        <h2 className="font-heading font-semibold text-brand-text text-3xl mb-3">
           Thank you
         </h2>
         <p className="font-body text-sm text-brand-muted max-w-sm mx-auto">
@@ -37,7 +37,7 @@ export default function ContactForm() {
   }
 
   const field =
-    "w-full bg-brand-bg border border-gold/15 text-brand-text font-body text-sm px-4 py-3.5 placeholder:text-brand-muted/50 focus:outline-none focus:border-gold/50 transition-colors duration-150";
+    "w-full bg-brand-bg border border-primary/15 text-brand-text font-body text-sm px-4 py-3.5 placeholder:text-brand-muted/50 focus:outline-none focus:border-primary/50 transition-colors duration-150";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -52,7 +52,7 @@ export default function ContactForm() {
           <label className="block font-body text-[11px] tracking-[0.2em] text-brand-muted uppercase mb-1.5">
             Phone
           </label>
-          <input type="tel" name="phone" placeholder="+880 1xxx xxxxxx" className={field} />
+          <input type="tel" name="phone" placeholder="+1 555 000 0000" className={field} />
         </div>
       </div>
 
@@ -78,7 +78,8 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full py-4 bg-gold hover:bg-gold-light text-brand-bg font-body text-sm font-medium tracking-[0.2em] uppercase transition-colors duration-200 disabled:opacity-60"
+        className="w-full py-4 text-white font-body text-sm font-medium tracking-[0.2em] uppercase transition-opacity duration-200 disabled:opacity-60"
+        style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
       >
         {isPending ? "Sending…" : "Send Message"}
       </button>
