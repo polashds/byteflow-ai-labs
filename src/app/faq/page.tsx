@@ -4,7 +4,18 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "FAQ — ByteFlow AI Labs",
   description:
-    "Frequently asked questions about ByteFlow AI Labs' automation services, how we work, and what to expect.",
+    "Frequently asked questions about ByteFlow AI Labs' AI automation services, how we work, pricing structure, and what to expect from a project.",
+  openGraph: {
+    title: "FAQ — ByteFlow AI Labs",
+    description:
+      "Answers to common questions about our AI automation services, project process, pricing, and support.",
+    url: "/faq",
+  },
+  twitter: {
+    title: "FAQ — ByteFlow AI Labs",
+    description:
+      "Common questions about ByteFlow AI Labs automation services, how we work, and project expectations.",
+  },
 };
 
 const faqs = [

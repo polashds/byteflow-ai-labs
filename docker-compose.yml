@@ -15,10 +15,14 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
-      - "traefik.http.routers.byteflow.rule=Host(`byteflow.ai`) || Host(`www.byteflow.ai`)"
+      - "traefik.http.routers.byteflow.rule=Host(`byteflowailabs.com`) || Host(`www.byteflowailabs.com`)"
       - "traefik.http.routers.byteflow.entrypoints=websecure"
       - "traefik.http.routers.byteflow.tls.certresolver=le"
+      - "traefik.http.routers.byteflow.middlewares=byteflow-www-redirect"
       - "traefik.http.services.byteflow.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.byteflow-www-redirect.redirectregex.regex=^https://www\\.byteflowailabs\\.com/(.*)"
+      - "traefik.http.middlewares.byteflow-www-redirect.redirectregex.replacement=https://byteflowailabs.com/$${1}"
+      - "traefik.http.middlewares.byteflow-www-redirect.redirectregex.permanent=true"
   db:
     image: postgres:16
     restart: unless-stopped

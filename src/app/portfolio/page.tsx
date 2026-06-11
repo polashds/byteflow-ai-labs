@@ -7,6 +7,23 @@ export const metadata: Metadata = {
   title: "Portfolio — ByteFlow AI Labs",
   description:
     "Real projects, honest outcomes. ByteFlow AI Labs case studies: AI real estate platforms, WhatsApp automation, and more.",
+  keywords: [
+    "AI automation case studies",
+    "n8n workflow portfolio",
+    "WhatsApp automation results",
+    "AI agency work examples",
+  ],
+  openGraph: {
+    title: "Portfolio — ByteFlow AI Labs",
+    description:
+      "Real projects, honest outcomes. Case studies covering AI real estate platforms, WhatsApp automation for e-commerce, and more — no fabricated metrics.",
+    url: "/portfolio",
+  },
+  twitter: {
+    title: "Portfolio — ByteFlow AI Labs",
+    description:
+      "Real AI automation projects with honest results. Case studies for real estate, e-commerce, and more.",
+  },
 };
 
 const gradientText = {

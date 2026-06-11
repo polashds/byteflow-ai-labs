@@ -2,6 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Use — ByteFlow AI Labs",
+  description: "Terms of Use for ByteFlow AI Labs — governing the use of our website and AI automation services.",
+  robots: { index: false },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

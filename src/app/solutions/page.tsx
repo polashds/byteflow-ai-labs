@@ -8,6 +8,25 @@ export const metadata: Metadata = {
   title: "Solutions — ByteFlow AI Labs",
   description:
     "AI automation solutions by industry: real estate, e-commerce, travel, healthcare, and local services. Lead capture, WhatsApp bots, voice agents, and more.",
+  keywords: [
+    "AI automation real estate Bangladesh",
+    "e-commerce WhatsApp automation",
+    "AI voice agent healthcare",
+    "lead automation agency",
+    "travel booking automation",
+    "AI consulting by industry",
+  ],
+  openGraph: {
+    title: "Industry AI Automation Solutions — ByteFlow AI Labs",
+    description:
+      "AI automation built for your industry: real estate, e-commerce, travel, healthcare, and local services. WhatsApp bots, voice agents, lead scoring — self-hosted.",
+    url: "/solutions",
+  },
+  twitter: {
+    title: "Industry AI Automation Solutions — ByteFlow AI Labs",
+    description:
+      "AI automation for real estate, e-commerce, travel, healthcare, and local services. WhatsApp bots, voice agents, lead scoring.",
+  },
 };
 
 const gradientText = {

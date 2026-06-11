@@ -4,7 +4,19 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us — ByteFlow AI Labs",
-  description: "Get in touch with ByteFlow AI Labs. Tell us about your automation needs and we'll be in touch within one business day.",
+  description:
+    "Get in touch with ByteFlow AI Labs. Tell us about your automation needs and we'll be in touch within one business day.",
+  openGraph: {
+    title: "Contact ByteFlow AI Labs — Book a Free Consultation",
+    description:
+      "Tell us about your automation project. We scope it clearly, build it properly, and hand it over fully documented — within one business day response.",
+    url: "/contact",
+  },
+  twitter: {
+    title: "Contact ByteFlow AI Labs",
+    description:
+      "Book a free 30-min consultation. We'll map out exactly what we can automate for your business.",
+  },
 };
 
 export default function ContactPage() {

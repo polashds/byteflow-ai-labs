@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: "About Us — ByteFlow AI Labs",
   description:
     "ByteFlow AI Labs is a BD-first AI automation agency. We build self-hosted, AI-native systems on n8n, GPT-4o, and Claude so businesses automate operations without hiring more staff.",
+  keywords: [
+    "ByteFlow AI Labs",
+    "AI automation agency Bangladesh",
+    "n8n specialist agency",
+    "self-hosted AI automation",
+    "BD-first AI agency",
+  ],
+  openGraph: {
+    title: "About ByteFlow AI Labs — BD-First AI Automation Agency",
+    description:
+      "We build self-hosted AI automation systems on n8n + GPT-4o/Claude. No SaaS lock-in — clients own every system we build. Based in Bangladesh, serving clients globally.",
+    url: "/about",
+  },
+  twitter: {
+    title: "About ByteFlow AI Labs",
+    description:
+      "BD-first AI automation agency. Self-hosted n8n systems, GPT-4o & Claude, Bengali + English — you own everything we build.",
+  },
 };
 
 const gradientText = {

@@ -8,7 +8,25 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog — ByteFlow AI Labs",
-  description: "Insights, tutorials, and updates on AI automation from the ByteFlow AI Labs team.",
+  description:
+    "Insights, tutorials, and case studies on AI automation, n8n workflows, WhatsApp bots, and AI agent development from the ByteFlow AI Labs team.",
+  keywords: [
+    "AI automation blog",
+    "n8n tutorial",
+    "WhatsApp automation guide",
+    "AI consulting insights",
+  ],
+  openGraph: {
+    title: "Blog — ByteFlow AI Labs",
+    description:
+      "Practical insights on AI automation, n8n, WhatsApp bots, and AI agent development.",
+    url: "/blog",
+  },
+  twitter: {
+    title: "Blog — ByteFlow AI Labs",
+    description:
+      "Practical insights on AI automation, n8n workflows, and WhatsApp bots from ByteFlow AI Labs.",
+  },
 };
 
 async function getPosts() {

@@ -2,6 +2,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — ByteFlow AI Labs",
+  description: "Privacy Policy for ByteFlow AI Labs — how we collect, use, and protect your personal information.",
+  robots: { index: false },
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

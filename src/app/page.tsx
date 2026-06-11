@@ -1,6 +1,33 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
+
+export const metadata: Metadata = {
+  title: "ByteFlow AI Labs — AI Automation Agency",
+  description:
+    "BD-first AI automation agency. We build self-hosted n8n workflows, WhatsApp chatbots, AI voice agents, and lead scoring systems — no SaaS lock-in, no seat fees.",
+  keywords: [
+    "AI automation agency",
+    "n8n automation agency",
+    "WhatsApp automation Bangladesh",
+    "AI agent development",
+    "AI consulting Bangladesh",
+    "n8n VPS setup",
+    "workflow automation",
+  ],
+  openGraph: {
+    title: "ByteFlow AI Labs — AI Automation Agency",
+    description:
+      "Self-hosted n8n workflows, WhatsApp chatbots, AI voice agents, and lead scoring — built for businesses that want to own their automation stack.",
+    url: "/",
+  },
+  twitter: {
+    title: "ByteFlow AI Labs — AI Automation Agency",
+    description:
+      "Self-hosted n8n automations, WhatsApp chatbots, AI voice agents — no SaaS lock-in, no seat fees.",
+  },
+};
 
 const gradientText = {
   background: "linear-gradient(135deg, #2563EB, #22D3EE)",

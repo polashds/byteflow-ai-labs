@@ -7,6 +7,26 @@ export const metadata: Metadata = {
   title: "Services — ByteFlow AI Labs",
   description:
     "AI automation services: n8n infrastructure, WhatsApp bots, AI voice agents, lead scoring, Meta tracking, content automation, websites, and retainers — self-hosted on your VPS.",
+  keywords: [
+    "n8n infrastructure setup",
+    "WhatsApp chatbot development",
+    "AI voice agent",
+    "lead scoring automation",
+    "Meta CAPI server-side tracking",
+    "AI content automation",
+    "n8n automation services",
+  ],
+  openGraph: {
+    title: "AI Automation Services — ByteFlow AI Labs",
+    description:
+      "Eight service categories — n8n VPS, WhatsApp bots, AI voice agents, lead scoring, Meta CAPI, content automation, websites, and retainers. Self-hosted, fully documented.",
+    url: "/services",
+  },
+  twitter: {
+    title: "AI Automation Services — ByteFlow AI Labs",
+    description:
+      "n8n VPS, WhatsApp bots, AI voice agents, lead scoring, Meta CAPI and more. Self-hosted, no lock-in.",
+  },
 };
 
 const gradientText = {
