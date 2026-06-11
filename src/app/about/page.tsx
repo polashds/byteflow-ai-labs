@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
   title: "About Us — ByteFlow AI Labs",
@@ -372,13 +373,12 @@ export default function AboutPage() {
             no obligation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact"
+            <ConsultationCTA
               className="px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
               style={gradientBg}
             >
               Book a Free Consultation
-            </Link>
+            </ConsultationCTA>
             <Link
               href="/portfolio"
               className="font-body text-[11px] text-brand-muted hover:text-accent tracking-[0.2em] uppercase transition-colors duration-200"

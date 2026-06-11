@@ -59,7 +59,7 @@ export default async function AdminLeadsPage() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-primary/15 bg-brand-surface/50">
-                {["Name", "Contact", "Source", "Message", "Status", "Date", "Action"].map((h) => (
+                {["Name", "Contact", "Service", "Budget", "Source", "Message", "Status", "Date", "Action"].map((h) => (
                   <th
                     key={h}
                     className="px-4 py-3 font-body text-[10px] tracking-[0.2em] uppercase text-brand-muted"
@@ -72,8 +72,11 @@ export default async function AdminLeadsPage() {
             <tbody className="divide-y divide-primary/8">
               {leads.map((lead) => (
                 <tr key={lead.id} className="hover:bg-brand-surface/40 transition-colors">
-                  <td className="px-4 py-4 font-body text-sm text-brand-text whitespace-nowrap">
-                    {lead.name}
+                  <td className="px-4 py-4 whitespace-nowrap">
+                    <p className="font-body text-sm text-brand-text">{lead.name}</p>
+                    {lead.company && (
+                      <p className="font-body text-xs text-brand-muted">{lead.company}</p>
+                    )}
                   </td>
                   <td className="px-4 py-4">
                     <div className="space-y-0.5">
@@ -88,6 +91,12 @@ export default async function AdminLeadsPage() {
                         </a>
                       )}
                     </div>
+                  </td>
+                  <td className="px-4 py-4 font-body text-xs text-brand-muted max-w-[150px] truncate">
+                    {lead.service ?? "—"}
+                  </td>
+                  <td className="px-4 py-4 font-body text-xs text-brand-muted whitespace-nowrap">
+                    {lead.budget ?? "—"}
                   </td>
                   <td className="px-4 py-4">
                     <span className="font-body text-[9px] tracking-[0.2em] uppercase px-2 py-0.5 text-brand-muted border border-brand-muted/20">

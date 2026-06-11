@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { industrySolutions } from "@/config/solutions";
 import { serviceCategories } from "@/config/services";
+import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
   title: "Solutions — ByteFlow AI Labs",
@@ -165,13 +166,12 @@ export default function SolutionsPage() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2 border-t border-primary/10">
-              <Link
-                href="/contact"
+              <ConsultationCTA
                 className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Book a Free Consultation
-              </Link>
+              </ConsultationCTA>
               <span className="font-body text-xs text-brand-muted">
                 Free 30-min call · We scope your specific {sol.industry.toLowerCase()} workflow
               </span>
@@ -200,13 +200,12 @@ export default function SolutionsPage() {
             logistics, finance, and more. If you have a manual process that costs time
             or money, we&apos;re worth talking to.
           </p>
-          <Link
-            href="/contact"
+          <ConsultationCTA
             className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation
-          </Link>
+          </ConsultationCTA>
         </div>
       </section>
     </div>

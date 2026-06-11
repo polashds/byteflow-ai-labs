@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { caseStudies } from "@/config/caseStudies";
+import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
   title: "Portfolio — ByteFlow AI Labs",
@@ -154,13 +155,12 @@ export default function PortfolioPage() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2 border-t border-primary/10">
-              <Link
-                href="/contact"
+              <ConsultationCTA
                 className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Start Your Project
-              </Link>
+              </ConsultationCTA>
               <span className="font-body text-xs text-brand-muted">
                 Free 30-min scoping call · No commitment required
               </span>
@@ -183,13 +183,12 @@ export default function PortfolioPage() {
               <p className="font-body text-brand-muted/60 text-[15px] mb-8 max-w-lg mx-auto">
                 {placeholder.tagline}
               </p>
-              <Link
-                href="/contact"
+              <ConsultationCTA
                 className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Start Your Project
-              </Link>
+              </ConsultationCTA>
             </div>
           </div>
         </section>
@@ -214,13 +213,12 @@ export default function PortfolioPage() {
             Tell us what you want to automate. We&apos;ll scope it clearly, build it
             properly, and document everything — so your business owns it forever.
           </p>
-          <Link
-            href="/contact"
+          <ConsultationCTA
             className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation
-          </Link>
+          </ConsultationCTA>
         </div>
       </section>
     </div>

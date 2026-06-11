@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { serviceCategories } from "@/config/services";
+import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
   title: "Services — ByteFlow AI Labs",
@@ -124,13 +125,12 @@ export default function ServicesPage() {
 
             {/* Section CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <Link
-                href="/contact"
+              <ConsultationCTA
                 className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Discuss your project
-              </Link>
+              </ConsultationCTA>
               <span className="font-body text-xs text-brand-muted">
                 Free 30-min consultation · No commitment required
               </span>
@@ -159,13 +159,12 @@ export default function ServicesPage() {
             identify the three highest-ROI automations, and give you a clear scope — at
             no cost and no obligation.
           </p>
-          <Link
-            href="/contact"
+          <ConsultationCTA
             className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation
-          </Link>
+          </ConsultationCTA>
         </div>
       </section>
     </div>

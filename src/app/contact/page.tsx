@@ -40,6 +40,32 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Calendly direct booking — shown only if NEXT_PUBLIC_CALENDLY_URL is set */}
+      {process.env.NEXT_PUBLIC_CALENDLY_URL && (
+        <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8">
+          <div className="border border-primary/20 bg-brand-surface p-8 text-center">
+            <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-3">
+              Prefer to book directly?
+            </p>
+            <h2 className="font-heading font-semibold text-brand-text text-xl mb-4">
+              Schedule a Free 30-Minute Consultation
+            </h2>
+            <a
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+              style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
+            >
+              Open Calendly →
+            </a>
+            <p className="font-body text-[11px] text-brand-muted/60 mt-4">
+              Or fill in the form below and we&apos;ll reach out within one business day.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Content */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16">
