@@ -62,9 +62,6 @@ const organizationSchema = {
   sameAs: Object.values(brand.social),
 };
 
-const ga4Id = process.env.GA4_ID;
-const pixelId = process.env.META_PIXEL_ID;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -80,8 +77,8 @@ export default function RootLayout({
       </head>
       <body className="bg-brand-bg text-brand-text font-body antialiased flex flex-col min-h-screen">
         <PublicShell>{children}</PublicShell>
-        {ga4Id && <GA4Script id={ga4Id} />}
-        {pixelId && <MetaPixelScript id={pixelId} />}
+        <GA4Script />
+        <MetaPixelScript />
       </body>
     </html>
   );

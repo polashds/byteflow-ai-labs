@@ -6,17 +6,27 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
-    fbq: ((...args: unknown[]) => void) & { callMethod?: (...args: unknown[]) => void; queue: unknown[]; loaded: boolean; version: string; push: (...args: unknown[]) => void };
+    fbq: ((...args: unknown[]) => void) & {
+      callMethod?: (...args: unknown[]) => void;
+      queue: unknown[];
+      loaded: boolean;
+      version: string;
+      push: (...args: unknown[]) => void;
+    };
     _fbq: unknown;
   }
 }
 
-export default function MetaPixelScript({ id }: { id: string }) {
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+
+export default function MetaPixelScript() {
   const pathname = usePathname();
 
   useEffect(() => {
     window.fbq?.("track", "PageView");
   }, [pathname]);
+
+  if (!PIXEL_ID) return null;
 
   return (
     <Script id="meta-pixel-init" strategy="afterInteractive">{`
@@ -28,7 +38,7 @@ export default function MetaPixelScript({ id }: { id: string }) {
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '${id}');
+      fbq('init', '${PIXEL_ID}');
       fbq('track', 'PageView');
     `}</Script>
   );
