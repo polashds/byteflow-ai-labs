@@ -40,7 +40,15 @@ export default function Header() {
             <span className="font-heading text-[20px] leading-none">
               <span className="font-bold text-brand-text">ByteFlow</span>
               {" "}
-              <span className="font-light" style={{ color: "#22D3EE" }}>AI Labs</span>
+              <span
+                className="font-light"
+                style={{
+                  background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >AI Labs</span>
             </span>
           </Link>
 
@@ -125,7 +133,15 @@ export default function Header() {
             <span className="font-heading text-[18px] leading-none">
               <span className="font-bold text-brand-text">ByteFlow</span>
               {" "}
-              <span className="font-light" style={{ color: "#22D3EE" }}>AI Labs</span>
+              <span
+                className="font-light"
+                style={{
+                  background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >AI Labs</span>
             </span>
           </Link>
           <button

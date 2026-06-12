@@ -3,15 +3,8 @@
 import { useState, useTransition } from "react";
 import { submitContact } from "@/lib/actions";
 import { serviceCategories } from "@/config/services";
+import { BUDGET_OPTIONS } from "@/config/contact";
 import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
-
-const BUDGETS = [
-  "$200 – $500",
-  "$500 – $1,500",
-  "$1,500 – $5,000",
-  "$5,000+",
-  "Not sure yet — let's talk",
-];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -138,7 +131,7 @@ export default function ContactForm() {
             <option value="" disabled>
               Select a budget range…
             </option>
-            {BUDGETS.map((b) => (
+            {BUDGET_OPTIONS.map((b) => (
               <option key={b} value={b}>
                 {b}
               </option>
