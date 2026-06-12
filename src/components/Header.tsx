@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/nav";
 import { brand } from "@/config/branding";
@@ -26,20 +27,20 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
           {/* Logo lockup */}
-          <Link href="/" className="shrink-0 flex items-center gap-2.5">
-            <span
-              className="font-heading font-semibold text-[22px] tracking-tight"
-              style={{
-                background: "linear-gradient(135deg, #2563EB, #22D3EE)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              ByteFlow
-            </span>
-            <span className="font-heading font-light text-[22px] tracking-tight text-brand-text">
-              AI Labs
+          <Link href="/" className="shrink-0 flex items-center gap-2">
+            <Image
+              src="/logo_byteflowailabs.png"
+              alt="ByteFlow AI Labs"
+              width={44}
+              height={44}
+              loading="eager"
+              style={{ height: "44px", width: "auto" }}
+              priority
+            />
+            <span className="font-heading text-[20px] leading-none">
+              <span className="font-bold text-brand-text">ByteFlow</span>
+              {" "}
+              <span className="font-light" style={{ color: "#22D3EE" }}>AI Labs</span>
             </span>
           </Link>
 
@@ -113,18 +114,19 @@ export default function Header() {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-primary/20 shrink-0">
           <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-            <span
-              className="font-heading font-semibold text-[18px]"
-              style={{
-                background: "linear-gradient(135deg, #2563EB, #22D3EE)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              ByteFlow
+            <Image
+              src="/logo_byteflowailabs.png"
+              alt="ByteFlow AI Labs"
+              width={44}
+              height={44}
+              loading="eager"
+              style={{ height: "44px", width: "auto" }}
+            />
+            <span className="font-heading text-[18px] leading-none">
+              <span className="font-bold text-brand-text">ByteFlow</span>
+              {" "}
+              <span className="font-light" style={{ color: "#22D3EE" }}>AI Labs</span>
             </span>
-            <span className="font-heading font-light text-[18px] text-brand-text">AI Labs</span>
           </Link>
           <button
             onClick={() => setOpen(false)}

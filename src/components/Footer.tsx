@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks } from "@/lib/nav";
 import { brand } from "@/config/branding";
 import { COMPANY_EMAIL } from "@/lib/constants";
@@ -61,20 +62,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-5 sm:col-span-2 md:col-span-1">
             {/* Logo lockup */}
-            <div className="flex items-center gap-2">
-              <span
-                className="font-heading font-semibold text-[20px]"
-                style={{
-                  background: "linear-gradient(135deg, #2563EB, #22D3EE)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                ByteFlow
-              </span>
-              <span className="font-heading font-light text-[20px] text-brand-text">AI Labs</span>
-            </div>
+            <Link href="/">
+              <Image
+                src="/logo_byteflowailabs.png"
+                alt="ByteFlow AI Labs"
+                width={150}
+                height={38}
+                style={{ height: "auto" }}
+              />
+            </Link>
             <p className="text-brand-muted text-sm leading-relaxed max-w-xs">
               {brand.description}
             </p>
