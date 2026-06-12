@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Bot, X } from "lucide-react";
+import { brand } from "@/config/branding";
 import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
 
 interface Message {
@@ -16,17 +17,53 @@ const CHIPS = [
   "Get in touch",
 ];
 
+const TEASER_KEY = "bf:teaser_seen";
+
 export default function ChatWidget() {
+  const { enabled, greeting, teaserDelaySeconds } = brand.chatWidget;
+
   const [open, setOpen] = useState(false);
+  const [teaserVisible, setTeaserVisible] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      text: "Hi! I'm the ByteFlow AI assistant. Ask me anything about AI automation or how we can help your business.",
-    },
+    { role: "assistant", text: greeting },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const shownRef = useRef(false);
+
+  // Proactive teaser: timer + scroll trigger, once per session
+  useEffect(() => {
+    if (!enabled) return;
+    try {
+      if (sessionStorage.getItem(TEASER_KEY)) return;
+    } catch {}
+
+    function show() {
+      if (shownRef.current) return;
+      shownRef.current = true;
+      try { sessionStorage.setItem(TEASER_KEY, "1"); } catch {}
+      setTeaserVisible(true);
+    }
+
+    const timer = setTimeout(show, teaserDelaySeconds * 1000);
+
+    function onScroll() {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0 && window.scrollY / total >= 0.5) show();
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [enabled, teaserDelaySeconds]);
+
+  // Dismiss teaser when chat opens for any reason
+  useEffect(() => {
+    if (open) setTeaserVisible(false);
+  }, [open]);
 
   useEffect(() => {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -86,7 +123,6 @@ export default function ChatWidget() {
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3.5 border-b border-primary/15 bg-brand-bg flex-shrink-0">
-            {/* Gradient avatar */}
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
               style={{
@@ -99,7 +135,6 @@ export default function ChatWidget() {
               </span>
             </div>
 
-            {/* Title + status */}
             <div className="flex-1 min-w-0">
               <p className="font-heading text-brand-text text-[18px] font-normal leading-none tracking-wide">
                 ByteFlow AI
@@ -110,7 +145,6 @@ export default function ChatWidget() {
               </p>
             </div>
 
-            {/* Close */}
             <button
               onClick={() => setOpen(false)}
               className="w-7 h-7 flex items-center justify-center text-brand-muted hover:text-brand-text transition-colors text-[22px] leading-none flex-shrink-0"
@@ -142,7 +176,6 @@ export default function ChatWidget() {
               </div>
             ))}
 
-            {/* Typing indicator */}
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-brand-bg border-l-2 border-primary px-4 py-3.5 flex items-center gap-1.5">
@@ -208,6 +241,32 @@ export default function ChatWidget() {
               </svg>
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Proactive teaser bubble */}
+      {teaserVisible && !open && (
+        <div
+          className="animate-slide-up flex items-start gap-2 bg-brand-surface border border-primary/30 px-4 py-3"
+          style={{
+            maxWidth: "min(260px, calc(100vw - 5rem))",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(37,99,235,0.12)",
+          }}
+        >
+          <button
+            onClick={() => setOpen(true)}
+            className="flex-1 text-left font-body text-[13px] leading-snug text-brand-text hover:text-white transition-colors"
+            aria-label="Open chat"
+          >
+            {greeting}
+          </button>
+          <button
+            onClick={() => setTeaserVisible(false)}
+            aria-label="Dismiss"
+            className="flex-shrink-0 text-brand-muted hover:text-brand-text text-[18px] leading-none transition-colors mt-0.5 pl-1"
+          >
+            &times;
+          </button>
         </div>
       )}
 

@@ -25,6 +25,11 @@ export const brand = {
     { href: "/privacy", label: "Privacy Policy" },
     { href: "/terms", label: "Terms of Use" },
   ],
+  chatWidget: {
+    enabled: true,
+    greeting: "👋 Looking to automate your business with AI? Ask me anything.",
+    teaserDelaySeconds: 7,
+  },
   colors: {
     primary: "#2563EB",
     accent: "#22D3EE",
