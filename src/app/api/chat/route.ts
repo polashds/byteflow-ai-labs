@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
+import { brand } from "@/config/branding";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -19,7 +20,7 @@ interface GeminiResponse {
 }
 
 const FALLBACK_REPLY =
-  "I'm having trouble connecting right now. For immediate assistance, email us at hello@byteflow.ai — we respond within one business day.";
+  `I'm having trouble connecting right now. For immediate assistance, email us at ${brand.email} — we respond within one business day.`;
 
 function fireWebhook(payload: Record<string, unknown>) {
   const url = process.env.N8N_LEAD_WEBHOOK_URL;
@@ -50,7 +51,7 @@ const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — a B
 COMPANY CONTEXT:
 - Name: ByteFlow AI Labs
 - Positioning: We design, build, and deploy self-hosted AI automation systems using n8n + GPT-4o/Claude. Clients own everything — no SaaS lock-in, no monthly seat fees.
-- Email: hello@byteflow.ai
+- Email: ${brand.email}
 - Free 30-min consultation: /contact
 
 4 CORE PILLARS:

@@ -4,7 +4,7 @@ export const brand = {
   description:
     "We design, build, and deploy AI automation systems that help businesses save time, reduce costs, and scale intelligently.",
   logo: "/assets/logo.png",
-  email: "hello@byteflow.ai",
+  email: "hello@byteflowailabs.com",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61573260581403",

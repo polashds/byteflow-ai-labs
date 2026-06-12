@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
+import { brand } from "@/config/branding";
 
 export const dynamic = "force-dynamic";
 import { PostStatus } from "@prisma/client";
@@ -52,7 +53,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
   const htmlBody = await marked.parse(post.body, { async: true });
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflow.ai";
+  const siteUrl = brand.siteUrl;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",

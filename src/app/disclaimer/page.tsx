@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Disclaimer — ByteFlow AI Labs",
@@ -92,8 +93,8 @@ export default function DisclaimerPage() {
           <Section title="7. Contact">
             <p>
               For questions about this Disclaimer, please contact us at{" "}
-              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
-                hello@byteflow.ai
+              <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent hover:underline">
+                {COMPANY_EMAIL}
               </a>
               .
             </p>

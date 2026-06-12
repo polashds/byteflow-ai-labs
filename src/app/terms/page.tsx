@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Use — ByteFlow AI Labs",
@@ -80,8 +81,8 @@ export default function TermsPage() {
           <Section title="7. Contact">
             <p>
               For questions about these Terms, please contact us at{" "}
-              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
-                hello@byteflow.ai
+              <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent hover:underline">
+                {COMPANY_EMAIL}
               </a>
               .
             </p>

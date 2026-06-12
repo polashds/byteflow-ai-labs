@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
 import { z } from "zod";
+import { COMPANY_EMAIL } from "@/lib/constants";
 
 const ContactSchema = z.object({
   name: z.string().min(1),
@@ -70,6 +71,6 @@ export async function submitContact(
     return { success: true };
   } catch (e) {
     console.error("submitContact error", e);
-    return { success: false, error: "Something went wrong. Please email us at hello@byteflow.ai." };
+    return { success: false, error: `Something went wrong. Please email us at ${COMPANY_EMAIL}.` };
   }
 }

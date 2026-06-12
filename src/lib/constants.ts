@@ -1,2 +1,4 @@
-export const COMPANY_EMAIL = "hello@byteflow.ai";
-export const COMPANY_NAME = "ByteFlow AI Labs";
+import { brand } from "@/config/branding";
+
+export const COMPANY_EMAIL = brand.email;
+export const COMPANY_NAME = brand.name;

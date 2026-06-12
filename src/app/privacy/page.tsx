@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — ByteFlow AI Labs",
@@ -119,8 +120,8 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To exercise any of these rights — including requesting deletion — email us at{" "}
-              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
-                hello@byteflow.ai
+              <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent hover:underline">
+                {COMPANY_EMAIL}
               </a>{" "}
               with the subject line <em>&ldquo;Data Request&rdquo;</em>. Please include the name and
               contact details you used when submitting your enquiry so we can locate your record.
@@ -153,8 +154,8 @@ export default function PrivacyPage() {
           <Section title="9. Contact">
             <p>
               For questions or concerns about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:hello@byteflow.ai" className="text-accent hover:underline">
-                hello@byteflow.ai
+              <a href={`mailto:${COMPANY_EMAIL}`} className="text-accent hover:underline">
+                {COMPANY_EMAIL}
               </a>
               .
             </p>
