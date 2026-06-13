@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import LeadMagnetModal from "@/components/LeadMagnetModal";
 
 export const metadata: Metadata = {
   title: "ByteFlow AI Labs — AI Automation Agency",
@@ -334,6 +335,92 @@ export default function HomePage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Free Guide (Lead Magnet) ──────────────────────────────────────── */}
+      <section className="bg-brand-surface border-t border-primary/10 py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
+
+            {/* Left: copy */}
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="h-px w-8 bg-primary/40" />
+                <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
+                  Free Guide
+                </p>
+              </div>
+              <h2 className="font-heading font-semibold text-brand-text text-[1.75rem] sm:text-4xl lg:text-5xl leading-tight mb-5">
+                10 AI Automations{" "}
+                <span style={gradientText}>Every BD Business Needs</span>
+              </h2>
+              <p className="font-body text-brand-muted text-[15px] leading-relaxed mb-8 max-w-lg">
+                A practical playbook of the top AI automations used by fast-growing businesses in Bangladesh — free, no credit card required.
+              </p>
+              <LeadMagnetModal />
+            </div>
+
+            {/* Right: guide cover preview */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Ambient glow */}
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(37,99,235,0.12)_0%,transparent_70%)]" />
+
+              <div
+                className="relative w-[240px] sm:w-[280px] aspect-[3/4] border border-primary/25 bg-brand-bg flex flex-col justify-between p-7"
+                style={{
+                  boxShadow:
+                    "0 0 0 1px rgba(37,99,235,0.06), 0 24px 60px rgba(37,99,235,0.10)",
+                }}
+              >
+                {/* Gradient corner accent */}
+                <div
+                  className="absolute top-0 right-0 w-16 h-16 opacity-25"
+                  style={{
+                    background: "linear-gradient(135deg, #2563EB, #22D3EE)",
+                    clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+                  }}
+                />
+
+                {/* Top */}
+                <div>
+                  <p className="font-body text-[9px] tracking-[0.4em] text-accent/80 uppercase mb-4">
+                    ByteFlow AI Labs
+                  </p>
+                  <div className="h-px w-full bg-primary/20 mb-5" />
+                  <h3 className="font-heading font-semibold text-brand-text text-xl leading-snug mb-1">
+                    10 AI Automations
+                  </h3>
+                  <p className="font-heading text-brand-muted text-base leading-snug">
+                    Every BD Business Needs
+                  </p>
+                </div>
+
+                {/* Bottom: preview items */}
+                <div>
+                  <div className="h-px w-full bg-primary/20 mb-4" />
+                  <ul className="space-y-2.5">
+                    {[
+                      "WhatsApp Lead Bots",
+                      "AI Voice Receptionists",
+                      "Auto Follow-Up Flows",
+                      "AI Content Pipelines",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2.5">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
+                        />
+                        <span className="font-body text-[11px] text-brand-muted/80">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
