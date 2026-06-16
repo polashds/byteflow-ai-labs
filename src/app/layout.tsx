@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     template: `%s — ${brand.name}`,
   },
   description: brand.description,
+  verification: {
+    other: {
+      "facebook-domain-verification": "av5s8rj6l96q9umcmqn31dxxa6ng8i",
+    },
+  },
   keywords: [
     "AI automation agency",
     "AI agent development",
