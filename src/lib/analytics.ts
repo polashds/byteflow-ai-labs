@@ -3,7 +3,7 @@ export function trackGA4Lead() {
   window.gtag?.("event", "generate_lead");
 }
 
-export function trackPixelLead() {
+export function trackPixelLead(eventId?: string) {
   if (typeof window === "undefined") return;
-  window.fbq?.("track", "Lead");
+  window.fbq?.("track", "Lead", {}, eventId ? { eventID: eventId } : undefined);
 }

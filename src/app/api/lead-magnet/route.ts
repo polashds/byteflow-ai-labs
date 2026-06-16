@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
 import { z } from "zod";
+import { sendCapiLead } from "@/lib/capi";
 
 const Schema = z.object({
   name: z.string().min(1, "Name is required."),
   email: z.string().email("A valid email address is required."),
+  eventId: z.string().optional(),
 });
 
 function fireWebhook(payload: Record<string, unknown>) {
@@ -50,6 +52,9 @@ export async function POST(req: NextRequest) {
       source: lead.source,
       createdAt: lead.createdAt,
     });
+
+    const eventId = parsed.data.eventId ?? crypto.randomUUID();
+    await sendCapiLead({ eventId, email: parsed.data.email });
 
     return NextResponse.json({ success: true });
   } catch (e) {

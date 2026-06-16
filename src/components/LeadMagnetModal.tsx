@@ -55,10 +55,11 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
     setLoading(true);
 
     try {
+      const eventId = crypto.randomUUID();
       const res = await fetch("/api/lead-magnet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), eventId }),
       });
       const data: { success: boolean; error?: string } = await res.json();
 
@@ -68,7 +69,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
         setSubmittedEmail(email.trim());
         window.open(PDF_PATH, "_blank");
         trackGA4Lead();
-        trackPixelLead();
+        trackPixelLead(eventId);
         setSuccess(true);
       }
     } catch {

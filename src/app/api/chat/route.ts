@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
 import { brand } from "@/config/branding";
+import { sendCapiLead } from "@/lib/capi";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -95,6 +96,7 @@ When you capture a valid lead (name + phone and/or email):
 
 export async function POST(req: NextRequest) {
   let messages: ChatMessage[] = [];
+  let eventId: string = crypto.randomUUID();
 
   try {
     const body = await req.json();
@@ -102,6 +104,9 @@ export async function POST(req: NextRequest) {
       messages = body.messages;
     } else if (typeof body.message === "string" && body.message) {
       messages = [{ role: "user", text: body.message }];
+    }
+    if (typeof body.eventId === "string" && body.eventId) {
+      eventId = body.eventId;
     }
   } catch {
     return NextResponse.json({ error: "invalid body" }, { status: 400 });
@@ -203,6 +208,7 @@ export async function POST(req: NextRequest) {
           source: lead.source,
           createdAt: lead.createdAt,
         });
+        await sendCapiLead({ eventId, email: capturedLead.email, phone: capturedLead.phone });
         leadSaved = true;
       } catch (e) {
         console.error("Chatbot lead creation failed", e);

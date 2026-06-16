@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
 import { z } from "zod";
 import { COMPANY_EMAIL } from "@/lib/constants";
+import { sendCapiLead } from "@/lib/capi";
 
 const ContactSchema = z.object({
   name: z.string().min(1),
@@ -28,6 +29,7 @@ function fireWebhook(payload: Record<string, unknown>) {
 export async function submitContact(
   formData: FormData
 ): Promise<{ success: boolean; error?: string }> {
+  const eventId = (formData.get("eventId") as string) || crypto.randomUUID();
   const raw = {
     name: formData.get("name"),
     company: formData.get("company") || undefined,
@@ -67,6 +69,8 @@ export async function submitContact(
       source: lead.source,
       createdAt: lead.createdAt,
     });
+
+    await sendCapiLead({ eventId, email: parsed.data.email, phone: parsed.data.phone });
 
     return { success: true };
   } catch (e) {

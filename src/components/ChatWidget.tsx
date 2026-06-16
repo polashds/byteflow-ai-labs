@@ -83,15 +83,16 @@ export default function ChatWidget() {
     setMessages(newHistory);
     setLoading(true);
     try {
+      const eventId = crypto.randomUUID();
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newHistory }),
+        body: JSON.stringify({ messages: newHistory, eventId }),
       });
       const data = await res.json();
       if (data.leadCaptured) {
         trackGA4Lead();
-        trackPixelLead();
+        trackPixelLead(eventId);
       }
       setMessages((prev) => [
         ...prev,

@@ -16,10 +16,12 @@ export default function ContactForm() {
     setError("");
     const formData = new FormData(e.currentTarget);
     startTransition(async () => {
+      const eventId = crypto.randomUUID();
+      formData.append("eventId", eventId);
       const result = await submitContact(formData);
       if (result.success) {
         trackGA4Lead();
-        trackPixelLead();
+        trackPixelLead(eventId);
         setSubmitted(true);
       } else {
         setError(result.error ?? "Something went wrong. Please try again.");
