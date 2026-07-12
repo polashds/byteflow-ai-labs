@@ -15,7 +15,7 @@ interface CapturedLead {
   email: string;
 }
 
-interface GeminiResponse {
+interface AiResponse {
   reply: string;
   lead: CapturedLead | null;
 }
@@ -116,52 +116,51 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "no user message" }, { status: 400 });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ reply: FALLBACK_REPLY });
   }
 
   const firstUserIdx = messages.findIndex((m) => m.role === "user");
-  const contents = messages.slice(firstUserIdx).map((m) => ({
-    role: m.role === "user" ? "user" : "model",
-    parts: [{ text: m.text }],
+  const chatMessages = messages.slice(firstUserIdx).map((m) => ({
+    role: m.role === "user" ? "user" : "assistant",
+    content: m.text,
   }));
+  const messagesPayload = [
+    { role: "system", content: systemInstruction },
+    ...chatMessages,
+  ];
 
-  const model = process.env.GEMINI_MODEL ?? "gemini-2.5-flash";
+  const model = process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini";
 
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": apiKey,
-        },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: systemInstruction }] },
-          contents,
-          generationConfig: {
-            responseMimeType: "application/json",
-            temperature: 0.35,
-            maxOutputTokens: 600,
-          },
-        }),
-      }
-    );
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: messagesPayload,
+        temperature: 0.35,
+        max_tokens: 500,
+        response_format: { type: "json_object" },
+      }),
+    });
 
     if (!res.ok) {
-      console.error("Gemini API error", res.status, await res.text());
+      console.error("OpenRouter API error", res.status, await res.text());
       return NextResponse.json({ reply: FALLBACK_REPLY });
     }
 
     const data = await res.json();
-    const rawText: string = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+    const rawText: string = data?.choices?.[0]?.message?.content ?? "";
 
     let reply = FALLBACK_REPLY;
     let capturedLead: CapturedLead | null = null;
 
-    const parsed = extractJson(rawText) as GeminiResponse | null;
+    const parsed = extractJson(rawText) as AiResponse | null;
     if (parsed && typeof parsed.reply === "string") {
       reply = parsed.reply;
       const l = parsed.lead;
