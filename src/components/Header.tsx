@@ -11,6 +11,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
   useEffect(() => { setOpen(false); }, [pathname]);
 
   useEffect(() => {
@@ -54,15 +57,28 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="font-body text-xs font-medium text-brand-muted hover:text-accent tracking-[0.15em] uppercase transition-colors duration-200"
-              >
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ href, label }) => {
+              const active = isActive(href);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative font-body text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 ${
+                    active ? "text-accent" : "text-brand-muted hover:text-accent"
+                  }`}
+                >
+                  {label}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-0 right-0 -bottom-2 h-px origin-left transition-transform duration-300 ${
+                      active ? "scale-x-100" : "scale-x-0"
+                    }`}
+                    style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA */}
@@ -162,16 +178,24 @@ export default function Header() {
 
         {/* Nav links */}
         <div className="flex flex-col px-6 py-6 flex-1 overflow-y-auto">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="font-body text-sm font-medium text-brand-muted hover:text-accent tracking-[0.15em] uppercase transition-colors duration-200 py-4 border-b border-primary/10 last:border-0"
-            >
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label }) => {
+            const active = isActive(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className={`block font-body text-sm font-medium tracking-[0.15em] uppercase transition-colors duration-200 py-4 pl-3 border-b border-l-2 border-b-primary/10 last:border-b-0 ${
+                  active
+                    ? "text-accent border-l-accent"
+                    : "text-brand-muted hover:text-accent border-l-transparent"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* CTA */}
