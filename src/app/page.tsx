@@ -4,7 +4,8 @@ import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
 import StatsBar from "@/components/StatsBar";
-import { brand } from "@/config/branding";
+import HeroContent from "@/components/HeroContent";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "ByteFlow AI Labs — AI Automation Agency",
@@ -113,44 +114,7 @@ export default function HomePage() {
           }}
         />
 
-        <div className="relative z-10 text-center max-w-[1000px] mx-auto px-6 lg:px-10 pt-20 pb-32">
-          {/* Eyebrow */}
-          <p className="font-body text-[11px] tracking-[0.45em] text-accent/80 uppercase mb-8">
-            {brand.motto}
-          </p>
-
-          {/* Headline */}
-          <h1 className="font-heading font-semibold text-brand-text leading-[1.06] text-[2.15rem] sm:text-5xl md:text-[4.5rem] lg:text-[5.5rem] mb-8">
-            Transform Your Business{" "}
-            <br className="hidden sm:block" />
-            with{" "}
-            <span className="inline-block" style={gradientText}>
-              AI Automation
-            </span>
-          </h1>
-
-          {/* Subline */}
-          <p className="font-body text-[15px] sm:text-base text-brand-muted leading-[1.85] max-w-[560px] mx-auto mb-12">
-            AI agents, smart automations, and intelligent workflows that save time, cut
-            costs, and accelerate growth — without hiring more staff.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <ConsultationCTA
-              className="px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
-              style={gradientBg}
-            >
-              Book Free Consultation
-            </ConsultationCTA>
-            <Link
-              href="/services"
-              className="px-10 py-4 bg-transparent text-brand-text font-body text-[11px] font-normal tracking-[0.2em] uppercase border border-white/20 hover:border-accent hover:text-accent transition-all duration-300"
-            >
-              Explore Services →
-            </Link>
-          </div>
-        </div>
+        <HeroContent />
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
@@ -188,22 +152,21 @@ export default function HomePage() {
 
           {/* Pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pillars.map((p) => (
-              <div
-                key={p.num}
-                className="border border-primary/15 bg-brand-surface p-8 hover:border-primary/30 transition-colors duration-300"
-              >
-                <div
-                  className="font-heading font-semibold text-[2rem] leading-none mb-5 opacity-20"
-                  style={gradientText}
-                >
-                  {p.num}
+            {pillars.map((p, i) => (
+              <Reveal key={p.num} delay={i * 80}>
+                <div className="h-full border border-primary/15 bg-brand-surface p-8 hover:border-primary/30 transition-colors duration-300">
+                  <div
+                    className="font-heading font-semibold text-[2rem] leading-none mb-5 opacity-20"
+                    style={gradientText}
+                  >
+                    {p.num}
+                  </div>
+                  <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">
+                    {p.title}
+                  </h3>
+                  <p className="font-body text-sm text-brand-muted leading-relaxed">{p.body}</p>
                 </div>
-                <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">
-                  {p.title}
-                </h3>
-                <p className="font-body text-sm text-brand-muted leading-relaxed">{p.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -234,29 +197,30 @@ export default function HomePage() {
           {/* Cards 4×2 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
             {serviceCategories.map((cat, i) => (
-              <Link
-                key={cat.id}
-                href={`/services#${cat.id}`}
-                className="group border border-primary/15 bg-brand-bg p-7 hover:border-primary/35 hover:bg-brand-bg/80 transition-all duration-300"
-              >
-                <div className="text-3xl mb-5">{cat.icon}</div>
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <h3 className="font-heading font-semibold text-brand-text text-[1rem] leading-snug">
-                    {cat.title}
-                  </h3>
-                  <span className="text-brand-muted group-hover:text-accent transition-colors duration-200 text-lg shrink-0">
-                    →
-                  </span>
-                </div>
-                <p className="font-body text-[13px] text-brand-muted leading-relaxed line-clamp-3">
-                  {cat.tagline}
-                </p>
-                <div className="mt-5 flex items-center gap-1.5">
-                  <span className="font-body text-[11px] text-accent/70 group-hover:text-accent tracking-[0.12em] uppercase transition-colors duration-200">
-                    {cat.services.length} services
-                  </span>
-                </div>
-              </Link>
+              <Reveal key={cat.id} delay={i * 80}>
+                <Link
+                  href={`/services#${cat.id}`}
+                  className="group block h-full border border-primary/15 bg-brand-bg p-7 hover:border-primary/35 hover:bg-brand-bg/80 transition-all duration-300"
+                >
+                  <div className="text-3xl mb-5">{cat.icon}</div>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <h3 className="font-heading font-semibold text-brand-text text-[1rem] leading-snug">
+                      {cat.title}
+                    </h3>
+                    <span className="text-brand-muted group-hover:text-accent transition-colors duration-200 text-lg shrink-0">
+                      →
+                    </span>
+                  </div>
+                  <p className="font-body text-[13px] text-brand-muted leading-relaxed line-clamp-3">
+                    {cat.tagline}
+                  </p>
+                  <div className="mt-5 flex items-center gap-1.5">
+                    <span className="font-body text-[11px] text-accent/70 group-hover:text-accent tracking-[0.12em] uppercase transition-colors duration-200">
+                      {cat.services.length} services
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
             ))}
           </div>
 
@@ -295,24 +259,26 @@ export default function HomePage() {
             <div className="hidden lg:block absolute top-[22px] left-[13%] right-[13%] h-px bg-primary/15" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
-              {steps.map((step) => (
-                <div key={step.num}>
-                  {/* Circle */}
-                  <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center mb-7 relative z-10 lg:mx-auto border border-primary/30"
-                    style={{ background: "rgba(37,99,235,0.08)" }}
-                  >
-                    <span style={gradientText} className="font-heading font-semibold text-sm">
-                      {step.num}
-                    </span>
+              {steps.map((step, i) => (
+                <Reveal key={step.num} delay={i * 80} className="">
+                  <div>
+                    {/* Circle */}
+                    <div
+                      className="w-11 h-11 rounded-full flex items-center justify-center mb-7 relative z-10 lg:mx-auto border border-primary/30"
+                      style={{ background: "rgba(37,99,235,0.08)" }}
+                    >
+                      <span style={gradientText} className="font-heading font-semibold text-sm">
+                        {step.num}
+                      </span>
+                    </div>
+                    <h3 className="font-heading font-semibold text-brand-text text-lg mb-3 lg:text-center">
+                      {step.title}
+                    </h3>
+                    <p className="font-body text-sm text-brand-muted leading-relaxed lg:text-center">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className="font-heading font-semibold text-brand-text text-lg mb-3 lg:text-center">
-                    {step.title}
-                  </h3>
-                  <p className="font-body text-sm text-brand-muted leading-relaxed lg:text-center">
-                    {step.body}
-                  </p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useInView } from "./useInView";
 
 type UseCountUpOptions = {
   duration?: number;
@@ -9,45 +10,32 @@ export function useCountUp<T extends HTMLElement>(
   target: number,
   { duration = 1500, threshold = 0.3 }: UseCountUpOptions = {}
 ) {
-  const ref = useRef<T | null>(null);
+  const { ref, inView } = useInView<T>({ threshold });
   const [value, setValue] = useState(target);
-  const started = useRef(false);
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
+    if (!inView) return;
 
     if (
       typeof window === "undefined" ||
-      typeof IntersectionObserver === "undefined" ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       return; // initial state already equals target — no animation needed
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || started.current) return;
-        started.current = true;
-        observer.disconnect();
+    const start = performance.now();
+    setValue(0);
 
-        const start = performance.now();
-        setValue(0);
-
-        const tick = (now: number) => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          setValue(Math.round(target * eased));
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      },
-      { threshold }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [target, duration, threshold]);
+    let frame: number;
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(target * eased));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [inView, target, duration]);
 
   return { ref, value };
 }
