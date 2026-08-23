@@ -3,6 +3,7 @@ import Link from "next/link";
 import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
+import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
   title: "ByteFlow AI Labs — AI Automation Agency",
@@ -114,7 +115,7 @@ export default function HomePage() {
         <div className="relative z-10 text-center max-w-[1000px] mx-auto px-6 lg:px-10 pt-20 pb-32">
           {/* Eyebrow */}
           <p className="font-body text-[11px] tracking-[0.45em] text-accent/80 uppercase mb-8">
-            AI Automation Agency · BD-First, Global-Ready
+            {brand.motto}
           </p>
 
           {/* Headline */}

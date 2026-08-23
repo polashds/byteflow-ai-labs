@@ -1,6 +1,7 @@
 export const brand = {
   name: "ByteFlow AI Labs",
   tagline: "AI Automation for Modern Business",
+  motto: "Automate · Scale · Grow",
   description:
     "We design, build, and deploy AI automation systems that help businesses save time, reduce costs, and scale intelligently.",
   logo: "/assets/logo.png",
