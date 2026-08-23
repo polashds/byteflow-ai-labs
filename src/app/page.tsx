@@ -3,6 +3,7 @@ import Link from "next/link";
 import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
+import StatsBar from "@/components/StatsBar";
 import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
@@ -164,30 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Stats bar ─────────────────────────────────────────────────────── */}
-      <section className="bg-brand-surface border-y border-primary/10">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`py-10 px-6 text-center ${
-                  i !== 0 ? "border-l border-primary/10" : ""
-                }`}
-              >
-                <div
-                  className="font-heading font-semibold text-3xl sm:text-4xl mb-2"
-                  style={gradientText}
-                >
-                  {s.value}
-                </div>
-                <p className="font-body text-[11px] text-brand-muted tracking-[0.12em] uppercase leading-snug">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsBar stats={stats} />
 
       {/* ── Why ByteFlow ──────────────────────────────────────────────────── */}
       <section className="bg-brand-bg py-24 lg:py-32">
