@@ -8,7 +8,7 @@ type UseCountUpOptions = {
 
 export function useCountUp<T extends HTMLElement>(
   target: number,
-  { duration = 2000, threshold = 0.3 }: UseCountUpOptions = {}
+  { duration = 2500, threshold = 0.3 }: UseCountUpOptions = {}
 ) {
   const { ref, inView } = useInView<T>({ threshold });
   const [value, setValue] = useState(target);

@@ -153,10 +153,10 @@ export default function HomePage() {
           {/* Pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p, i) => (
-              <Reveal key={p.num} delay={i * 130}>
+              <Reveal key={p.num} delay={i * 220}>
                 <div className="h-full border border-primary/15 bg-brand-surface p-8 hover:border-primary/30 transition-colors duration-300">
                   <div
-                    className="font-heading font-semibold text-[2rem] leading-none mb-5 opacity-20"
+                    className="font-heading font-semibold text-[2rem] leading-none mb-5 opacity-40"
                     style={gradientText}
                   >
                     {p.num}
@@ -197,7 +197,7 @@ export default function HomePage() {
           {/* Cards 4×2 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
             {serviceCategories.map((cat, i) => (
-              <Reveal key={cat.id} delay={i * 130}>
+              <Reveal key={cat.id} delay={i * 220}>
                 <Link
                   href={`/services#${cat.id}`}
                   className="group block h-full border border-primary/15 bg-brand-bg p-7 hover:border-primary/35 hover:bg-brand-bg/80 transition-all duration-300"
@@ -260,7 +260,7 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
               {steps.map((step, i) => (
-                <Reveal key={step.num} delay={i * 130} className="">
+                <Reveal key={step.num} delay={i * 220} className="">
                   <div>
                     {/* Circle */}
                     <div
