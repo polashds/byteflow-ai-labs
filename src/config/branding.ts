@@ -1,9 +1,9 @@
 export const brand = {
   name: "ByteFlow AI Labs",
-  tagline: "AI Automation for Modern Business",
+  tagline: "AI Automation That Runs Real Business Operations",
   motto: "Automate · Scale · Grow",
   description:
-    "We design, build, and deploy AI automation systems that help businesses save time, reduce costs, and scale intelligently.",
+    "Lead-to-CRM, WhatsApp AI assistant and order-verification automation for businesses that sell through ads, websites and WhatsApp.",
   logo: "/assets/logo.png",
   email: "hello@byteflowailabs.com",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com",

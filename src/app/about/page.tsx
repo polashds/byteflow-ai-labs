@@ -3,7 +3,8 @@ import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
-  title: "About Us — ByteFlow AI Labs",
+  alternates: { canonical: "/about" },
+  title: "About Us",
   description:
     "ByteFlow AI Labs is a BD-first AI automation agency. We build self-hosted, AI-native systems on n8n, GPT-4o, and Claude so businesses automate operations without hiring more staff.",
   keywords: [

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/nav";
 import { brand } from "@/config/branding";
+import { trackServiceCtaClick } from "@/lib/analytics";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Header() {
           <Link href="/" className="shrink-0 flex items-center gap-2">
             <Image
               src="/logo_byteflowailabs.png"
-              alt="ByteFlow AI Labs"
+              alt=""
               width={44}
               height={44}
               loading="eager"
@@ -84,10 +85,11 @@ export default function Header() {
           {/* Desktop CTA */}
           <Link
             href="/contact"
+            onClick={() => trackServiceCtaClick("header", "Discuss Your Workflow")}
             className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 shrink-0 text-brand-bg font-body"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
-            Get a Demo
+            Discuss Your Workflow
           </Link>
 
           {/* Hamburger — mobile only */}
@@ -134,13 +136,14 @@ export default function Header() {
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!open}
+        inert={!open}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-primary/20 shrink-0">
           <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <Image
               src="/logo_byteflowailabs.png"
-              alt="ByteFlow AI Labs"
+              alt=""
               width={44}
               height={44}
               loading="eager"
@@ -202,11 +205,14 @@ export default function Header() {
         <div className="px-6 pb-8 shrink-0">
           <Link
             href="/contact"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              trackServiceCtaClick("mobile_menu", "Discuss Your Workflow");
+              setOpen(false);
+            }}
             className="flex items-center justify-center px-5 py-3.5 text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
-            Get a Demo
+            Discuss Your Workflow
           </Link>
         </div>
       </nav>

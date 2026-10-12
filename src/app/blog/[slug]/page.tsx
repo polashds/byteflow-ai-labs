@@ -24,8 +24,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!post) return {};
   const description = post.excerpt ?? post.body.slice(0, 155);
   return {
-    title: `${post.title} — ByteFlow AI Labs Blog`,
+    title: post.title,
     description,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description,

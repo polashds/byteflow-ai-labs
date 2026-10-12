@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { caseStudies } from "@/config/caseStudies";
+import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
 import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
-  title: "Portfolio — ByteFlow AI Labs",
+  alternates: { canonical: "/portfolio" },
+  title: "Portfolio and Case Studies",
   description:
     "Real projects, honest outcomes. ByteFlow AI Labs case studies: AI real estate platforms, WhatsApp automation, and more.",
   keywords: [
@@ -85,6 +86,11 @@ export default function PortfolioPage() {
                 <span className="font-body text-[10px] text-brand-muted tracking-[0.2em]">
                   · {cs.year}
                 </span>
+                {cs.projectType && (
+                  <span className="font-body text-[10px] font-medium tracking-[0.2em] text-brand-text/80 uppercase border border-primary/25 bg-primary/10 px-2.5 py-1">
+                    {projectTypeLabel[cs.projectType]}
+                  </span>
+                )}
               </div>
               <h2 className="font-heading font-semibold text-brand-text text-[1.6rem] sm:text-3xl lg:text-4xl leading-tight mb-4">
                 {cs.client}
@@ -155,12 +161,12 @@ export default function PortfolioPage() {
                         : "border-primary/15"
                     } ${i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"}`}
                   >
-                    <p className="font-body text-[10px] tracking-[0.2em] text-accent/60 uppercase mb-2">
+                    <p className="font-body text-[10px] tracking-[0.2em] text-accent/90 uppercase mb-2">
                       {r.label}
                     </p>
                     <p
                       className={`font-heading font-semibold leading-snug ${
-                        r.isPlaceholder ? "text-brand-muted/50 text-sm italic" : "text-brand-text text-base"
+                        r.isPlaceholder ? "text-brand-muted text-sm italic" : "text-brand-text text-base"
                       }`}
                     >
                       {r.value}
@@ -191,13 +197,13 @@ export default function PortfolioPage() {
         <section className="py-20 lg:py-24 border-t border-primary/10 bg-brand-surface">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="border border-dashed border-primary/20 p-12 lg:p-16 text-center">
-              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent/50 uppercase mb-5">
+              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-5">
                 Case Study · Coming Soon
               </p>
               <h2 className="font-heading font-semibold text-brand-muted text-2xl sm:text-3xl mb-4">
                 {placeholder.client}
               </h2>
-              <p className="font-body text-brand-muted/60 text-[15px] mb-8 max-w-lg mx-auto">
+              <p className="font-body text-brand-muted text-[15px] mb-8 max-w-lg mx-auto">
                 {placeholder.tagline}
               </p>
               <ConsultationCTA

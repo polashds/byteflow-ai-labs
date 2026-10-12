@@ -4,13 +4,14 @@ import ContactForm from "@/components/ContactForm";
 import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
-  title: "Contact Us — ByteFlow AI Labs",
+  alternates: { canonical: "/contact" },
+  title: "Contact Us",
   description:
-    "Get in touch with ByteFlow AI Labs. Tell us about your automation needs and we'll be in touch within one business day.",
+    "Tell ByteFlow AI Labs where leads, messages or orders get stuck. Your enquiry reaches our workflow instantly and a person follows up to arrange a free 30-minute call.",
   openGraph: {
     title: "Contact ByteFlow AI Labs — Book a Free Consultation",
     description:
-      "Tell us about your automation project. We scope it clearly, build it properly, and hand it over fully documented — within one business day response.",
+      "Tell us about your automation project. We scope it clearly, build it properly, and hand it over fully documented.",
     url: "/contact",
   },
   twitter: {
@@ -73,7 +74,7 @@ export default function ContactPage() {
               Open Calendly →
             </a>
             <p className="font-body text-[11px] text-brand-muted/60 mt-4">
-              Or fill in the form below and we&apos;ll reach out within one business day.
+              Or fill in the form below and a person from our team will follow up.
             </p>
           </div>
         </section>
@@ -107,10 +108,11 @@ export default function ContactPage() {
 
               <div>
                 <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-2">
-                  Response Time
+                  What happens next
                 </p>
                 <p className="font-body text-sm text-brand-muted">
-                  Within one business day
+                  Your enquiry reaches our workflow instantly. A person reviews it and follows up
+                  during business hours.
                 </p>
               </div>
 

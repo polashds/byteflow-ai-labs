@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Private working notes (handoffs, client details, server info). This repo is
+# public — keep these local and never publish them as routes. See
+# docs/website-optimization.md, "Legacy folder".
+/legacy/

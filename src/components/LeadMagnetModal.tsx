@@ -68,7 +68,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
       } else {
         setSubmittedEmail(email.trim());
         window.open(PDF_PATH, "_blank");
-        trackGA4Lead();
+        trackGA4Lead("lead_magnet");
         trackPixelLead(eventId);
         setSuccess(true);
       }

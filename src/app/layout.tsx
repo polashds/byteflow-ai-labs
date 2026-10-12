@@ -62,9 +62,17 @@ const organizationSchema = {
   "@type": "Organization",
   name: brand.name,
   url: brand.siteUrl,
+  logo: `${brand.siteUrl}/logo_byteflowailabs.png`,
   description: brand.description,
   email: brand.email,
   sameAs: Object.values(brand.social),
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: brand.name,
+  url: brand.siteUrl,
 };
 
 export default function RootLayout({
@@ -78,6 +86,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="bg-brand-bg text-brand-text font-body antialiased flex flex-col min-h-screen">
