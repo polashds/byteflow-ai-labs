@@ -185,11 +185,18 @@ Not run: Google Rich Results Test, Search Console (need the live URL and your lo
 | Lighthouse (mobile, third-party tags blocked) | Home 92/100/96/100 · Lead-to-CRM 92/100/96/100 · Contact 93/100/96/100 · Services 98/100/96/100 · FAQ 99/100/96/100 · Solutions 99/100/96/100 · Portfolio 98/**96**/96/100 (perf/a11y/best-practices/SEO). CLS ≤ 0.06 everywhere. |
 | Chat API with no key | Returns the new fallback text (no time promise) |
 
+### Real build on the owner's machine (2026-10-12)
+These checks ran without the Prisma stub or the font mock. Polash ran them on his own Windows PC, in the local checkout at `D:\ByteFlow AI Labs\byteflow-ai-labs`, with branch `feat/positioning-conversion-seo` checked out at `2276a8d` and tracking `origin`. Node and npm versions were not recorded.
+
+| Command | Result (as reported) |
+|---|---|
+| `npm ci` | 557 packages installed cleanly. The audit of the current dependency tree reported 26 vulnerabilities (18 high, 3 critical). This branch does not modify `package.json` or `package-lock.json`. The vulnerabilities have not been traced individually; they will be reviewed in a separate PR. |
+| `npx prisma generate` | Prisma Client v7.8.0 generated; no schema changes |
+| `npm run build` | Compiled successfully, TypeScript passed, all 19 routes generated (static, SSG and dynamic as expected), Proxy detected |
+
 ### What could not be verified, and why
-- **Real `prisma generate`:** fails because `binaries.prisma.sh` returns 403 through the sandbox network allowlist, even with `PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING=1`.
-  - Type-check and build used a local stub under `node_modules/.prisma/client`. The stub is not committed.
-  - **Run `npx prisma generate && npm run build` yourself before merging.** No schema changes were made, so it should pass.
-- **Google Fonts:** blocked; the build used a mocked font response. That is why the screenshots show a serif fallback where Geist should be.
+- **Real `prisma generate` in the sandbox:** fails because `binaries.prisma.sh` returns 403 through the sandbox network allowlist, so the sandbox type-check and build used a local stub (not committed). **Resolved 2026-10-12:** the real `npx prisma generate` and `npm run build` passed on the owner's machine (see above).
+- **Google Fonts in the sandbox:** blocked, so the sandbox build used a mocked font response, and the screenshots show a serif fallback where Geist should be. The owner's build ran without the mock. The visual pass with real fonts is still pending.
 - **A successful form submission → DB → n8n → CAPI:** not possible here (no database or webhook). I did not send anything to production.
 - **GA4 DebugView, GTM Preview, Meta Events Manager, Search Console:** not available. See the manual steps in section 6.
 - **Lighthouse on the live site:** these numbers come from a local build with mocked fonts and blocked tags. Real scores will differ.
@@ -203,7 +210,7 @@ Not run: Google Rich Results Test, Search Console (need the live URL and your lo
 - Legacy folder: archived locally, not routed, and git-ignored.
 
 ## 10. Manual actions before release
-1. `npm ci && npx prisma generate && npm run build` locally or on the VPS build.
+1. ~~`npm ci && npx prisma generate && npm run build`~~ **Done 2026-10-12** on the owner's machine; all three passed (section 8).
 2. Deploy to a **staging** copy with its own database and a test n8n webhook. Then submit the contact form, the lead magnet and a chat lead, and confirm for each:
    - a DB row,
    - one webhook call,
