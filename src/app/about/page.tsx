@@ -215,12 +215,7 @@ export default function AboutPage() {
                   plate: n8n workflows, WhatsApp and website chat assistants, and CRM
                   integrations.
                 </p>
-                <p>
-                  My education is in data science and AI. Before moving into automation
-                  engineering, I worked in pharmaceutical and food quality assurance,
-                  which is where I learned process discipline, documentation and
-                  operational controls.
-                </p>
+                <p>My education is in data science and AI.</p>
                 <p>
                   I map a process before automating it, keep people in control at clear
                   handoff points, and build for what happens when something fails, not
