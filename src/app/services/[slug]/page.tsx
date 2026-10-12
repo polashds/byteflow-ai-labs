@@ -182,7 +182,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               </a>
             )}
           </div>
-          <p className="mt-5 font-body text-xs text-brand-muted/70">
+          <p className="mt-5 font-body text-xs text-brand-muted">
             Free 30-minute call — you describe the workflow, we tell you honestly whether and how we
             would automate it.
           </p>
@@ -326,7 +326,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
                 How we tell whether it works
               </h2>
               <BulletList items={offer.measure} />
-              <p className="mt-6 font-body text-xs text-brand-muted/80 leading-relaxed">
+              <p className="mt-6 font-body text-xs text-brand-muted leading-relaxed">
                 We agree these measures during scoping and report what the system actually records.
                 We don&apos;t promise a specific result in advance.
               </p>

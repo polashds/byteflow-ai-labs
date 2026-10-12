@@ -176,7 +176,7 @@ export default function ContactForm() {
         {isPending ? "Sending…" : "Send Enquiry"}
       </button>
 
-      <p className="font-body text-[11px] text-brand-muted/60 text-center">
+      <p className="font-body text-[11px] text-brand-muted text-center">
         A person follows up · Free 30-minute call · No spam, ever
       </p>
     </form>

@@ -169,11 +169,11 @@ export default function HomePage() {
 
           <p className="text-center font-body text-sm text-brand-muted">
             Need something these don&apos;t cover — a voice agent, tracking, or a custom integration?{" "}
-            <Link href="/services" className="text-accent hover:underline">
+            <Link href="/services" className="text-accent underline underline-offset-2 hover:text-brand-text">
               See the full service catalogue
             </Link>{" "}
             or{" "}
-            <Link href="/contact#contact-form" className="text-accent hover:underline">
+            <Link href="/contact#contact-form" className="text-accent underline underline-offset-2 hover:text-brand-text">
               describe your workflow
             </Link>
             .
@@ -227,7 +227,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 font-body text-xs text-brand-muted/70">
+            <p className="mt-5 font-body text-xs text-brand-muted">
               Third-party costs such as WhatsApp Business API fees, AI model usage and hosting are billed
               at cost or paid directly by you. Exact scope is written into your proposal.
             </p>
@@ -276,7 +276,7 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          <p className="text-center font-body text-xs text-brand-muted/80">
+          <p className="text-center font-body text-xs text-brand-muted">
             We publish what was built and what it does. Results appear only once they have been measured.
           </p>
         </div>
@@ -372,7 +372,7 @@ export default function HomePage() {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                           style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
                         />
-                        <span className="font-body text-[11px] text-brand-muted/80">{item}</span>
+                        <span className="font-body text-[11px] text-brand-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -411,7 +411,7 @@ export default function HomePage() {
           </div>
           <p className="mt-8 text-center font-body text-sm text-brand-muted">
             More answers on the{" "}
-            <Link href="/faq" className="text-accent hover:underline">
+            <Link href="/faq" className="text-accent underline underline-offset-2 hover:text-brand-text">
               FAQ page
             </Link>
             .

@@ -161,12 +161,12 @@ export default function PortfolioPage() {
                         : "border-primary/15"
                     } ${i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"}`}
                   >
-                    <p className="font-body text-[10px] tracking-[0.2em] text-accent/60 uppercase mb-2">
+                    <p className="font-body text-[10px] tracking-[0.2em] text-accent/90 uppercase mb-2">
                       {r.label}
                     </p>
                     <p
                       className={`font-heading font-semibold leading-snug ${
-                        r.isPlaceholder ? "text-brand-muted/50 text-sm italic" : "text-brand-text text-base"
+                        r.isPlaceholder ? "text-brand-muted text-sm italic" : "text-brand-text text-base"
                       }`}
                     >
                       {r.value}
@@ -197,13 +197,13 @@ export default function PortfolioPage() {
         <section className="py-20 lg:py-24 border-t border-primary/10 bg-brand-surface">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="border border-dashed border-primary/20 p-12 lg:p-16 text-center">
-              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent/50 uppercase mb-5">
+              <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-5">
                 Case Study · Coming Soon
               </p>
               <h2 className="font-heading font-semibold text-brand-muted text-2xl sm:text-3xl mb-4">
                 {placeholder.client}
               </h2>
-              <p className="font-body text-brand-muted/60 text-[15px] mb-8 max-w-lg mx-auto">
+              <p className="font-body text-brand-muted text-[15px] mb-8 max-w-lg mx-auto">
                 {placeholder.tagline}
               </p>
               <ConsultationCTA

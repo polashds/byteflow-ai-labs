@@ -94,9 +94,9 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="space-y-5">
-            <h4 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
+            <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
               Navigate
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -113,9 +113,9 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-5">
-            <h4 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
+            <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
               Legal
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {legalLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -132,9 +132,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-5">
-            <h4 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
+            <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
               Contact
-            </h4>
+            </h2>
             <ul className="space-y-3 text-sm text-brand-muted">
               <li>
                 <a

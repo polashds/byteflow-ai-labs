@@ -33,7 +33,7 @@ export default function Header() {
           <Link href="/" className="shrink-0 flex items-center gap-2">
             <Image
               src="/logo_byteflowailabs.png"
-              alt="ByteFlow AI Labs"
+              alt=""
               width={44}
               height={44}
               loading="eager"
@@ -134,13 +134,14 @@ export default function Header() {
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!open}
+        inert={!open}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-primary/20 shrink-0">
           <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <Image
               src="/logo_byteflowailabs.png"
-              alt="ByteFlow AI Labs"
+              alt=""
               width={44}
               height={44}
               loading="eager"

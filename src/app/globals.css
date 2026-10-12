@@ -74,6 +74,11 @@
   }
 }
 
+/* Printing or full-page capture has no scroll position: show everything. */
+@media print {
+  .reveal, .tl-line, .tl-badge { animation: none !important; }
+}
+
 /* Card lift: hover and keyboard focus get the same cue. */
 .lift { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
 .lift:hover,
