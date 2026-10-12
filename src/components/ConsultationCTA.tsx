@@ -27,6 +27,7 @@ function labelOf(children: React.ReactNode): string {
 export default function ConsultationCTA({ className, style, children, location = "unspecified" }: Props) {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
   const onClick = () => trackServiceCtaClick(location, labelOf(children));
+  const cls = `btn ${className ?? ""}`;
 
   if (calendlyUrl) {
     return (
@@ -34,7 +35,7 @@ export default function ConsultationCTA({ className, style, children, location =
         href={calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={className}
+        className={cls}
         style={style}
         onClick={onClick}
       >
@@ -44,7 +45,7 @@ export default function ConsultationCTA({ className, style, children, location =
   }
 
   return (
-    <Link href="/contact#contact-form" className={className} style={style} onClick={onClick}>
+    <Link href="/contact#contact-form" className={cls} style={style} onClick={onClick}>
       {children}
     </Link>
   );

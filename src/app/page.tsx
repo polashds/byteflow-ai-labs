@@ -145,7 +145,7 @@ export default function HomePage() {
               <Reveal key={offer.slug} delay={i * STAGGER_MS}>
                 <Link
                   href={`/services/${offer.slug}`}
-                  className="group flex h-full flex-col border border-primary/15 bg-brand-surface p-8 hover:border-primary/40 hover:-translate-y-0.5 transition-all duration-300"
+                  className="lift group flex h-full flex-col border border-primary/15 bg-brand-surface p-8"
                 >
                   <p className="font-body text-[10px] font-medium tracking-[0.25em] text-accent/80 uppercase mb-4">
                     {offer.painTag}
@@ -158,7 +158,7 @@ export default function HomePage() {
                   </p>
                   <span className="mt-auto font-body text-[11px] text-accent tracking-[0.18em] uppercase">
                     How it works{" "}
-                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                    <span aria-hidden="true" className="arrow">
                       →
                     </span>
                   </span>
@@ -189,15 +189,15 @@ export default function HomePage() {
             <span style={gradientText}>a system that runs</span>
           </SectionHeading>
 
-          <div className="relative">
-            <div className="hidden lg:block absolute top-[22px] left-[13%] right-[13%] h-px bg-primary/15" />
+          <div className="tl relative">
+            <div aria-hidden="true" className="tl-line hidden lg:block absolute top-[22px] left-[13%] right-[13%] h-px bg-primary/25" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
               {steps.map((step, i) => (
                 <Reveal key={step.num} delay={i * STAGGER_MS} className="">
                   <div>
                     <div
-                      className="w-11 h-11 rounded-full flex items-center justify-center mb-7 relative z-10 lg:mx-auto border border-primary/30 bg-brand-surface"
+                      className="tl-badge w-11 h-11 rounded-full flex items-center justify-center mb-7 relative z-10 lg:mx-auto border border-primary/30 bg-brand-surface"
                     >
                       <span style={gradientText} className="font-heading font-semibold text-sm">
                         {step.num}
@@ -248,7 +248,7 @@ export default function HomePage() {
               <Reveal key={cs.id} delay={i * STAGGER_MS}>
                 <Link
                   href={`/portfolio#${cs.id}`}
-                  className="group block h-full border border-primary/15 bg-brand-surface p-8 hover:border-primary/40 transition-colors duration-300"
+                  className="lift group block h-full border border-primary/15 bg-brand-surface p-8"
                 >
                   <div className="flex flex-wrap items-center gap-3 mb-5">
                     <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 px-2.5 py-1">
@@ -268,7 +268,7 @@ export default function HomePage() {
                   </p>
                   <span className="font-body text-[11px] text-accent tracking-[0.18em] uppercase">
                     Read the case study{" "}
-                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                    <span aria-hidden="true" className="arrow">
                       →
                     </span>
                   </span>

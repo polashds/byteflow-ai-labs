@@ -17,7 +17,7 @@
   --animate-pulse-primary: pulsePrimary 2.2s ease-in-out infinite;
   --animate-slide-up: slideUp 0.28s cubic-bezier(0.16,1,0.3,1) both;
   --animate-type-dot: typeDot 1.3s ease-in-out infinite;
-  --animate-fade-up: fadeUp 650ms cubic-bezier(0.16,1,0.3,1) both;
+  --animate-fade-up: fadeUp 450ms cubic-bezier(0.16,1,0.3,1) both;
 }
 
 @keyframes pulsePrimary {
@@ -36,17 +36,80 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .animate-fade-up,
   .animate-pulse-primary,
   .animate-type-dot {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+  /* Same global guard as siddiquehossain.com: no motion, near-instant transitions. */
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Motion patterns adapted from siddiquehossain.com ----------
+   All CSS, no library. Anything scroll-driven sits inside @supports, so in
+   browsers without animation-timeline (e.g. Firefox today) content is simply
+   shown — never hidden waiting for JavaScript. */
+
+/* Reveal on scroll. --i (0, 1, 2…) staggers siblings by shifting the range. */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry calc(var(--i, 0) * 4%) entry calc(35% + var(--i, 0) * 4%);
+  }
+}
+
+/* Card lift: hover and keyboard focus get the same cue. */
+.lift { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+.lift:hover,
+.lift:focus-visible,
+.lift:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 14px 30px -14px rgba(37, 99, 235, 0.35);
+}
+
+/* Arrow nudge on hover or focus of the card / link that contains it. */
+.arrow { display: inline-block; transition: transform 0.2s ease; }
+.group:hover .arrow,
+.group:focus-visible .arrow,
+.arrow-link:hover .arrow,
+.arrow-link:focus-visible .arrow { transform: translateX(4px); }
+
+/* Buttons: a 1px press. */
+.btn { transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease, transform 0.15s ease; }
+.btn:active { transform: translateY(1px); }
+
+/* Timeline rail draws as the step list scrolls into view; number badges settle in. */
+@keyframes tl-draw-x { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes tl-badge { from { transform: scale(0.8); } to { transform: none; } }
+@supports (animation-timeline: view()) {
+  .tl { view-timeline-name: --tl; }
+  .tl-line {
+    transform-origin: left;
+    animation: tl-draw-x linear both;
+    animation-timeline: --tl;
+    animation-range: entry 70% cover 50%;
+  }
+  .tl-badge {
+    animation: tl-badge linear both;
+    animation-timeline: view();
+    animation-range: entry 100% cover 35%;
   }
 }
 

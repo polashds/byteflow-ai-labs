@@ -94,7 +94,7 @@ export default function ServicesPage() {
               <Link
                 key={o.slug}
                 href={`/services/${o.slug}`}
-                className="group block border border-primary/15 bg-brand-bg p-6 hover:border-primary/40 transition-colors duration-300"
+                className="lift group block border border-primary/15 bg-brand-bg p-6"
               >
                 <p className="font-body text-[10px] tracking-[0.2em] text-accent/80 uppercase mb-3">
                   {o.painTag}
