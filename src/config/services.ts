@@ -269,7 +269,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Conversions API (Server-Side)",
         description:
-          "Send conversion events directly from your server to Meta — bypassing ad blockers, browser extensions, and iOS 14+ tracking restrictions. Recover up to 30% of previously lost conversion signal.",
+          "Send conversion events from your server to Meta as well as the browser, so conversions blocked by ad blockers, browser extensions or iOS 14+ restrictions can still be counted.",
         includes: [
           "CAPI integration via n8n or server-side endpoint",
           "Event deduplication using eventID matching",

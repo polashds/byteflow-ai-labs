@@ -8,6 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { coreOffers, engagementSteps as steps } from "@/config/coreOffers";
 import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
 import { faqs, homeFaqIndexes } from "@/config/faqs";
+import { afterContactSteps, supportTerms } from "@/config/contact";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -75,6 +76,16 @@ const reliability = [
     title: "Built for how you sell",
     body: "Bengali and English, WhatsApp-first, aware of local payment methods like bKash and Nagad — and we have delivered for clients outside Bangladesh too.",
   },
+];
+
+/** Common to the three core systems — see each offer's `deliverables` for specifics. */
+const included = [
+  "Workflow mapping and a written scope",
+  "Build and testing on staging with your real data",
+  "Setup on your own server and accounts",
+  "Error handling and failure alerts",
+  "Documentation and recorded walkthroughs",
+  supportTerms.short.charAt(0).toUpperCase() + supportTerms.short.slice(1),
 ];
 
 const proof = caseStudies.filter((c) => !c.isPlaceholder);
@@ -202,6 +213,24 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+
+          <div className="mt-16 border border-primary/15 bg-brand-bg p-7 lg:p-9">
+            <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-5">
+              Included in every core-system engagement
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
+              {included.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 font-body text-sm text-brand-muted">
+                  <span aria-hidden="true" className="mt-[7px] w-[5px] h-[5px] rounded-full shrink-0 bg-accent" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 font-body text-xs text-brand-muted/70">
+              Third-party costs such as WhatsApp Business API fees, AI model usage and hosting are billed
+              at cost or paid directly by you. Exact scope is written into your proposal.
+            </p>
           </div>
         </div>
       </section>
@@ -405,11 +434,23 @@ export default function HomePage() {
             Tell us where leads or orders{" "}
             <span style={gradientText}>get stuck</span>
           </h2>
-          <p className="font-body text-brand-muted text-[15px] leading-[1.85] max-w-xl mx-auto mb-8">
-            Describe the workflow in the contact form. We reply within one business day to set up
-            a free 30-minute call, then send a scoped proposal if there is a fit — no commitment
-            required.
+          <p className="font-body text-brand-muted text-[15px] leading-[1.85] max-w-xl mx-auto mb-10">
+            Describe the workflow in the contact form — no commitment required. Here is what happens
+            after you send it.
           </p>
+          <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-10">
+            {afterContactSteps.map((s, i) => (
+              <li key={s.title} className="lift border border-primary/15 bg-brand-surface p-5">
+                <span className="block font-heading font-semibold text-xs mb-2" style={gradientText}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="block font-heading font-semibold text-brand-text text-sm mb-1.5">
+                  {s.title}
+                </span>
+                <span className="block font-body text-xs text-brand-muted leading-relaxed">{s.body}</span>
+              </li>
+            ))}
+          </ol>
           <ConsultationCTA
             location="home_final"
             className="inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"

@@ -142,7 +142,7 @@ export default function ChatWidget() {
               </p>
               <p className="flex items-center gap-1.5 font-body text-[11px] text-[#4ade80] mt-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] flex-shrink-0" />
-                Online 24/7
+                AI assistant · replies instantly
               </p>
             </div>
 

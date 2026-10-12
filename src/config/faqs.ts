@@ -28,11 +28,11 @@ export const faqs: Faq[] = [
   },
   {
     q: "What happens after the automation is built?",
-    a: "We document everything, walk your team through how it works, and hand over full ownership. If you'd like ongoing support — monitoring, updates, adding new steps — we offer monthly retainer packages.",
+    a: "We document everything, walk your team through how it works, and hand over full ownership. Delivery includes 30 days of post-launch support to fix issues in what we built. If you'd like ongoing support — monitoring, updates, adding new steps — we offer monthly retainer packages.",
   },
   {
     q: "Will an automation break if a connected app changes its API?",
-    a: "APIs do occasionally change. For clients on a maintenance retainer we monitor for breakage and fix issues proactively. For one-time project clients we provide a 30-day post-launch support window and can quote for longer-term coverage.",
+    a: "APIs do occasionally change. For clients on a maintenance retainer we monitor for breakage and fix issues proactively. For project clients, delivery includes 30 days of post-launch support to fix issues in what we built; longer-term cover is available as a retainer. Your proposal states the exact terms.",
   },
   {
     q: "Can you integrate with tools we've already built internally?",
@@ -40,7 +40,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How do I get started?",
-    a: "Send us a message on our Contact page describing the process you want to automate. We'll reply within one business day to schedule a free 30-minute scoping call. No commitment required.",
+    a: "Send us a message on our Contact page describing the process you want to automate. Your enquiry is saved and passed to our workflow straight away, and a person from our team follows up to arrange a free 30-minute scoping call. You can also ask our website AI assistant questions at any time. No commitment required.",
   },
 ];
 

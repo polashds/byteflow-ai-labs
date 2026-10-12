@@ -122,7 +122,7 @@ export const coreOffers: CoreOffer[] = [
       "Instant alerts to the assigned person",
       "Follow-up sequences with auto-pause on reply or booking",
       "Failure alerts, written documentation and a recorded walkthrough for your team",
-      "A post-launch support window, with the length agreed in your scope",
+      "30 days of post-launch support for what we delivered",
     ],
     customerProvides: [
       "Access to your ad accounts, forms and WhatsApp number (or help getting one)",
@@ -151,7 +151,7 @@ export const coreOffers: CoreOffer[] = [
     ],
     caseStudyId: "mustaraka-properties",
     caseStudyNote:
-      "A real-estate lead pipeline we built and operate: website and Meta ad leads trigger instant WhatsApp and Telegram alerts to agents, with leads tracked in a self-hosted admin CRM.",
+      "The lead pipeline for our own real estate venture, which we built and operate: website and Meta ad leads trigger instant WhatsApp and Telegram alerts to agents, with leads tracked in a self-hosted admin CRM.",
     faqs: [
       {
         q: "Do I need a CRM already?",
@@ -246,7 +246,7 @@ export const coreOffers: CoreOffer[] = [
       "A booking flow, if booking is in scope",
       "Conversation and lead logging to your CRM",
       "Written documentation and a recorded walkthrough for your team",
-      "A post-launch support window, with the length agreed in your scope",
+      "30 days of post-launch support for what we delivered",
     ],
     customerProvides: [
       "Your FAQs, price lists, policies and service information",
@@ -275,7 +275,7 @@ export const coreOffers: CoreOffer[] = [
     ],
     caseStudyId: "mustaraka-properties",
     caseStudyNote:
-      "A website AI chatbot trained on live property listings, feeding every enquiry into an instant-alert lead pipeline and admin CRM.",
+      "Our own real estate venture: a WhatsApp lead agent that qualifies enquiries, books viewings against live availability and hands over to a person, plus a website chatbot that answers from live listings and feeds the lead pipeline and admin CRM.",
     faqs: [
       {
         q: "Does it replace my staff?",
@@ -369,7 +369,7 @@ export const coreOffers: CoreOffer[] = [
       "Customer confirmation and rejection messages",
       "An exception route to staff with context",
       "Failure alerts, written documentation and a recorded walkthrough",
-      "A post-launch support window, with the length agreed in your scope",
+      "30 days of post-launch support for what we delivered",
     ],
     customerProvides: [
       "Access to your order ledger or database",
@@ -444,6 +444,6 @@ export const engagementSteps: CoreOfferStepNumbered[] = [
   {
     num: "04",
     title: "Support and improve",
-    body: "A post-launch support window, with optional monitoring retainers. We review what the system actually recorded and tune it from there.",
+    body: "30 days of post-launch support to fix issues in what we delivered, then an optional maintenance retainer. We review what the system actually recorded and tune it from there.",
   },
 ];

@@ -480,8 +480,8 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             <span style={gradientText}>We&apos;ll tell you what is possible.</span>
           </h2>
           <p className="font-body text-brand-muted text-[15px] leading-[1.85] max-w-xl mx-auto mb-9">
-            Send a short description through the contact form. We reply within one business day to
-            set up a free 30-minute call — no commitment required.
+            Send a short description through the contact form. It reaches our workflow straight away,
+            and a person follows up to set up a free 30-minute call — no commitment required.
           </p>
           <ConsultationCTA
             location={`service_${offer.slug}_final`}

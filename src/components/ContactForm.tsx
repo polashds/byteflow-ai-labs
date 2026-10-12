@@ -44,8 +44,8 @@ export default function ContactForm() {
           Thank you
         </h2>
         <p className="font-body text-sm text-brand-muted max-w-sm mx-auto leading-relaxed">
-          We&apos;ve received your enquiry. Next, we read your description and reply within one
-          business day to set up a free 30-minute call. After that call we send a scoped proposal if
+          We&apos;ve received your enquiry and passed it to our team&apos;s workflow. Next, a person
+          reads your description and contacts you to set up a free 30-minute call. After that call we send a scoped proposal if
           there is a fit. In the meantime, feel free to explore our{" "}
           <Link href="/services" className="text-accent hover:underline">
             services
@@ -177,7 +177,7 @@ export default function ContactForm() {
       </button>
 
       <p className="font-body text-[11px] text-brand-muted/60 text-center">
-        We reply within one business day · Free 30-minute call · No spam, ever
+        A person follows up · Free 30-minute call · No spam, ever
       </p>
     </form>
   );

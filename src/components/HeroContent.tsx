@@ -83,7 +83,7 @@ export default function HeroContent() {
         className="animate-fade-up font-body text-xs text-brand-muted/70 mt-5"
         style={delay(300)}
       >
-        Free 30-minute call. Tell us where leads or orders get stuck — we reply within one business day.
+        Free 30-minute call. Tell us where leads or orders get stuck — a person from our team follows up.
       </p>
 
       {/* What the system does, in order */}

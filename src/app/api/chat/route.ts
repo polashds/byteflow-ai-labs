@@ -21,7 +21,7 @@ interface AiResponse {
 }
 
 const FALLBACK_REPLY =
-  `I'm having trouble connecting right now. For immediate assistance, email us at ${brand.email} — we respond within one business day.`;
+  `I'm having trouble connecting right now. Please email us at ${brand.email} or use the contact form and a person from our team will follow up.`;
 
 function fireWebhook(payload: Record<string, unknown>) {
   const url = process.env.N8N_LEAD_WEBHOOK_URL;
@@ -92,7 +92,7 @@ IMPORTANT — Always reply with ONLY a valid JSON object in exactly this shape, 
 {"reply": "<your response>", "lead": null}
 
 When you capture a valid lead (name + phone and/or email):
-{"reply": "<warm acknowledgement — confirm the team will reach out within 1 business day, offer to answer any questions in the meantime>", "lead": {"name": "<name>", "phone": "<phone number or empty string>", "email": "<email or empty string>"}}`;
+{"reply": "<warm acknowledgement — confirm a person from the team will follow up (never promise a specific response time), offer to answer any questions in the meantime>", "lead": {"name": "<name>", "phone": "<phone number or empty string>", "email": "<email or empty string>"}}`;
 
 export async function POST(req: NextRequest) {
   let messages: ChatMessage[] = [];
