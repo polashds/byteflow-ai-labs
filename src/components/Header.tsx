@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/nav";
 import { brand } from "@/config/branding";
+import { trackServiceCtaClick } from "@/lib/analytics";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -84,6 +85,7 @@ export default function Header() {
           {/* Desktop CTA */}
           <Link
             href="/contact"
+            onClick={() => trackServiceCtaClick("header", "Discuss Your Workflow")}
             className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 shrink-0 text-brand-bg font-body"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
@@ -203,7 +205,10 @@ export default function Header() {
         <div className="px-6 pb-8 shrink-0">
           <Link
             href="/contact"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              trackServiceCtaClick("mobile_menu", "Discuss Your Workflow");
+              setOpen(false);
+            }}
             className="flex items-center justify-center px-5 py-3.5 text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >

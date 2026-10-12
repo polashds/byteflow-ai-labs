@@ -46,7 +46,7 @@ export default function HeroContent() {
       >
         Stop losing leads and orders to{" "}
         <span className="inline-block" style={gradientText}>
-          slow, manual follow-up
+          slow, manual <span className="whitespace-nowrap">follow-up</span>
         </span>
       </h1>
 
