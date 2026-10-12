@@ -23,6 +23,44 @@ interface AiResponse {
 const FALLBACK_REPLY =
   `I'm having trouble connecting right now. Please email us at ${brand.email} or use the contact form and a person from our team will follow up.`;
 
+// ── Chat lead de-duplication (temporary mitigation) ───────────────────────────
+// The model may return the same contact on later turns because the full
+// history is resent each time. We allow at most one saved lead per chat.
+//
+// Identity: `chatId` is a random v4 UUID created once per chat by the widget.
+// Anything that is not a strict v4 UUID is ignored (legacy behaviour, no
+// de-duplication). Keys are chat IDs only — never names, emails or phones — so a
+// client can only affect captures in its own chat.
+//
+// NOT durable idempotency: this registry lives in this server process's memory.
+// It is cleared on restart or redeploy and is not shared between processes. A
+// durable fix needs a unique database key (separate change with a migration).
+const UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const isUuidV4 = (v: unknown): v is string => typeof v === "string" && UUID_V4.test(v);
+
+const CHAT_LEAD_TTL_MS = 24 * 60 * 60 * 1000;
+const CHAT_LEAD_MAX = 10_000;
+const chatLeadClaims = new Map<string, number>(); // chatId -> claimed at (ms)
+
+/**
+ * Synchronous check-and-set. Node runs this without yielding, so of two
+ * concurrent requests for the same chat only the first to get here wins.
+ */
+function claimChatLead(chatId: string): boolean {
+  const now = Date.now();
+  for (const [id, at] of chatLeadClaims) {
+    if (now - at > CHAT_LEAD_TTL_MS) chatLeadClaims.delete(id);
+  }
+  while (chatLeadClaims.size >= CHAT_LEAD_MAX) {
+    const oldest = chatLeadClaims.keys().next().value;
+    if (oldest === undefined) break;
+    chatLeadClaims.delete(oldest);
+  }
+  if (chatLeadClaims.has(chatId)) return false;
+  chatLeadClaims.set(chatId, now);
+  return true;
+}
+
 function fireWebhook(payload: Record<string, unknown>) {
   const url = process.env.N8N_LEAD_WEBHOOK_URL;
   if (!url) return;
@@ -97,6 +135,8 @@ When you capture a valid lead (name + phone and/or email):
 export async function POST(req: NextRequest) {
   let messages: ChatMessage[] = [];
   let eventId: string = crypto.randomUUID();
+  let chatId: string | null = null;
+  let leadAlreadyCaptured = false;
 
   try {
     const body = await req.json();
@@ -107,6 +147,11 @@ export async function POST(req: NextRequest) {
     }
     if (typeof body.eventId === "string" && body.eventId) {
       eventId = body.eventId;
+    }
+    if (isUuidV4(body.chatId)) {
+      chatId = body.chatId;
+      // Client hint: this chat already has a saved lead (survives a server restart).
+      leadAlreadyCaptured = body.leadAlreadyCaptured === true;
     }
   } catch {
     return NextResponse.json({ error: "invalid body" }, { status: 400 });
@@ -182,13 +227,19 @@ export async function POST(req: NextRequest) {
     }
 
     let leadSaved = false;
-    if (capturedLead) {
+    // One lead per chat: skip if the client says it already has one, or if this
+    // process has already claimed (or is saving) a lead for this chat.
+    const allowCapture =
+      capturedLead !== null && (chatId === null || (!leadAlreadyCaptured && claimChatLead(chatId)));
+
+    if (capturedLead && allowCapture) {
+      let lead: Awaited<ReturnType<typeof prisma.lead.create>> | null = null;
       try {
         const lastUserMessage = [...messages]
           .reverse()
           .find((m) => m.role === "user")?.text;
 
-        const lead = await prisma.lead.create({
+        lead = await prisma.lead.create({
           data: {
             name: capturedLead.name,
             phone: capturedLead.phone || null,
@@ -197,7 +248,19 @@ export async function POST(req: NextRequest) {
             source: LeadSource.Chatbot,
           },
         });
+      } catch (e) {
+        console.error("Chatbot lead creation failed", e);
+        // Release the claim so a later message in this chat can retry the save.
+        if (chatId) chatLeadClaims.delete(chatId);
+      }
 
+      // Webhook and CAPI only after a confirmed save, and at most once per chat.
+      // Once the save succeeds the claim is kept. fireWebhook and sendCapiLead
+      // swallow their own errors, so a failed n8n or Meta request fails silently
+      // (not logged) and is NOT retried: the lead stays in the database (visible in
+      // /admin/leads) and leadCaptured is still returned, so the browser Pixel
+      // Lead still fires. Same as before this change.
+      if (lead) {
         fireWebhook({
           id: lead.id,
           name: lead.name,
@@ -209,8 +272,6 @@ export async function POST(req: NextRequest) {
         });
         await sendCapiLead({ eventId, email: capturedLead.email, phone: capturedLead.phone });
         leadSaved = true;
-      } catch (e) {
-        console.error("Chatbot lead creation failed", e);
       }
     }
 

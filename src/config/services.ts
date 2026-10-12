@@ -24,7 +24,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "VPS Setup & n8n Installation",
         description:
-          "Get a production-ready n8n instance running on your VPS in under 48 hours — secure, SSL-terminated, and Traefik-routed from day one.",
+          "A production-ready n8n instance on your own VPS — secure, SSL-terminated, and Traefik-routed from day one. Deployment timeline depends on server access, DNS configuration, and project requirements.",
         includes: [
           "VPS selection guidance & provisioning",
           "Docker + Traefik reverse proxy setup",
@@ -63,7 +63,7 @@ export const serviceCategories: ServiceCategory[] = [
           "A monthly retainer for teams who want their workflows monitored, maintained, and expanded as the business grows — without needing to manage n8n themselves.",
         includes: [
           "24/7 uptime monitoring with instant alerts",
-          "Bug fixes within 24 hours",
+          "Priority bug fixes, with response times agreed in your retainer",
           "Monthly execution & cost efficiency report",
           "Up to 8h of new workflow development per month",
           "Quarterly workflow optimisation review",
@@ -436,7 +436,7 @@ export const serviceCategories: ServiceCategory[] = [
         includes: [
           "Uptime monitoring with WhatsApp + email alerts",
           "Monthly execution & error-rate report",
-          "Workflow failure investigation & fix within 4 hours",
+          "Workflow failure investigation and fixes, with response times agreed in your retainer",
           "API deprecation & breaking-change alerts",
           "Quarterly workflow review & performance optimisation",
         ],

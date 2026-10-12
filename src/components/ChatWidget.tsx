@@ -31,7 +31,12 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const shownRef = useRef(false);
-  const gaLeadSent = useRef(false);
+  // One chat = one ID and one lead event ID, created on the first message.
+  // The server de-duplicates chat leads by chatId; the shared eventId lets Meta
+  // merge the browser Pixel Lead with the server CAPI Lead.
+  const chatIdRef = useRef<string | null>(null);
+  const leadEventIdRef = useRef<string | null>(null);
+  const leadCapturedRef = useRef(false);
 
   // Proactive teaser: timer + scroll trigger, once per session
   useEffect(() => {
@@ -84,20 +89,25 @@ export default function ChatWidget() {
     setMessages(newHistory);
     setLoading(true);
     try {
-      const eventId = crypto.randomUUID();
+      chatIdRef.current ??= crypto.randomUUID();
+      leadEventIdRef.current ??= crypto.randomUUID();
+      const eventId = leadEventIdRef.current;
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newHistory, eventId }),
+        body: JSON.stringify({
+          messages: newHistory,
+          eventId,
+          chatId: chatIdRef.current,
+          leadAlreadyCaptured: leadCapturedRef.current,
+        }),
       });
       const data = await res.json();
-      if (data.leadCaptured) {
-        // Count at most one GA4 lead per chat session: the model can re-send
-        // the same contact details on later turns. Pixel behaviour unchanged.
-        if (!gaLeadSent.current) {
-          gaLeadSent.current = true;
-          trackGA4Lead("chatbot");
-        }
+      // At most one GA4 and one Pixel lead per chat, and only after the server
+      // confirms the lead was saved.
+      if (data.leadCaptured && !leadCapturedRef.current) {
+        leadCapturedRef.current = true;
+        trackGA4Lead("chatbot");
         trackPixelLead(eventId);
       }
       setMessages((prev) => [
