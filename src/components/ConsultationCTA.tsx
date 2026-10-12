@@ -1,18 +1,32 @@
+"use client";
+
 /**
  * Smart CTA that routes to Calendly (if NEXT_PUBLIC_CALENDLY_URL is set)
  * or the contact form (/contact#contact-form) otherwise.
- * Pure Server Component — no client JS needed.
+ *
+ * Client component only so a click can be reported to GA4 as
+ * `service_cta_click` (a click is NOT a lead — `generate_lead` still fires
+ * only after the form is accepted). NEXT_PUBLIC_* values are inlined at build
+ * time, so the Calendly branch behaves exactly as before.
  */
 import Link from "next/link";
+import { trackServiceCtaClick } from "@/lib/analytics";
 
 interface Props {
   className?: string;
   style?: React.CSSProperties;
   children: React.ReactNode;
+  /** Where on the site the CTA sits, e.g. "home_hero". Used for reporting only. */
+  location?: string;
 }
 
-export default function ConsultationCTA({ className, style, children }: Props) {
+function labelOf(children: React.ReactNode): string {
+  return typeof children === "string" ? children : "cta";
+}
+
+export default function ConsultationCTA({ className, style, children, location = "unspecified" }: Props) {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
+  const onClick = () => trackServiceCtaClick(location, labelOf(children));
 
   if (calendlyUrl) {
     return (
@@ -22,6 +36,7 @@ export default function ConsultationCTA({ className, style, children }: Props) {
         rel="noopener noreferrer"
         className={className}
         style={style}
+        onClick={onClick}
       >
         {children}
       </a>
@@ -29,7 +44,7 @@ export default function ConsultationCTA({ className, style, children }: Props) {
   }
 
   return (
-    <Link href="/contact#contact-form" className={className} style={style}>
+    <Link href="/contact#contact-form" className={className} style={style} onClick={onClick}>
       {children}
     </Link>
   );

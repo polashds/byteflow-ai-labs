@@ -2,9 +2,11 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { serviceCategories } from "@/config/services";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import { coreOffers } from "@/config/coreOffers";
 
 export const metadata: Metadata = {
-  title: "Services — ByteFlow AI Labs",
+  alternates: { canonical: "/services" },
+  title: "AI Automation Services",
   description:
     "AI automation services: n8n infrastructure, WhatsApp bots, AI voice agents, lead scoring, Meta tracking, content automation, websites, and retainers — self-hosted on your VPS.",
   keywords: [
@@ -75,6 +77,41 @@ export default function ServicesPage() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Start here: the three core systems ─────────────────────────────── */}
+      <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-3">
+            Start here
+          </p>
+          <h2 className="font-heading font-semibold text-brand-text text-2xl sm:text-3xl mb-8">
+            Our three core systems
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {coreOffers.map((o) => (
+              <Link
+                key={o.slug}
+                href={`/services/${o.slug}`}
+                className="group block border border-primary/15 bg-brand-bg p-6 hover:border-primary/40 transition-colors duration-300"
+              >
+                <p className="font-body text-[10px] tracking-[0.2em] text-accent/80 uppercase mb-3">
+                  {o.painTag}
+                </p>
+                <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-2">
+                  {o.shortTitle}
+                </h3>
+                <p className="font-body text-[13px] text-brand-muted leading-relaxed">
+                  {o.cardSummary}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-6 font-body text-sm text-brand-muted">
+            The full catalogue below covers everything else we build, from voice agents to tracking
+            and retainers.
+          </p>
         </div>
       </section>
 

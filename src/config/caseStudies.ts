@@ -5,8 +5,24 @@ export type ResultItem = {
   isPlaceholder?: boolean;
 };
 
+/**
+ * How the project should be described publicly. Be strict: only mark a project
+ * "client" when it was delivered for a third party, and never publish a metric
+ * that has not been measured.
+ */
+export type ProjectType = "client" | "internal" | "demo" | "prototype";
+
+export const projectTypeLabel: Record<ProjectType, string> = {
+  client: "Client project",
+  internal: "Internal system (our own venture)",
+  demo: "Demonstration project",
+  prototype: "Prototype",
+};
+
 export type CaseStudy = {
   id: string;
+  /** See ProjectType — shown as a badge on the portfolio page */
+  projectType?: ProjectType;
   client: string;
   industry: string;
   location: string;
@@ -23,6 +39,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     id: "mustaraka-properties",
+    projectType: "internal",
     client: "Mustaraka Properties",
     industry: "Real Estate",
     location: "Dhaka, Bangladesh",
@@ -76,6 +93,7 @@ export const caseStudies: CaseStudy[] = [
 
   {
     id: "nova-digital-store",
+    projectType: "client",
     client: "Nova Digital Store",
     industry: "E-commerce (Digital Products)",
     location: "Latin America",

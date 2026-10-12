@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — ByteFlow AI Labs",
+  alternates: { canonical: "/terms" },
+  title: "Terms of Use",
   description: "Terms of Use for ByteFlow AI Labs — governing the use of our website and AI automation services.",
   robots: { index: false },
 };

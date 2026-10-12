@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
 import { PostStatus } from "@prisma/client";
+import { coreOffers } from "@/config/coreOffers";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +10,11 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com";
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: BASE, changeFrequency: "weekly", priority: 1 },
   { url: `${BASE}/services`, changeFrequency: "monthly", priority: 0.9 },
+  ...coreOffers.map((o) => ({
+    url: `${BASE}/services/${o.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  })),
   { url: `${BASE}/solutions`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/portfolio`, changeFrequency: "monthly", priority: 0.8 },
   { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
@@ -17,14 +23,20 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE}/faq`, changeFrequency: "monthly", priority: 0.6 },
   { url: `${BASE}/privacy`, changeFrequency: "yearly", priority: 0.2 },
   { url: `${BASE}/terms`, changeFrequency: "yearly", priority: 0.2 },
-  { url: `${BASE}/disclaimer`, changeFrequency: "yearly", priority: 0.2 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await prisma.post.findMany({
-    where: { status: PostStatus.Published },
-    select: { slug: true, updatedAt: true },
-  });
+  // If the database is briefly unreachable, still serve the static routes
+  // instead of returning a 500 to crawlers.
+  let posts: { slug: string; updatedAt: Date }[] = [];
+  try {
+    posts = await prisma.post.findMany({
+      where: { status: PostStatus.Published },
+      select: { slug: true, updatedAt: true },
+    });
+  } catch (e) {
+    console.error("sitemap: could not load blog posts", e);
+  }
 
   const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${BASE}/blog/${p.slug}`,

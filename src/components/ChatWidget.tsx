@@ -91,7 +91,7 @@ export default function ChatWidget() {
       });
       const data = await res.json();
       if (data.leadCaptured) {
-        trackGA4Lead();
+        trackGA4Lead("chatbot");
         trackPixelLead(eventId);
       }
       setMessages((prev) => [

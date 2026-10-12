@@ -48,7 +48,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Workflow Audit & Migration",
         description:
-          "Already on Zapier, Make, or a messy n8n instance? We audit what you have, identify failure points, and rebuild for reliability — often cutting running costs by 60% or more.",
+          "Already on Zapier, Make, or a messy n8n instance? We audit what you have, identify failure points, and rebuild for reliability — with a cost comparison in the handover report.",
         includes: [
           "Full audit of existing workflows & integrations",
           "Bottleneck & reliability analysis report",
@@ -107,7 +107,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "WhatsApp Broadcast Campaigns",
         description:
-          "Send targeted, personalised broadcast messages to segmented customer lists — promotions, reminders, re-engagement, and follow-ups that get read (open rates consistently above 80%).",
+          "Send targeted, personalised broadcast messages to segmented customer lists — promotions, reminders, re-engagement, and follow-ups delivered where customers already read their messages.",
         includes: [
           "Audience segmentation & list management",
           "Message template creation & Meta approval",

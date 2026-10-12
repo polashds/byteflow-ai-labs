@@ -7,7 +7,8 @@ import { PostStatus } from "@prisma/client";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog — ByteFlow AI Labs",
+  alternates: { canonical: "/blog" },
+  title: "Blog",
   description:
     "Insights, tutorials, and case studies on AI automation, n8n workflows, WhatsApp bots, and AI agent development from the ByteFlow AI Labs team.",
   keywords: [

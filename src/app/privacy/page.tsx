@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — ByteFlow AI Labs",
+  alternates: { canonical: "/privacy" },
+  title: "Privacy Policy",
   description: "Privacy Policy for ByteFlow AI Labs — how we collect, use, and protect your personal information.",
   robots: { index: false },
 };

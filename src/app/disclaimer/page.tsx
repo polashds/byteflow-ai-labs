@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import { COMPANY_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — ByteFlow AI Labs",
+  alternates: { canonical: "/disclaimer" },
+  title: "Disclaimer",
   description: "Disclaimer for ByteFlow AI Labs — limitations of liability, AI output accuracy, and third-party service responsibilities.",
   robots: { index: false },
 };

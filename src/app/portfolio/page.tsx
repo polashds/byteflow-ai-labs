@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { caseStudies } from "@/config/caseStudies";
+import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
 import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
-  title: "Portfolio — ByteFlow AI Labs",
+  alternates: { canonical: "/portfolio" },
+  title: "Portfolio and Case Studies",
   description:
     "Real projects, honest outcomes. ByteFlow AI Labs case studies: AI real estate platforms, WhatsApp automation, and more.",
   keywords: [
@@ -85,6 +86,11 @@ export default function PortfolioPage() {
                 <span className="font-body text-[10px] text-brand-muted tracking-[0.2em]">
                   · {cs.year}
                 </span>
+                {cs.projectType && (
+                  <span className="font-body text-[10px] font-medium tracking-[0.2em] text-brand-text/80 uppercase border border-primary/25 bg-primary/10 px-2.5 py-1">
+                    {projectTypeLabel[cs.projectType]}
+                  </span>
+                )}
               </div>
               <h2 className="font-heading font-semibold text-brand-text text-[1.6rem] sm:text-3xl lg:text-4xl leading-tight mb-4">
                 {cs.client}

@@ -87,7 +87,7 @@ export default function Header() {
             className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 shrink-0 text-brand-bg font-body"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
-            Get a Demo
+            Discuss Your Workflow
           </Link>
 
           {/* Hamburger — mobile only */}
@@ -206,7 +206,7 @@ export default function Header() {
             className="flex items-center justify-center px-5 py-3.5 text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
-            Get a Demo
+            Discuss Your Workflow
           </Link>
         </div>
       </nav>

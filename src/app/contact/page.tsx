@@ -4,7 +4,8 @@ import ContactForm from "@/components/ContactForm";
 import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
-  title: "Contact Us — ByteFlow AI Labs",
+  alternates: { canonical: "/contact" },
+  title: "Contact Us",
   description:
     "Get in touch with ByteFlow AI Labs. Tell us about your automation needs and we'll be in touch within one business day.",
   openGraph: {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import Link from "next/link";
 import { submitContact } from "@/lib/actions";
 import { serviceCategories } from "@/config/services";
 import { BUDGET_OPTIONS } from "@/config/contact";
@@ -20,7 +21,7 @@ export default function ContactForm() {
       formData.append("eventId", eventId);
       const result = await submitContact(formData);
       if (result.success) {
-        trackGA4Lead();
+        trackGA4Lead("contact_form");
         trackPixelLead(eventId);
         setSubmitted(true);
       } else {
@@ -43,15 +44,16 @@ export default function ContactForm() {
           Thank you
         </h2>
         <p className="font-body text-sm text-brand-muted max-w-sm mx-auto leading-relaxed">
-          We&apos;ve received your enquiry and will be in touch within one business day.
-          In the meantime, feel free to explore our{" "}
-          <a href="/services" className="text-accent hover:underline">
+          We&apos;ve received your enquiry. Next, we read your description and reply within one
+          business day to set up a free 30-minute call. After that call we send a scoped proposal if
+          there is a fit. In the meantime, feel free to explore our{" "}
+          <Link href="/services" className="text-accent hover:underline">
             services
-          </a>{" "}
+          </Link>{" "}
           or{" "}
-          <a href="/portfolio" className="text-accent hover:underline">
+          <Link href="/portfolio" className="text-accent hover:underline">
             case studies
-          </a>
+          </Link>
           .
         </p>
       </div>
@@ -69,20 +71,22 @@ export default function ContactForm() {
       {/* Name + Company */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelCls}>Full Name *</label>
+          <label htmlFor="cf-name" className={labelCls}>Full Name *</label>
           <input
             type="text"
             name="name"
+            id="cf-name"
             required
             placeholder="Your name"
             className={fieldCls}
           />
         </div>
         <div>
-          <label className={labelCls}>Company</label>
+          <label htmlFor="cf-company" className={labelCls}>Company</label>
           <input
             type="text"
             name="company"
+            id="cf-company"
             placeholder="Company or business name"
             className={fieldCls}
           />
@@ -92,19 +96,21 @@ export default function ContactForm() {
       {/* Email + Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelCls}>Email Address</label>
+          <label htmlFor="cf-email" className={labelCls}>Email Address</label>
           <input
             type="email"
             name="email"
+            id="cf-email"
             placeholder="you@company.com"
             className={fieldCls}
           />
         </div>
         <div>
-          <label className={labelCls}>Phone / WhatsApp</label>
+          <label htmlFor="cf-phone" className={labelCls}>Phone / WhatsApp</label>
           <input
             type="tel"
             name="phone"
+            id="cf-phone"
             placeholder="+880 1700 000000"
             className={fieldCls}
           />
@@ -114,8 +120,8 @@ export default function ContactForm() {
       {/* Service + Budget */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelCls}>Service Interested In</label>
-          <select name="service" className={fieldCls} defaultValue="">
+          <label htmlFor="cf-service" className={labelCls}>Service Interested In</label>
+          <select name="service" id="cf-service" className={fieldCls} defaultValue="">
             <option value="" disabled>
               Select a service category…
             </option>
@@ -128,8 +134,8 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label className={labelCls}>Approximate Budget</label>
-          <select name="budget" className={fieldCls} defaultValue="">
+          <label htmlFor="cf-budget" className={labelCls}>Approximate Budget</label>
+          <select name="budget" id="cf-budget" className={fieldCls} defaultValue="">
             <option value="" disabled>
               Select a budget range…
             </option>
@@ -144,11 +150,12 @@ export default function ContactForm() {
 
       {/* Project details */}
       <div>
-        <label className={labelCls}>Project Details</label>
+        <label htmlFor="cf-message" className={labelCls}>Project Details</label>
         <textarea
           name="message"
+          id="cf-message"
           rows={5}
-          placeholder="Describe what you want to automate or the problem you're trying to solve. The more specific, the better."
+          placeholder="Where do leads, messages or orders get stuck today? Which tools do you use (ads, WhatsApp, CRM, spreadsheets)? What would a good outcome look like?"
           className={`${fieldCls} resize-none`}
         />
       </div>
@@ -170,7 +177,7 @@ export default function ContactForm() {
       </button>
 
       <p className="font-body text-[11px] text-brand-muted/60 text-center">
-        We respond within one business day · No spam, ever
+        We reply within one business day · Free 30-minute call · No spam, ever
       </p>
     </form>
   );
