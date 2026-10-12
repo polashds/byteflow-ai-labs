@@ -1,163 +1,222 @@
 # ByteFlow AI Labs — Positioning, Conversion & SEO Optimization
 
-Branch: `feat/positioning-conversion-seo` · Status: ready for review, **not merged, not deployed**.
+Branch: `feat/positioning-conversion-seo` (base `main` @ `d21b655`) · Status: ready for review, **not merged, not deployed**.
 
-Everything below is labelled **Verified** (seen in code or in a command I ran) or **Assumed** (inferred, needs your confirmation).
+Each finding is marked **Verified** (seen in code, or in a command or browser check I actually ran) or **Assumed** (needs your confirmation).
+
+Deploy reminder (from your own VPS notes): pushing to GitHub does **not** deploy. The live site only changes when someone runs `git pull && docker compose up -d --build` in `/opt/sites/byteflow-app`.
 
 ---
 
-## 1. Audit
+## 1. Decisions applied (round 2)
 
-### Architecture (Verified)
-- Next.js 16.2.7 App Router, React 19, TypeScript, Tailwind v4 (`@theme` in `globals.css`), Prisma 7 + Postgres, Auth.js v5 for admin.
-- Content lives in `src/config/*.ts`. Pages are mostly layout.
-- GA4 is loaded directly with gtag (no GTM). Meta Pixel plus server-side CAPI with `eventId` dedup. Lead fan-out to n8n webhooks. AI chat via OpenRouter.
-- No animation library. Existing motion is hand-written CSS keyframes.
-
-### Functionality preserved (Verified by diff: no changes to these)
-Contact form server action, `api/lead-magnet`, `api/chat`, CAPI (`src/lib/capi.ts`), Prisma schema and migrations, admin panel and `proxy.ts`, Dockerfile, docker-compose, env vars, Calendly/contact routing in `ConsultationCTA`.
-
-### Problems found
-| Area | Finding | Status |
+| Topic | Decision | What changed |
 |---|---|---|
-| Positioning | Homepage described eight service categories to everyone ("AI automation for modern business"). No single audience, no pain-led headline. | Verified |
-| Proof | Homepage stats bar and "Why ByteFlow" pillars carried numbers with no source in the repo. | Verified (no source found) |
-| Claims | `services.ts` had "80% open rate" and "60% cost cut" with no evidence; `solutions.ts` still has more (see section 8). | Verified |
-| SEO titles | Brand suffix duplicated on most pages (layout template already appends it). | Verified |
-| SEO canonicals | No `alternates.canonical` on any page. | Verified |
-| SEO schema | Organization only. No WebSite, Service, BreadcrumbList or FAQPage. | Verified |
-| Sitemap | `/disclaimer` listed; DB query unguarded, so a DB outage would break the sitemap. | Verified |
-| Robots | `/api/` was not disallowed. | Verified |
-| Analytics | One `Lead` event for every lead source. No way to tell form from chatbot from lead magnet in GA4. No CTA click tracking. | Verified |
-| Accessibility | Contact form labels not bound to inputs; no global focus style; hero animation 1100ms; reduced-motion override missed some animations. | Verified |
-| Case studies | No project-type label (client / internal / demo / prototype). | Verified |
-| `legacy` folder | The brief mentions one. **It does not exist in this repo.** Nothing deleted or moved. | Verified |
-| Reference animation source | siddiquehossain.com source was not available to me (private/local). I used only the live site's behaviour and general principles from pucho.ai. Nothing copied. | Assumed |
+| Mustaraka | Your own venture | Case study and service-page references now say "our own real estate venture". The chatbot is listed as running on OpenRouter (it was Gemini). I added the WhatsApp lead agent that books viewings against live availability and hands over to a person. Both facts come from your handoff notes in `legacy/`. |
+| Nova | Results approved | I kept the four results. I softened "hundreds of receipts every day" to "a large volume", because no source exists for that number. |
+| Response time | No human-response promise | I removed every "within one business day": hero, contact page, form, FAQ, service pages, chat system prompt and chat fallback. The new copy describes what the system does. The copy lives in `src/config/contact.ts` (`afterContactSteps`, `responseNote`). |
+| Support | 30 days where it applies | Covers the three core offers, engagement step 04 and the FAQ. Wording: "30 days of post-launch support to fix issues in what we delivered … your proposal states the exact terms." Retainers are unchanged. `supportTerms` lives in `config/contact.ts`. |
+| GA4 form tracking | One lead event, only after a confirmed save | See section 6. |
+| Legacy folder | Inspected | See section 4. |
+| Animation | Portfolio repo inspected | See section 5. |
+
+### How each response-time claim is backed by code (Verified)
+- **"Questions in the website chat are answered straight away by our AI assistant"**: `/api/chat` calls OpenRouter on each message. If the API key is missing, it returns a fallback that sends the visitor to email or the contact form, with no time promise.
+- **"Your enquiry is saved and passed to our automation workflow the moment you send it"**: `submitContact` writes to the `Lead` table and immediately POSTs to `N8N_LEAD_WEBHOOK_URL`. Chat and lead-magnet submissions behave the same way.
+- **"A person reviews it and follows up"**: no timeframe is stated. The contact page still lists business hours (Mon–Fri, 9:00–18:00 GMT+6).
+- **Not claimed**: anything n8n does after receiving the webhook (auto-replies, CRM routing). That workflow lives outside this repo, so I could not check it.
 
 ---
 
-## 2. Positioning
+## 2. Positioning (final)
 
-### Options considered
-1. **Generalist AI automation agency** (status quo). Broad, hard to rank for, hard to buy.
-2. **WhatsApp and lead automation for businesses selling through ads, websites and WhatsApp** (chosen). Matches the strongest existing proof (lead flow, WhatsApp bot, order verification) and the Bangladesh-first market.
-3. **n8n infrastructure specialist.** Real skill, but buyers search for outcomes, not tooling.
+- **Audience:** businesses that sell through Facebook ads, websites and WhatsApp and lose leads or orders to slow, manual follow-up.
+  - This is defensible from the evidence: Mustaraka (ad and web leads into WhatsApp alerts plus WhatsApp booking), Nova (WhatsApp receipt verification), the Meta Pixel + CAPI work, and your other WhatsApp systems (dental reception, wacrm).
+- **Headline:** "Stop losing leads and orders to slow, manual follow-up."
+- **Core offers:**
+  - `/services/lead-to-crm-automation`
+  - `/services/whatsapp-ai-assistant`
+  - `/services/order-payment-automation`
+  - The full catalogue stays on `/services`.
+- **Primary CTA:** "Discuss Your Workflow" (`ConsultationCTA`). It goes to Calendly when `NEXT_PUBLIC_CALENDLY_URL` is set, otherwise to `/contact#contact-form`. Both destinations were verified in code. The link resolved locally to the contact form, which returned 200.
+- **The homepage now answers, in order:**
+  1. Who we help and the problem (hero, pain points)
+  2. The systems we build (3 offers)
+  3. How lead capture, AI reply, workflow, CRM and routing connect (hero flow strip and offer pages)
+  4. What an engagement includes (new "Included in every core-system engagement" list, including third-party costs)
+  5. How an engagement runs (4 steps)
+  6. Proof (case studies with project-type labels)
+  7. Why trust us (oversight and ownership)
+  8. What happens after you contact us (new 3-step block)
+  9. Next step (CTA)
 
-### Chosen audience
-Businesses that sell through Facebook ads, a website and WhatsApp and lose leads or orders to slow, manual follow-up.
+---
 
-### Headline
-"Stop losing leads and orders to slow, manual follow-up."
+## 3. Claims review
 
-### Core offers (three, each with its own indexable page)
-| Page | Pain it answers |
+Qualified (Verified as unsupported in the repo, so softened rather than deleted):
+
+| Where | Before | After |
+|---|---|---|
+| solutions.ts | "Every lead acknowledged within 60 seconds" | "An automated first reply sent as soon as a lead arrives" |
+| solutions.ts | "lose 65–75% of potential orders to cart abandonment" | "lose a large share of checkouts to cart abandonment" |
+| solutions.ts | "tens — sometimes hundreds — of enquiries per day" | "a steady flow of enquiries" |
+| solutions.ts | "Zero missed new patient calls", "No-show rate reduced", "Accurate Meta attribution", "Support volume reduced", "converts leads that would have gone cold" | Each rewritten as a capability, not an outcome |
+| services.ts | "Recover up to 30% of previously lost conversion signal" | Describes what CAPI does, with no number |
+| caseStudies.ts | Mustaraka: "Zapier, HubSpot, and CRM seats replaced" (it launched from scratch) | "None — no Zapier, HubSpot or paid CRM seats needed" |
+
+Left as-is, needing your call:
+- `services.ts` retainer line "Bug fixes within 24 hours". This is a service commitment, not a statistic. Keep it only if you can honour it.
+- The "50% advance" payment terms on About.
+- The About-page founder placeholder.
+
+---
+
+## 4. Legacy folder
+
+**Verified.** `legacy/` exists only on your computer, at `D:\ByteFlow AI Labs\byteflow-ai-labs\legacy`. It is not on any GitHub branch. Your local checkout is on `main`, with `legacy/` and the brief untracked.
+
+| Item | What it is | Classification |
+|---|---|---|
+| `HANDOFF (1).md` | Freelance go-to-market kit index (Upwork, Fiverr, LinkedIn), build-plan status | **5. Archive, do not publish** |
+| `anwar-handoff.md` | Client handoff for DocStudio / DeskSetup: audit, pricing, a third-party phone number, compliance notes | **5. Archive, do not publish** (contains client-confidential data) |
+| `summary.txt` | VPS and session handoff: server IP, container map, deploy steps, open security items | **5. Archive, do not publish** (contains infrastructure details) |
+
+- None of these files are web pages or old routes, so no URL, redirect or sitemap change is needed. `/legacy` returns 404 (Verified locally).
+- Next.js would only route `src/app/**` anyway; a root-level `legacy/` folder is never served.
+- **The `polashds/byteflow-ai-labs` repository is public** (Verified with the GitHub API). I added `/legacy/` to `.gitignore` so these notes can't be committed by accident. Nothing was deleted or moved.
+- The only content I migrated is facts, used as evidence (see section 1).
+
+---
+
+## 5. Animation: reused from `polashds/siddiquehossain-portfolio`
+
+**Verified:** the repo was cloned and its `src/app/globals.css` and components were inspected. All patterns are pure CSS, restyled to ByteFlow tokens, with no new dependency.
+
+| Pattern (portfolio) | Used in ByteFlow |
 |---|---|
-| `/services/lead-to-crm-automation` | Leads arrive from ads/forms/WhatsApp and are answered late or lost |
-| `/services/whatsapp-ai-assistant` | Support and booking questions swamp the team on WhatsApp |
-| `/services/order-payment-automation` | Orders and payments verified by hand, slowly |
+| `.reveal`: scroll-driven `animation-timeline: view()` inside `@supports` | Replaces the IntersectionObserver `Reveal`. It is now a server component with stagger via `--i`. Content is in the HTML and visible without JS or support. This removed the old flash, where content was visible, then jumped to opacity 0 when the class was added. |
+| `.lift` card hover | Offer, proof and "start here" cards. Same cue on keyboard focus (verified: focused card `translateY(-3px)` plus an outline). |
+| `.arrow-link` nudge | Card arrows, on hover and focus-visible. |
+| `.tl` / `.tl-line` / `.tl-badge` timeline | Engagement steps: the rail draws and the badges settle in. |
+| `.btn:active` 1px press | Every `ConsultationCTA`. |
+| `.load-in` 0.45s entrance | Hero `fadeUp` shortened from 650ms/16px to 450ms/10px. |
+| Global reduced-motion guard | Added. Verified: hero and reveal `animation-name: none`, H1 opacity 1. |
 
-The existing eight-category catalogue stays on `/services` below a "Start here" strip.
+Not reused: the hero grid lines, marquee and live-workflow loops. They are decorative styling that is unrelated to ByteFlow's design.
 
-### Service priority matrix
-| Offer | Evidence in repo | Buyer pain | Priority |
-|---|---|---|---|
-| Lead-to-CRM + WhatsApp follow-up | Strong (own n8n stack, Meta CAPI) | Direct revenue leak | 1 |
-| WhatsApp AI assistant | Strong (Nova case study) | Support load | 2 |
-| Order/payment verification | Medium (Mustaraka) | Back-office time | 3 |
-| Voice agents, content automation, websites, retainers | Catalogue only | Secondary | Kept on `/services`, not promoted |
+Pucho.ai was used as inspiration only, mainly the "card in view" idea; no code came from it.
+
+Browser support: Chromium/Edge and Safari 26+ animate. Firefox shows content without the scroll animation.
 
 ---
 
-## 3. Keyword / page-intent map
-| Page | Primary intent | Target phrases (to validate in Search Console) |
+## 6. Analytics (GA4, Meta)
+
+**Architecture (Verified):**
+- GA4 is loaded directly with gtag (`GA4Script.tsx`). **There is no GTM container in the site code.**
+- The Meta Pixel is loaded inline, and CAPI is sent server-side with a shared `eventId` for deduplication.
+
+| Event | Fires when | Params |
 |---|---|---|
-| `/` | Commercial, brand + category | WhatsApp automation agency, lead automation agency |
-| `/services/lead-to-crm-automation` | Commercial | lead to CRM automation, automated lead follow-up WhatsApp |
-| `/services/whatsapp-ai-assistant` | Commercial | WhatsApp AI chatbot for business, WhatsApp booking bot |
-| `/services/order-payment-automation` | Commercial | order verification automation, payment verification automation |
-| `/services` | Catalogue | AI automation services |
-| `/portfolio` | Proof | automation case studies |
-| `/faq` | Informational / AEO | FAQPage markup |
+| `generate_lead` | Only after the server confirms the lead was saved (contact form `result.success`, lead-magnet `data.success`, chat `leadCaptured`, which is set only after the DB write) | `lead_type`: `contact_form` / `lead_magnet` / `chatbot` |
+| `service_cta_click` | Click on any consultation CTA. **Not a lead.** | `cta_location`, `cta_label` |
+| `page_view` | Manual; config has `send_page_view: false` | `page_path` |
 
-No search-volume data was available to me. These phrases are hypotheses, not researched keywords.
+Fixes in this round (code only; no live settings changed):
+1. **Landing `page_view` could be lost.** The route effect only fired if `gtag` already existed, and the init script runs `afterInteractive`. The init script now sends the landing view, and a `__bfLastPageView` guard stops double counting in either order.
+   - Verified in the browser: landing gives exactly one `page_view` for `/`, and client navigation adds exactly one for `/services`.
+2. **Chat lead is counted at most once per chat session in GA4.** The model can return the same contact details again on later turns.
 
----
+Verified in the browser:
+- A CTA click produced only `service_cta_click`.
+- A **failed** contact submission (no database locally) produced **0** `generate_lead` events.
+- No name or email appeared in any event.
 
-## 4. Measurement plan
+**Duplicate-tracking risks I could not check (no GA4 admin access).** Manual steps:
+1. GA4 Admin → Data streams → Enhanced measurement:
+   - Turn **off** "Page changes based on browser history events", because the site sends SPA page views itself. Leaving it on double counts navigations.
+   - "Form interactions" produces `form_start` / `form_submit`, which are different event names. That is fine **as long as only `generate_lead` is marked as a key event**. Do not mark `form_submit`.
+2. GA4 Admin → Key events: `generate_lead` should be the only lead key event. Optionally build an audience or exploration on `lead_type`.
+3. DebugView, with the Tag Assistant extension on the deployed preview:
+   - Load `/` → expect 1 `page_view`.
+   - Click a nav link → expect +1 `page_view`.
+   - Click "Discuss Your Workflow" → expect `service_cta_click` only.
+   - Submit the contact form on a staging copy → expect exactly 1 `generate_lead` with `lead_type=contact_form`.
 
-### Implemented (additive; existing Pixel `Lead` behaviour unchanged)
-| Event | When | Parameters |
-|---|---|---|
-| `generate_lead` | Contact form, lead magnet, chatbot capture | `lead_type`: `contact_form` / `lead_magnet` / `chatbot` |
-| `service_cta_click` | `ConsultationCTA` click | `location` (e.g. `home_hero`) |
-
-No names, emails or phone numbers are sent in any event.
-
-### Not implemented (needs your decision)
-`email_click`, `phone_click`, `book_consultation`. Calendly booking completion cannot be seen from the site without Calendly's postMessage events; I did not guess.
-
-### Risks to check in GA4 DebugView
-- GA4 Enhanced Measurement "form interactions" may double-count against `generate_lead`. Disable it in the GA4 stream if you see duplicates.
-- Possible race on the initial `page_view` (script loads, then route effect fires). Needs live verification.
-- Lead-magnet submissions fire Pixel `Lead` as before. If you optimise Meta ads on `Lead`, lead-magnet downloads are counted the same as consultation requests. I left this unchanged.
-
----
-
-## 5. URL decisions
-- No routes removed or renamed. **No redirects needed.**
-- Added: three `/services/<slug>` pages (statically generated, `dynamicParams = false`).
-- Removed from sitemap only: `/disclaimer` (still reachable, still linked in footer).
-- No `legacy` folder exists, so no legacy URL handling was required.
+**Meta (unchanged by design; flagged for a separate decision):**
+- `MetaPixelScript` fires `PageView` in its init script and again from a route effect whenever `fbq` exists. That can produce two PageViews on first load. Check in Events Manager → Test events.
+- Chat leads re-captured on later turns create another DB row, n8n webhook call and CAPI `Lead`. A server-side guard would fix it, but it changes integration behaviour, so I have not made it without your approval.
+- Lead-magnet downloads also fire Meta `Lead`.
 
 ---
 
-## 6. Implementation log
-- **Content/config:** `coreOffers.ts`, `faqs.ts` (new); `branding.ts`, `caseStudies.ts`, `services.ts` (edited).
-- **Pages:** homepage rewritten; `/services/[slug]` added; `/services`, `/portfolio`, `/faq` updated; metadata cleaned on about, blog, blog/[slug], contact, disclaimer, privacy, terms, solutions.
-- **Components:** `HeroContent` (CSS-only staggered entrance + 5-step lead-flow strip), `SectionHeading` (new), `ConsultationCTA` (tracking), `ContactForm` (label binding, next-steps copy), `Header` (CTA text).
-- **SEO:** canonicals, de-duplicated titles, WebSite + Organization (with logo) schema, Service + BreadcrumbList + FAQPage schema, sitemap guard, robots disallow for `/admin/` and `/api/`.
-- **Motion:** hero fade-up 1100ms → 650ms, pure CSS, no new dependency. `prefers-reduced-motion` now also covers `pulse-primary` and typing dots. Global `:focus-visible` outline.
-- **Not touched:** Prisma schema/migrations, Dockerfile, docker-compose, env vars, `.env*`, `proxy.ts`.
+## 7. SEO / AEO checks
+
+Verified locally in a production build, across 10 public routes, each at desktop (1440) and mobile (390) width:
+- Each page has exactly one H1.
+- No horizontal overflow at either width.
+- Each page has a unique title using the `%s — ByteFlow AI Labs` template.
+- Each page has an absolute canonical on `https://byteflowailabs.com`, a meta description and Open Graph tags.
+- JSON-LD parses on every page:
+  - Organization + WebSite site-wide.
+  - Service + BreadcrumbList + FAQPage on the 3 offer pages.
+  - FAQPage on `/faq`.
+  - FAQ and Service text match the visible page content (same config source).
+- `sitemap.xml` and `robots.txt` return 200; robots disallows `/admin/` and `/api/`.
+- Lighthouse SEO scored 100 on every page tested.
+- No legacy content is published or indexed.
+- I made no ranking or AI-citation promises anywhere.
+
+Not run: Google Rich Results Test, Search Console (need the live URL and your login).
 
 ---
 
-## 7. Tests actually run
+## 8. Tests actually run (final, on commit `cc5fdb0`)
+
 | Check | Result |
 |---|---|
-| `tsc --noEmit` | 0 errors (with a local Prisma stub, see caveats) |
-| ESLint, before vs after | 12 → 10 findings (6 → 5 errors); no new findings. Remaining ones were pre-existing. |
-| `next build` | Passed with the caveats below. Three new service routes generated. |
-| Local `next start` route checks | Pages returned 200; titles, canonicals, JSON-LD, sitemap and robots output inspected |
+| `tsc --noEmit` | 0 errors (with the Prisma stub, see caveats) |
+| ESLint | 10 findings (5 errors), versus 12 (6 errors) on `main`; all are in files that already had them; **none new** |
+| `next build` | Passed; 19 pages generated, including the 3 SSG offer pages |
+| Route status (local `next start`) | 200 on all public pages and `/admin/login`. `/admin` and `/admin/leads` → 307 to login. `/services/nope`, `/legacy`, `/does-not-exist` → 404. `GET /api/chat` → 405. `/blog` → 500 locally only, because there is no `DATABASE_URL` in the sandbox; this branch changed only its metadata. |
+| Browser QA (Playwright + Chromium, 20 page loads) | No problems found by the script, and screenshots were reviewed at both widths. "Business day" appears on no page. Console errors were only the third-party requests I deliberately blocked. |
+| Reveal visibility at real scroll positions | All `.reveal` elements reach opacity 1, desktop and mobile |
+| Lighthouse (mobile, third-party tags blocked) | Home 92/100/96/100 · Lead-to-CRM 92/100/96/100 · Contact 93/100/96/100 · Services 98/100/96/100 · FAQ 99/100/96/100 · Solutions 99/100/96/100 · Portfolio 98/**96**/96/100 (perf/a11y/best-practices/SEO). CLS ≤ 0.06 everywhere. |
+| Chat API with no key | Returns the new fallback text (no time promise) |
 
-### Caveats (important)
-- `prisma generate` could not download engines (network allowlist). I used a **node_modules-only stub** for type-check and build. A stock `prisma generate && next build` has **not** been run. Do this before merging.
-- Google Fonts are blocked in the sandbox; the build used a mocked font response. Real font rendering was not checked.
-- **No visual / screenshot QA** (no browser available). Layout at mobile and desktop widths, and the animation feel, are unverified.
-- **Not run:** GA4 DebugView, Meta Events Manager test events, Search Console, Lighthouse/Core Web Vitals, real form submission, n8n webhook delivery, CAPI delivery.
+### What could not be verified, and why
+- **Real `prisma generate`:** fails because `binaries.prisma.sh` returns 403 through the sandbox network allowlist, even with `PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING=1`.
+  - Type-check and build used a local stub under `node_modules/.prisma/client`. The stub is not committed.
+  - **Run `npx prisma generate && npm run build` yourself before merging.** No schema changes were made, so it should pass.
+- **Google Fonts:** blocked; the build used a mocked font response. That is why the screenshots show a serif fallback where Geist should be.
+- **A successful form submission → DB → n8n → CAPI:** not possible here (no database or webhook). I did not send anything to production.
+- **GA4 DebugView, GTM Preview, Meta Events Manager, Search Console:** not available. See the manual steps in section 6.
+- **Lighthouse on the live site:** these numbers come from a local build with mocked fonts and blocked tags. Real scores will differ.
 
 ---
 
-## 8. Open issues and decisions for you
-1. **Mustaraka** is labelled `internal`. Confirm. **Nova** is labelled `client`; verify its result claims before they stay public.
-2. Homepage stats bar and "Why ByteFlow" pillars were removed because I found no source for the numbers. `StatsBar` and `useCountUp` are now unused (left in place).
-3. "We reply within one business day" is a promise on the hero. Confirm you can meet it.
-4. Support window is inconsistent: 1–3 months in one place, 30 days in the FAQ. Pick one.
-5. The contact form accepts name-only leads. Consider requiring email or phone.
-6. About page still has a founder placeholder.
-7. More unsupported claims remain in `solutions.ts` (e.g. "60 seconds") and the 65–75% cart-abandonment figure. Source or soften.
-8. `proxy.ts` exists at root and in `src/`. The build detected a single Proxy, but confirm which one is live before editing.
-9. The `legacy` folder from the brief does not exist here. Tell me if it lives elsewhere.
+## 9. URL decisions
+- No routes were removed or renamed, so no redirects are needed.
+- Added three `/services/<slug>` pages (`dynamicParams = false`).
+- `/disclaimer` was removed from the sitemap only; the page stays live and linked.
+- Legacy folder: archived locally, not routed, and git-ignored.
 
-## 9. Manual actions before release
-1. Run a stock `npx prisma generate && npm run build` locally or in CI.
-2. Review the preview at mobile and desktop widths; check reduced-motion in OS settings.
-3. Submit each form (contact, lead magnet, chat capture) on a staging copy; confirm DB row, n8n webhook, and CAPI event.
-4. Check GA4 DebugView for `generate_lead` (one per submission) and `service_cta_click`; decide on Enhanced Measurement form interactions.
-5. After deploy: submit `/sitemap.xml` in Search Console; validate JSON-LD with Google's Rich Results Test.
-6. Resolve section 8 items 1–4 before promoting the new copy.
+## 10. Manual actions before release
+1. `npm ci && npx prisma generate && npm run build` locally or on the VPS build.
+2. Deploy to a **staging** copy with its own database and a test n8n webhook. Then submit the contact form, the lead magnet and a chat lead, and confirm for each:
+   - a DB row,
+   - one webhook call,
+   - one CAPI event,
+   - one `generate_lead`.
+3. Run the GA4 and Meta checks in section 6. Turn off "browser history" page changes in Enhanced Measurement if the double counting is confirmed.
+4. Review the pages with real fonts at mobile and desktop widths.
+5. After the production deploy, which you do: submit `/sitemap.xml` in Search Console and run the Rich Results Test on one offer page.
+6. Decide on the open items in section 3 and the Meta items in section 6.
 
-## 10. Next steps
-- Add real, source-backed proof (client quotes with permission, measured results) to the case studies.
-- Add `email_click` / `phone_click` once you confirm the contact channels you want tracked.
-- Research keywords with Search Console data after 4–6 weeks of impressions.
-- Consider a case-study detail page per project once the proof is verified.
+## 11. Remaining issues
+- Portfolio page: a few pre-existing low-contrast labels (Lighthouse a11y 96).
+- Unused `StatsBar` / `useCountUp` / `useInView` (kept; safe to delete later).
+- Duplicate `proxy.ts` (root and `src/`). The build detects one Proxy; confirm which file is live before editing either.
+- The Nova case study lists Google Sheets as the order ledger, while your notes mention PostgreSQL and an approval panel. Confirm which is accurate.
+- The chat teaser bubble briefly overlaps the hero microcopy on small phones (pre-existing behaviour, 7s after load).
