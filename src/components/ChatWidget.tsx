@@ -31,6 +31,7 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const shownRef = useRef(false);
+  const gaLeadSent = useRef(false);
 
   // Proactive teaser: timer + scroll trigger, once per session
   useEffect(() => {
@@ -91,7 +92,12 @@ export default function ChatWidget() {
       });
       const data = await res.json();
       if (data.leadCaptured) {
-        trackGA4Lead("chatbot");
+        // Count at most one GA4 lead per chat session: the model can re-send
+        // the same contact details on later turns. Pixel behaviour unchanged.
+        if (!gaLeadSent.current) {
+          gaLeadSent.current = true;
+          trackGA4Lead("chatbot");
+        }
         trackPixelLead(eventId);
       }
       setMessages((prev) => [
