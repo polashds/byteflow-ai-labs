@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
 
@@ -175,18 +176,6 @@ export default function AboutPage() {
       </section>
 
       {/* ── Founder ─────────────────────────────────────────────────────────── */}
-      {/*
-        ════════════════════════════════════════════════════════════════════
-        PLACEHOLDER — Founder Section
-        TODO: Replace the content in the card below with:
-          - Your full name and title (e.g. "Founder & Lead Automation Engineer")
-          - Your headshot: add the image to /public/assets/founder.jpg
-          - 3–4 sentences about your background and expertise
-          - 2–3 credentials or notable achievements (optional)
-          - LinkedIn or personal site URL (optional)
-        Set `founderReady = true` at the top of this section when done.
-        ════════════════════════════════════════════════════════════════════
-      */}
       <section className="bg-brand-bg border-t border-primary/10 py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -203,39 +192,56 @@ export default function AboutPage() {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="border border-dashed border-primary/25 bg-brand-surface p-10 text-center">
-              {/* Photo placeholder */}
-              <div className="w-24 h-24 rounded-full border-2 border-dashed border-primary/30 bg-brand-bg flex items-center justify-center mx-auto mb-6">
-                <span className="font-body text-[10px] text-brand-muted/50 tracking-[0.2em] uppercase text-center leading-tight px-2">
-                  Photo<br />Here
-                </span>
+            <div className="border border-primary/15 bg-brand-surface p-8 sm:p-10 text-center">
+              <Image
+                src="/images/siddique-circle-320.webp"
+                alt="Md. Siddique Hossain, founder of ByteFlow AI Labs"
+                width={128}
+                height={128}
+                className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-primary/30 mx-auto mb-6 object-cover"
+              />
+
+              <h3 className="font-heading font-semibold text-brand-text text-2xl mb-1">
+                Md. Siddique Hossain
+              </h3>
+              <p className="font-body text-xs text-accent tracking-[0.2em] uppercase mb-6">
+                Founder · AI Systems Architect &amp; Automation Consultant
+              </p>
+
+              <div className="font-body text-[15px] text-brand-muted leading-relaxed max-w-lg mx-auto space-y-4 text-left sm:text-center">
+                <p>
+                  I founded ByteFlow AI Labs to build AI-powered automation that takes
+                  repetitive enquiry, follow-up and data-entry work off a team&apos;s
+                  plate: n8n workflows, WhatsApp and website chat assistants, and CRM
+                  integrations.
+                </p>
+                <p>
+                  My education is in data science and AI. Before moving into automation
+                  engineering, I worked in pharmaceutical and food quality assurance,
+                  which is where I learned process discipline, documentation and
+                  operational controls.
+                </p>
+                <p>
+                  I map a process before automating it, keep people in control at clear
+                  handoff points, and build for what happens when something fails, not
+                  only when it works.
+                </p>
               </div>
 
-              {/* Name placeholder */}
-              <p className="font-heading font-semibold text-brand-muted/50 text-2xl mb-1">
-                [ Your Name ]
-              </p>
-              <p className="font-body text-xs text-brand-muted/40 tracking-[0.2em] uppercase mb-6">
-                Founder &amp; Lead Automation Engineer
+              <p className="font-body text-xs text-brand-muted/80 mt-6">
+                Based in Gazipur, Bangladesh (UTC+6) · working remotely
               </p>
 
-              {/* Bio placeholder */}
-              <p className="font-body text-sm text-brand-muted/40 leading-relaxed italic max-w-lg mx-auto mb-6">
-                [ 3–4 sentences about your background, expertise, and what drives
-                you to build AI automation systems. Be specific — clients respond
-                to real credentials, not generic bios. ]
-              </p>
-
-              {/* Instruction note — visible in dev, can be removed after filling */}
-              <div className="border border-primary/15 bg-brand-bg px-4 py-3 text-left">
-                <p className="font-body text-[10px] text-accent/60 tracking-[0.2em] uppercase mb-1">
-                  Dev Note — Fill This Section
-                </p>
-                <p className="font-body text-[11px] text-brand-muted/50 leading-relaxed">
-                  Replace photo, name, title, and bio above. Add headshot to{" "}
-                  <code className="text-accent/50">/public/assets/founder.jpg</code>.
-                  Remove this note box when done.
-                </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 font-body text-sm">
+                <a href="https://www.linkedin.com/in/siddique-ai-automation/" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">
+                  LinkedIn
+                </a>
+                <a href="https://github.com/polashds" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">
+                  GitHub
+                </a>
+                <a href="https://siddiquehossain.com" target="_blank" rel="noopener noreferrer" className="text-accent underline-offset-4 hover:underline">
+                  siddiquehossain.com
+                </a>
               </div>
             </div>
           </div>
