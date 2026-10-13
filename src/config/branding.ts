@@ -9,7 +9,7 @@ export const brand = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com",
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61573260581403",
-    linkedin: "https://www.linkedin.com/groups/14521611/",
+    linkedin: "https://www.linkedin.com/company/144004959/",
     instagram: "https://www.instagram.com/byteflowailabs/",
     youtube: "https://www.youtube.com/@ByteFlowAILabs",
     twitter: "https://x.com/byteflowailabs",
