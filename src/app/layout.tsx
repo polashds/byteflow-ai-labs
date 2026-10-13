@@ -63,6 +63,7 @@ const organizationSchema = {
   "@id": `${brand.siteUrl}/#organization`,
   name: brand.name,
   alternateName: "ByteFlow",
+  foundingDate: "2025",
   url: brand.siteUrl,
   logo: `${brand.siteUrl}/logo_byteflowailabs.png`,
   image: `${brand.siteUrl}/logo_byteflowailabs.png`,
