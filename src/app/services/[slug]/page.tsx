@@ -449,6 +449,16 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
                   </Link>
                 </li>
               ))}
+              {offer.slug === "whatsapp-ai-assistant" && (
+                <li>
+                  <Link
+                    href="/whatsapp-chatbot-bangladesh"
+                    className="font-body text-sm text-brand-muted hover:text-accent transition-colors"
+                  >
+                    WhatsApp chatbot for businesses in Bangladesh →
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <div>

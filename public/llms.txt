@@ -11,6 +11,7 @@ Typical stack: n8n (self-hosted), WhatsApp Business via Evolution API, OpenRoute
 - [Lead-to-CRM Automation with WhatsApp Follow-Up](https://byteflowailabs.com/services/lead-to-crm-automation): captures enquiries from ads, website and WhatsApp, replies, scores, routes to the right person and follows up automatically. For real estate, travel, clinics, education and local services.
 - [AI WhatsApp Assistant for Support and Booking](https://byteflowailabs.com/services/whatsapp-ai-assistant): answers repeat customer questions, captures details, books appointments or viewings and hands over to a person with full context.
 - [Order and Payment Verification Automation](https://byteflowailabs.com/services/order-payment-automation): checks payment screenshots and references against order records, flags duplicates and confirms orders without manual review.
+- [WhatsApp chatbot for businesses in Bangladesh](https://byteflowailabs.com/whatsapp-chatbot-bangladesh): Bengali and English WhatsApp chatbot for Bangladeshi businesses — answers customers, books appointments, verifies bKash and Nagad payment screenshots, hands over to staff.
 - [All services](https://byteflowailabs.com/services): n8n infrastructure and workflows, WhatsApp automation, AI voice agents, AI lead scoring and CRM automation, Meta Pixel / CAPI tracking, AI content automation.
 
 ## Work
