@@ -449,6 +449,16 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
                   </Link>
                 </li>
               ))}
+              {offer.slug === "order-payment-automation" && (
+                <li>
+                  <Link
+                    href="/bkash-payment-verification-automation"
+                    className="font-body text-sm text-brand-muted hover:text-accent transition-colors"
+                  >
+                    bKash and Nagad payment verification →
+                  </Link>
+                </li>
+              )}
               {offer.slug === "whatsapp-ai-assistant" && (
                 <li>
                   <Link
