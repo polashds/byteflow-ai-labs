@@ -1,0 +1,25 @@
+# ByteFlow AI Labs
+
+> AI automation agency. We build lead-to-CRM, WhatsApp AI assistant and order/payment-verification automation for businesses that sell through Facebook and Instagram ads, websites and WhatsApp. Based in Bangladesh, working with clients remotely.
+
+Founder: Md. Siddique Hossain (Founder, AI Systems Architect & Automation Consultant).
+Contact: hello@byteflowailabs.com or https://byteflowailabs.com/contact (free 30-minute call).
+Typical stack: n8n (self-hosted), WhatsApp Business via Evolution API, OpenRouter LLMs, Next.js, PostgreSQL, Meta Pixel + Conversions API, GA4, Docker on the client's own VPS.
+
+## Core services
+
+- [Lead-to-CRM Automation with WhatsApp Follow-Up](https://byteflowailabs.com/services/lead-to-crm-automation): captures enquiries from ads, website and WhatsApp, replies, scores, routes to the right person and follows up automatically. For real estate, travel, clinics, education and local services.
+- [AI WhatsApp Assistant for Support and Booking](https://byteflowailabs.com/services/whatsapp-ai-assistant): answers repeat customer questions, captures details, books appointments or viewings and hands over to a person with full context.
+- [Order and Payment Verification Automation](https://byteflowailabs.com/services/order-payment-automation): checks payment screenshots and references against order records, flags duplicates and confirms orders without manual review.
+- [All services](https://byteflowailabs.com/services): n8n infrastructure and workflows, WhatsApp automation, AI voice agents, AI lead scoring and CRM automation, Meta Pixel / CAPI tracking, AI content automation.
+
+## Work
+
+- [Portfolio](https://byteflowailabs.com/portfolio): Mustaraka Properties (our own real estate venture in Dhaka: website, listings-aware AI chatbot, WhatsApp viewing-booking agent, n8n lead alerts, admin CRM) and Nova Digital Store (client: 69-node n8n WhatsApp receipt-verification workflow with OCR and duplicate detection).
+
+## More
+
+- [Solutions](https://byteflowailabs.com/solutions)
+- [About](https://byteflowailabs.com/about)
+- [FAQ](https://byteflowailabs.com/faq)
+- [Blog](https://byteflowailabs.com/blog)
