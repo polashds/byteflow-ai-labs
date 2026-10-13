@@ -449,6 +449,16 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
                   </Link>
                 </li>
               ))}
+              {offer.relatedServiceIds.includes("n8n-infrastructure") && (
+                <li>
+                  <Link
+                    href="/n8n-automation-agency-bangladesh"
+                    className="font-body text-sm text-brand-muted hover:text-accent transition-colors"
+                  >
+                    n8n automation agency in Bangladesh →
+                  </Link>
+                </li>
+              )}
               {offer.slug === "order-payment-automation" && (
                 <li>
                   <Link
