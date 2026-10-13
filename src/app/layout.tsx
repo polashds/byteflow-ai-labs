@@ -60,11 +60,48 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${brand.siteUrl}/#organization`,
   name: brand.name,
+  alternateName: "ByteFlow",
   url: brand.siteUrl,
   logo: `${brand.siteUrl}/logo_byteflowailabs.png`,
+  image: `${brand.siteUrl}/logo_byteflowailabs.png`,
   description: brand.description,
   email: brand.email,
+  areaServed: [{ "@type": "Country", name: "Bangladesh" }, "Worldwide"],
+  knowsAbout: [
+    "AI automation",
+    "n8n workflow automation",
+    "WhatsApp Business API chatbots",
+    "AI WhatsApp assistants in Bengali and English",
+    "Lead-to-CRM automation",
+    "AI lead scoring",
+    "Order and payment verification automation",
+    "bKash and Nagad payment verification",
+    "Meta Pixel and Conversions API",
+    "AI voice agents",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: brand.email,
+    url: `${brand.siteUrl}/contact`,
+    availableLanguage: ["English", "Bengali"],
+  },
+  founder: {
+    "@type": "Person",
+    "@id": `${brand.siteUrl}/about#founder`,
+    name: "Md. Siddique Hossain",
+    jobTitle: "Founder, AI Systems Architect & Automation Consultant",
+    url: `${brand.siteUrl}/about`,
+    image: `${brand.siteUrl}/images/siddique-circle-320.webp`,
+    sameAs: [
+      "https://siddiquehossain.com",
+      "https://www.linkedin.com/in/siddique-ai-automation/",
+      "https://github.com/polashds",
+      "https://x.com/polashtechai",
+    ],
+  },
   sameAs: Object.values(brand.social),
 };
 
@@ -73,6 +110,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: brand.name,
   url: brand.siteUrl,
+  publisher: { "@id": `${brand.siteUrl}/#organization` },
 };
 
 export default function RootLayout({
