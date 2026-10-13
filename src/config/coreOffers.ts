@@ -154,6 +154,18 @@ export const coreOffers: CoreOffer[] = [
       "The lead pipeline for our own real estate venture, which we built and operate: website and Meta ad leads trigger instant WhatsApp and Telegram alerts to agents, with leads tracked in a self-hosted admin CRM.",
     faqs: [
       {
+        q: "Who is lead-to-CRM automation for?",
+        a: "Businesses that get enquiries from Facebook or Instagram ads, a website or WhatsApp — real estate, travel, clinics, education and local services — and currently rely on staff to notice, reply to and chase each one by hand.",
+      },
+      {
+        q: "What is included in a lead-to-CRM automation project?",
+        a: "A working lead pipeline on your own server: capture from the sources you use with the source recorded on every lead, scoring rules in plain language, CRM stages and assignment rules, instant alerts to the right person, and follow-ups that pause automatically on reply or booking. It also includes failure alerts, documentation, a recorded walkthrough and 30 days of post-launch support.",
+      },
+      {
+        q: "What do you need from us to start?",
+        a: "Access to your ad accounts, forms and WhatsApp number (or help getting one), access to your CRM or spreadsheet, a description of what a good lead looks like and which questions to ask, and who should be alerted for which type of lead.",
+      },
+      {
         q: "Do I need a CRM already?",
         a: "No. If you already use a CRM with an API or webhooks we connect to it. If you don't, we can set up a simple one as part of the build.",
       },
@@ -278,6 +290,22 @@ export const coreOffers: CoreOffer[] = [
       "Our own real estate venture: a WhatsApp lead agent that qualifies enquiries, books viewings against live availability and hands over to a person, plus a website chatbot that answers from live listings and feeds the lead pipeline and admin CRM.",
     faqs: [
       {
+        q: "Who is an AI WhatsApp assistant for?",
+        a: "Businesses whose customers message on WhatsApp all day with the same questions — prices, availability, order status, appointments — so staff spend their time answering instead of serving.",
+      },
+      {
+        q: "What is included in an AI WhatsApp assistant project?",
+        a: "An assistant on your WhatsApp number that works in Bengali and English, a knowledge base built from your FAQs and tested against real customer questions, handover rules that pass the full conversation to your team, a booking flow if booking is in scope, and conversation and lead logging to your CRM. It also includes documentation, a recorded walkthrough and 30 days of post-launch support.",
+      },
+      {
+        q: "How long does setup take?",
+        a: "It depends mostly on how quickly Meta approves your WhatsApp number and message templates, and on how much business information the assistant needs to learn. We confirm a realistic timeline on the scoping call.",
+      },
+      {
+        q: "What do you need from us?",
+        a: "Your FAQs, price lists, policies and service information, a WhatsApp number (or help getting it approved), the situations where a person must take over, and calendar or booking access if booking is in scope.",
+      },
+      {
         q: "Does it replace my staff?",
         a: "No. It takes the repetitive questions so your team can spend time on conversations that need a person.",
       },
@@ -399,6 +427,22 @@ export const coreOffers: CoreOffer[] = [
     caseStudyNote:
       "A 69-node n8n workflow that reads WhatsApp payment receipts, matches them to an order ledger, detects duplicates and routes edge cases to staff.",
     faqs: [
+      {
+        q: "Who is order and payment verification automation for?",
+        a: "Businesses that take orders or payments through WhatsApp, Facebook or a website and check each one by hand — transfer screenshots, reference numbers, spreadsheets.",
+      },
+      {
+        q: "What is included in an order and payment verification project?",
+        a: "A verification workflow on your own server, validation rules agreed with you and documented, duplicate detection, confirmation and rejection messages to customers, and an exception route that sends unclear cases to staff with context. It also includes failure alerts, documentation, a recorded walkthrough and 30 days of post-launch support.",
+      },
+      {
+        q: "How long does it take?",
+        a: "It depends on access to your order records and how many payment methods need rules. We confirm a realistic timeline on the scoping call.",
+      },
+      {
+        q: "What do you need from us?",
+        a: "Access to your order ledger or database, a set of real receipts and orders to test with, your rules for approving, rejecting and escalating, and who handles exceptions.",
+      },
       {
         q: "How accurate is the receipt reading?",
         a: "No OCR is perfect. That is why low-confidence or mismatched cases go to your staff rather than being approved automatically, and why we test with your own receipts before launch.",
