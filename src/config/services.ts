@@ -76,7 +76,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "whatsapp-automation",
     icon: "💬",
     title: "WhatsApp Automation & Chatbots",
-    tagline: "Capture leads, answer questions, and close sales on WhatsApp — in Bengali and English, 24/7.",
+    tagline: "Capture leads, answer questions, and close sales on WhatsApp — in Bengali and English, with replies at any hour.",
     body: "WhatsApp is where your customers already are. We connect you to the official WhatsApp Business API and build AI-powered chatbots, broadcast systems, and ordering flows that qualify leads, handle enquiries, and drive conversions — automatically, round the clock.",
     services: [
       {
@@ -88,13 +88,13 @@ export const serviceCategories: ServiceCategory[] = [
           "Phone number provisioning & verification",
           "Webhook configuration & API connection via n8n",
           "Test message flows & delivery confirmation",
-          "Compliance checklist & opt-in documentation",
+          "Opt-in records and opt-out handling (rules vary by market; check yours)",
         ],
       },
       {
         title: "AI WhatsApp Chatbot (Bengali + English)",
         description:
-          "A bilingual AI assistant that lives on your WhatsApp number — answering FAQs, qualifying leads, and capturing contact details around the clock without a human on standby.",
+          "A bilingual AI assistant that lives on your WhatsApp number — answering FAQs, qualifying leads, and capturing contact details, designed to reply at any hour without a human on standby.",
         includes: [
           "GPT-4o / Claude-powered response engine",
           "Full Bengali + English language support",
@@ -113,7 +113,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Message template creation & Meta approval",
           "Scheduled broadcast with personalisation tokens",
           "Delivery & read receipt analytics",
-          "Opt-out handling & compliance automation",
+          "Opt-out handling for broadcasts (rules vary by market; check yours)",
         ],
       },
       {
@@ -135,13 +135,13 @@ export const serviceCategories: ServiceCategory[] = [
     id: "voice-agents",
     icon: "🎙️",
     title: "AI Voice Agents & Receptionists",
-    tagline: "Answer every call instantly, qualify leads, and book appointments — no receptionist required.",
-    body: "Never miss an inbound call again. Our AI voice agents handle FAQs, qualify callers, book appointments, and route to humans when needed — logging every call to your CRM automatically so your team always has context.",
+    tagline: "Designed to answer inbound calls, qualify leads, and book appointments — no receptionist required.",
+    body: "Designed to answer inbound calls and flag unclear ones to your team. Our AI voice agents handle FAQs, qualify callers, book appointments, and route to humans when needed — logging calls to your CRM automatically so your team has context.",
     services: [
       {
         title: "AI Phone Receptionist",
         description:
-          "An AI voice agent that picks up every inbound call, answers FAQs naturally, and routes to the right person — 24/7, with no hold music and no missed leads.",
+          "An AI voice agent designed to pick up inbound calls, answer FAQs naturally, and route to the right person, including outside office hours, with no hold music.",
         includes: [
           "Voice agent configuration & persona setup",
           "FAQ script writing & AI training",
@@ -165,7 +165,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Post-Call AI Summaries & CRM Logging",
         description:
-          "Every call gets an AI-generated summary, extracted action items, and automatic CRM update — so your team always knows what was discussed without taking a single note.",
+          "Each call is designed to get an AI-generated summary, extracted action items, and a CRM update — so your team can see what was discussed without taking a single note.",
         includes: [
           "Call recording integration",
           "AI transcription & structured summarisation",
@@ -223,7 +223,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "CRM Pipeline Automation",
         description:
-          "Automate deal stage transitions, follow-up task creation, and stale-deal alerts — so nothing slips through the cracks and your pipeline data is always accurate.",
+          "Automate deal stage transitions, follow-up task creation, and stale-deal alerts — designed to flag stalled deals to your team and keep pipeline data up to date.",
         includes: [
           "Stage-transition trigger rules",
           "Automatic follow-up task generation",
@@ -275,7 +275,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Event deduplication using eventID matching",
           "Parameter mapping with privacy-safe hashing (email, phone)",
           "Test event verification in Meta Events Manager",
-          "Match quality score monitoring & improvement recommendations",
+          "Monthly match-quality review and recommendations",
         ],
       },
       {
@@ -333,7 +333,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Platform-specific format & tone adaptation",
           "Image prompt generation for accompanying visuals",
           "Scheduling & publishing via n8n + platform APIs",
-          "Engagement monitoring & anomaly alert setup",
+          "Weekly engagement insights",
         ],
       },
       {
@@ -345,7 +345,7 @@ export const serviceCategories: ServiceCategory[] = [
           "AI title & description generation (CTR-optimised)",
           "Schema markup implementation (Article, FAQ, LocalBusiness, Product)",
           "CMS integration for bulk updates",
-          "Monthly freshness refresh & monitoring",
+          "Monthly content refresh",
         ],
       },
       {
@@ -447,7 +447,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Keep your CRM integrations, webhooks, and third-party connections running reliably as APIs update and your stack evolves — with no surprises.",
         includes: [
           "Monthly API compatibility checks",
-          "Webhook health monitoring & automatic re-registration",
+          "Webhook checks during maintenance",
           "2 maintenance updates included per month",
           "Priority bug fix queue",
           "Integration change log & documentation updates",
