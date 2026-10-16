@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "AI Chatbot",
-        value: "Handling property enquiries 24/7",
+        value: "Answers property enquiries and captures requirements; designed to reply outside office hours",
         isPlaceholder: false,
       },
       {
