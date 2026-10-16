@@ -205,7 +205,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Data enrichment (company, industry, location, LinkedIn)",
           "Duplicate detection & intelligent merge",
           "CRM routing rules by source, product, or region",
-          "Instant WhatsApp or Slack alert to assigned rep",
+          "Automatic WhatsApp or Slack alert to the assigned rep",
         ],
       },
       {
@@ -398,7 +398,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Sales Funnel with Automation",
         description:
-          "A multi-step funnel (landing page → thank-you → follow-up) with automated WhatsApp and email nurturing so every lead gets followed up within minutes — not days.",
+          "A multi-step funnel (landing page → thank-you → follow-up) with automated WhatsApp and email nurturing, designed to send new leads an automatic follow-up.",
         includes: [
           "Multi-page funnel design & build",
           "Automated follow-up sequence (WhatsApp + email)",
@@ -459,7 +459,7 @@ export const serviceCategories: ServiceCategory[] = [
           "A monthly block of hours for businesses that want to keep building — new automations, landing pages, AI experiments, and continuous improvement of what's already live.",
         includes: [
           "10–20h monthly capacity (flexible scope each month)",
-          "Priority scheduling & same-week kick-off",
+          "Priority scheduling & kick-off once scope and access are confirmed",
           "Monthly strategy call & roadmap review",
           "Rollover hours (up to 1 month)",
           "Discounted rates on out-of-scope project work",
