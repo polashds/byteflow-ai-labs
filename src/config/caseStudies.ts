@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "AI Chatbot",
-        value: "Handling property enquiries 24/7",
+        value: "Answers property enquiries and captures requirements; designed to reply outside office hours",
         isPlaceholder: false,
       },
       {
@@ -130,7 +130,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "Edge-Case Routing",
-        value: "Ambiguous receipts routed to staff with full context — no case dropped",
+        value: "Ambiguous receipts flagged to staff with full context",
         isPlaceholder: false,
       },
       {

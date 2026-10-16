@@ -32,7 +32,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Will an automation break if a connected app changes its API?",
-    a: "APIs do occasionally change. For clients on a maintenance retainer we monitor for breakage and fix issues proactively. For project clients, delivery includes 30 days of post-launch support to fix issues in what we built; longer-term cover is available as a retainer. Your proposal states the exact terms.",
+    a: "APIs do occasionally change. For clients on a maintenance retainer, failure alerts go to a named person and fixes follow the response times agreed in the contract. For project clients, delivery includes 30 days of post-launch support to fix issues in what we built; longer-term cover is available as a retainer. Your proposal states the exact terms.",
   },
   {
     q: "Can you integrate with tools we've already built internally?",

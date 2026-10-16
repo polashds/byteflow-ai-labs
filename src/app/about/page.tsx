@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: [
     "ByteFlow AI Labs",
     "AI automation agency Bangladesh",
-    "n8n specialist agency",
+    "n8n automation agency",
     "self-hosted AI automation",
     "BD-first AI agency",
   ],
@@ -55,8 +55,8 @@ const pillars = [
   },
   {
     num: "04",
-    title: "n8n Specialists",
-    body: "400+ native integrations. Custom nodes when needed. Self-hosted, version-controlled, fully auditable. We've automated every corner of the n8n ecosystem across multiple industries.",
+    title: "Built on n8n",
+    body: "We build with n8n: 400+ native integrations, custom nodes when needed. Self-hosted, version-controlled, fully auditable.",
   },
 ];
 
