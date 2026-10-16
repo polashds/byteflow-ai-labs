@@ -21,7 +21,7 @@ export const industrySolutions: IndustrySolution[] = [
       "We wire every lead source — Facebook lead forms, website contact forms, landing pages — into an n8n pipeline that fires a WhatsApp alert to the right agent as soon as a lead is submitted. An AI chatbot on your website and WhatsApp handles initial enquiries, qualifies intent, and collects property requirements automatically, even outside business hours. Lead scoring ranks every prospect by property type, budget, and engagement level so agents always know who to call first.",
     benefits: [
       "An automated first reply sent as soon as a lead arrives, day or night",
-      "AI chatbot qualifies and captures requirements 24/7",
+      "AI chatbot qualifies and captures requirements, designed to reply at any hour",
       "Agents focus only on pre-qualified, high-intent prospects",
       "Lead source recorded on every lead, so you can see which campaigns produce enquiries",
       "Admin CRM tracks every interaction without third-party SaaS tools",
@@ -86,11 +86,11 @@ export const industrySolutions: IndustrySolution[] = [
     id: "healthcare-clinics",
     icon: "🏥",
     industry: "Healthcare & Clinics",
-    tagline: "Never miss a new patient call — and cut no-shows with automated appointment reminders.",
+    tagline: "Designed to answer new patient calls — and help cut no-shows with automated appointment reminders.",
     problem:
       "Clinic phone lines are busy during peak morning hours, leading to missed new patient enquiries that go straight to a competitor. Appointment reminders are sent manually — or not at all — resulting in no-shows that cost the clinic revenue every day. Reception staff spend a disproportionate amount of their time on routine calls that a system could handle.",
     solution:
-      "An AI voice receptionist answers every inbound call 24/7 — handling appointment booking, FAQs about services and fees, and routing to clinical staff only when genuinely needed. Automated WhatsApp reminders go out 24 hours and 2 hours before every appointment, with one-tap confirm/reschedule options. New patient enquiries received outside opening hours are logged, triaged, and followed up first thing the next morning — automatically.",
+      "An AI voice receptionist designed to answer inbound calls, including outside opening hours — handling appointment booking, FAQs about services and fees, and flagging unclear calls to clinical staff. Automated WhatsApp reminders go out 24 hours and 2 hours before every appointment, with one-tap confirm/reschedule options. New patient enquiries received outside opening hours are logged, triaged, and followed up first thing the next morning — automatically.",
     benefits: [
       "Inbound calls answered by the voice agent, even outside clinic hours",
       "Automated reminders that help reduce no-shows",
