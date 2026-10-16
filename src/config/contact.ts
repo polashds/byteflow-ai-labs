@@ -33,7 +33,7 @@ export const afterContactSteps = [
 
 /** One-line version for form footers and metadata. */
 export const responseNote =
-  "Your enquiry reaches our workflow instantly; a person follows up to arrange a free 30-minute call.";
+  "Your enquiry reaches our workflow; a person follows up to arrange a free 30-minute call.";
 
 /**
  * Standard post-launch support for a delivered project. Applies to the three
