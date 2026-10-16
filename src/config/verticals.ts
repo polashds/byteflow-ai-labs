@@ -1,4 +1,5 @@
 import { brand } from "@/config/branding";
+import type { WorkflowKey } from "@/config/workflows";
 
 /*
  * Industry vertical landing pages. Copy lives here; the page files hold
@@ -64,6 +65,8 @@ export interface Vertical {
   demoTitle?: string;
   demoCaption?: string;
   analyticsKey: "vertical_real_estate" | "vertical_ecommerce";
+  /** Illustrative animated workflow shown after the pain points. */
+  workflow?: WorkflowKey;
 }
 
 export interface ComingSoonVertical {
@@ -252,4 +255,5 @@ export const realEstate: Vertical = {
   demoUrl: "",
   demoFullUrl: "",
   analyticsKey: "vertical_real_estate",
+  workflow: "lead",
 };

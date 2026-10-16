@@ -3,6 +3,7 @@ import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import WorkflowSection from "@/components/motion/WorkflowSection";
 import { brand } from "@/config/branding";
 
 /*
@@ -215,6 +216,9 @@ export default function BkashPaymentVerificationPage() {
           </ul>
         </div>
       </section>
+
+      {/* ── Illustrative payment flow ─────────────────────────────────────── */}
+      <WorkflowSection flow="payment" className="bg-brand-surface" />
 
       {/* ── Who it is for ─────────────────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">

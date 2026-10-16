@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WorkflowSection from "@/components/motion/WorkflowSection";
 import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
@@ -131,6 +132,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Illustrative lead flow ─────────────────────────────────────────── */}
+      <WorkflowSection flow="lead" />
 
       {/* ── Core systems mapped to those problems ─────────────────────────── */}
       <section id="systems" className="bg-brand-bg border-t border-primary/10 py-24 lg:py-32">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import TypeRotator from "@/components/motion/TypeRotator";
 
 /**
  * Homepage hero. Server component: the entrance animation is pure CSS
@@ -20,10 +21,10 @@ const gradientBg = { background: "linear-gradient(135deg, #2563EB, #22D3EE)" } a
 /** Describes the lead-handling system we build — read left to right. */
 const flow = [
   { title: "Lead arrives", body: "Ad form, website or WhatsApp" },
-  { title: "First reply", body: "Sent on WhatsApp straight away" },
+  { title: "First reply", body: "An automatic WhatsApp message in your wording" },
   { title: "Scored and saved", body: "To your CRM, with its source" },
   { title: "Team alerted", body: "The right person is alerted" },
-  { title: "Follow-up", body: "Runs until they reply or book" },
+  { title: "Follow-up", body: "Stops when the lead replies or books" },
 ];
 
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
@@ -59,6 +60,11 @@ export default function HeroContent() {
         WhatsApp: leads captured and answered, saved to your CRM, routed to the right person and
         followed up automatically — running on infrastructure you own.
       </p>
+
+      {/* Problem line: what the system takes off your team's hands */}
+      <div className="animate-fade-up -mt-3 mb-10 flex justify-center" style={delay(200)}>
+        <TypeRotator />
+      </div>
 
       {/* CTAs */}
       <div
