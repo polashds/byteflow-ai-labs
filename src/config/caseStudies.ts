@@ -88,11 +88,6 @@ export const caseStudies: CaseStudy[] = [
         value: "None — no Zapier, HubSpot or paid CRM seats needed",
         isPlaceholder: false,
       },
-      {
-        label: "Lead Conversion Rate",
-        value: "[ To be updated after 60 days live ]",
-        isPlaceholder: true,
-      },
     ],
   },
 
@@ -139,23 +134,5 @@ export const caseStudies: CaseStudy[] = [
         isPlaceholder: false,
       },
     ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────
-  // PLACEHOLDER — Add your next case study here.
-  // Replace all fields below. Set isPlaceholder: false when ready to publish.
-  // ─────────────────────────────────────────────────────────────────────────
-  {
-    id: "coming-soon",
-    client: "Your Business",
-    industry: "Your Industry",
-    location: "Your Location",
-    year: "",
-    tagline: "Your project could be the next case study here.",
-    challenge: "",
-    solution: "",
-    technology: [],
-    results: [],
-    isPlaceholder: true,
   },
 ];
