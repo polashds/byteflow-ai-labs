@@ -1,6 +1,7 @@
 import ConsultationCTA from "@/components/ConsultationCTA";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import WorkflowSection from "@/components/motion/WorkflowSection";
 import ComingSoonBlock from "@/components/vertical/ComingSoonBlock";
 import TierCard from "@/components/vertical/TierCard";
 import { brand } from "@/config/branding";
@@ -123,6 +124,9 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
           <p className="mt-6 font-body text-sm text-brand-muted">{v.painCaption}</p>
         </div>
       </section>
+
+      {/* ── Illustrative workflow ─────────────────────────────────────────── */}
+      {v.workflow && <WorkflowSection flow={v.workflow} />}
 
       {/* ── Packages ──────────────────────────────────────────────────────── */}
       <section id="packages" className="scroll-mt-20 border-t border-primary/10 bg-brand-surface py-16 lg:py-28">
