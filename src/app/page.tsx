@@ -120,7 +120,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {painPoints.map((p, i) => (
               <Reveal key={p.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 bg-brand-bg p-7 hover:border-primary/30 transition-colors duration-300">
+                <div className="h-full border border-primary/15 rounded-card lift bg-brand-bg p-7">
                   <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
                     {p.title}
                   </h3>
@@ -145,7 +145,7 @@ export default function HomePage() {
               <Reveal key={offer.slug} delay={i * STAGGER_MS}>
                 <Link
                   href={`/services/${offer.slug}`}
-                  className="lift group flex h-full flex-col border border-primary/15 bg-brand-surface p-8"
+                  className="lift group flex h-full flex-col border border-primary/15 rounded-card bg-brand-surface p-8"
                 >
                   <p className="font-body text-[10px] font-medium tracking-[0.25em] text-accent/80 uppercase mb-4">
                     {offer.painTag}
@@ -215,7 +215,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-16 border border-primary/15 bg-brand-bg p-7 lg:p-9">
+          <div className="mt-16 border border-primary/15 rounded-card bg-brand-bg p-7 lg:p-9">
             <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-5">
               Included in every core-system engagement
             </p>
@@ -248,10 +248,10 @@ export default function HomePage() {
               <Reveal key={cs.id} delay={i * STAGGER_MS}>
                 <Link
                   href={`/portfolio#${cs.id}`}
-                  className="lift group block h-full border border-primary/15 bg-brand-surface p-8"
+                  className="lift group block h-full border border-primary/15 rounded-card bg-brand-surface p-8"
                 >
                   <div className="flex flex-wrap items-center gap-3 mb-5">
-                    <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 px-2.5 py-1">
+                    <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 rounded-full px-2.5 py-1">
                       {cs.industry}
                     </span>
                     {cs.projectType && (
@@ -293,7 +293,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {reliability.map((r, i) => (
               <Reveal key={r.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 bg-brand-bg p-7 hover:border-primary/30 transition-colors duration-300">
+                <div className="h-full border border-primary/15 rounded-card lift bg-brand-bg p-7">
                   <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
                     {r.title}
                   </h3>
@@ -331,7 +331,7 @@ export default function HomePage() {
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(37,99,235,0.12)_0%,transparent_70%)]" />
 
               <div
-                className="relative w-[240px] sm:w-[280px] aspect-[3/4] border border-primary/25 bg-brand-surface flex flex-col justify-between p-7"
+                className="relative w-[240px] sm:w-[280px] aspect-[3/4] border border-primary/25 rounded-card bg-brand-surface flex flex-col justify-between p-7"
                 style={{
                   boxShadow:
                     "0 0 0 1px rgba(37,99,235,0.06), 0 24px 60px rgba(37,99,235,0.10)",
@@ -440,7 +440,7 @@ export default function HomePage() {
           </p>
           <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-10">
             {afterContactSteps.map((s, i) => (
-              <li key={s.title} className="lift border border-primary/15 bg-brand-surface p-5">
+              <li key={s.title} className="lift border border-primary/15 rounded-card bg-brand-surface p-5">
                 <span className="block font-heading font-semibold text-xs mb-2" style={gradientText}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -453,7 +453,7 @@ export default function HomePage() {
           </ol>
           <ConsultationCTA
             location="home_final"
-            className="inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Discuss Your Workflow

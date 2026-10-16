@@ -18,6 +18,13 @@
   --animate-slide-up: slideUp 0.28s cubic-bezier(0.16,1,0.3,1) both;
   --animate-type-dot: typeDot 1.3s ease-in-out infinite;
   --animate-fade-up: fadeUp 450ms cubic-bezier(0.16,1,0.3,1) both;
+
+  /* Shape and depth. Utilities: rounded-card, rounded-btn, rounded-field, shadow-card, shadow-glow */
+  --radius-card: 14px;
+  --radius-btn: 10px;
+  --radius-field: 10px;
+  --shadow-card: 0 1px 0 0 rgba(230, 237, 247, 0.04) inset, 0 10px 28px -18px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 0 1px rgba(34, 211, 238, 0.18), 0 16px 36px -16px rgba(34, 211, 238, 0.32);
 }
 
 @keyframes pulsePrimary {
@@ -74,19 +81,38 @@
   }
 }
 
+/* Fallback where scroll-driven animation is unsupported (Firefox, older
+   Safari). RevealObserver marks on-screen .reveal elements visible first,
+   then sets data-io="wait" on the rest and adds html.io-reveal. Only those
+   wait for the IntersectionObserver; without JS nothing is ever hidden. */
+.io-reveal .reveal[data-io="wait"] { opacity: 0; transform: translateY(16px); }
+.io-reveal .reveal[data-io="in"] {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
 /* Printing or full-page capture has no scroll position: show everything. */
 @media print {
   .reveal, .tl-line, .tl-badge { animation: none !important; }
+  .io-reveal .reveal[data-io] { opacity: 1 !important; transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .io-reveal .reveal[data-io] { opacity: 1 !important; transform: none !important; }
 }
 
-/* Card lift: hover and keyboard focus get the same cue. */
-.lift { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+/* Card lift: hover and keyboard focus get the same cue, plus a soft cyan
+   border glow. Uses the `translate` property, not `transform`, so it still
+   works on cards that also run the .reveal animation (which owns transform). */
+.lift {
+  border-radius: var(--radius-card);
+  transition: translate 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
 .lift:hover,
 .lift:focus-visible,
 .lift:focus-within {
-  transform: translateY(-3px);
-  border-color: rgba(37, 99, 235, 0.45);
-  box-shadow: 0 14px 30px -14px rgba(37, 99, 235, 0.35);
+  translate: 0 -3px;
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Arrow nudge on hover or focus of the card / link that contains it. */
@@ -96,7 +122,8 @@
 .arrow-link:hover .arrow,
 .arrow-link:focus-visible .arrow { transform: translateX(4px); }
 
-/* Buttons: a 1px press. */
+/* Buttons: rounded, with a 1px press. */
+.btn { border-radius: var(--radius-btn); }
 .btn { transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease, transform 0.15s ease; }
 .btn:active { transform: translateY(1px); }
 
@@ -123,3 +150,98 @@
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
+
+/* ---------- Ported from siddiquehossain.com (used from Phase 2 on) ----------
+   Colours mapped to the ByteFlow palette. Every loop is decorative, stops
+   under prefers-reduced-motion (global guard above) and pauses when an
+   ancestor has data-loop="off" (set by an IntersectionObserver when the
+   element is off-screen). Only transform, opacity and colours animate. */
+[data-loop="off"], [data-loop="off"] * { animation-play-state: paused !important; }
+
+.grid-dots {
+  background-image: radial-gradient(rgba(139, 149, 167, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Workflow steps (React sets data-state = idle | active | passed) */
+.wf-node { background-color: rgba(230, 237, 247, 0.04); border: 1px solid rgba(37, 99, 235, 0.22); transition: background-color 0.3s ease, border-color 0.3s ease; }
+.wf-node::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2); opacity: 0; transition: opacity 0.3s ease;
+}
+.wf-dot { background-color: rgba(37, 99, 235, 0.22); color: #E6EDF7; transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; }
+.wf-step[data-state="passed"] .wf-node { background-color: rgba(37, 99, 235, 0.12); border-color: rgba(34, 211, 238, 0.3); }
+.wf-step[data-state="passed"] .wf-dot { background-color: rgba(34, 211, 238, 0.3); color: #fff; }
+.wf-step[data-state="active"] .wf-node { background-color: rgba(37, 99, 235, 0.35); border-color: #22D3EE; }
+.wf-step[data-state="active"] .wf-node::after { opacity: 1; }
+.wf-step[data-state="active"] .wf-dot { background-color: #22D3EE; color: #070B16; transform: scale(1.08); }
+.wf-link { position: relative; background-color: rgba(34, 211, 238, 0.3); }
+.wf-link::before {
+  content: ""; position: absolute; left: 50%; bottom: -1px; transform: translateX(-50%);
+  border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #22D3EE;
+}
+.wf-link::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background-color: #22D3EE;
+  transform: scaleY(0); transform-origin: top; transition: transform 0.3s ease;
+}
+.wf-link[data-on]::after { transform: none; }
+@keyframes wf-run { to { transform: rotate(360deg); } }
+.wf-spin { animation: wf-run 0.9s linear infinite; }
+
+/* Flow diagram: marching dashes and packets along each path */
+@keyframes lw-ants { to { stroke-dashoffset: -16; } }
+.lw-ants { animation: lw-ants 1.2s linear infinite; }
+@keyframes lw-packet { from { stroke-dashoffset: 107; } to { stroke-dashoffset: 0; } }
+.lw-packet { stroke-dashoffset: 107; animation: lw-packet 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+@keyframes lw-node { 0%, 70%, 100% { opacity: 1; } 80% { opacity: 0.55; } }
+.lw-node { animation: lw-node 2.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .lw-packet { display: none; } }
+
+/* Status feed: steps complete one after another, then the run restarts */
+@keyframes lw-feed {
+  0% { opacity: 0.25; transform: translateX(-6px); }
+  6%, 82% { opacity: 1; transform: none; }
+  92%, 100% { opacity: 0.25; transform: translateX(-6px); }
+}
+.lw-feed { animation: lw-feed 9s ease-out infinite; animation-delay: calc(var(--i) * 0.9s); }
+@keyframes lw-check { 0% { transform: scale(0); } 8%, 82% { transform: scale(1); } 92%, 100% { transform: scale(0); } }
+.lw-check { animation: lw-check 9s cubic-bezier(0.3, 1.6, 0.5, 1) infinite; animation-delay: calc(var(--i) * 0.9s); }
+@keyframes lw-progress { from { transform: scaleX(0); } 65% { transform: scaleX(1); } to { transform: scaleX(1); } }
+.lw-progress { animation: lw-progress 9s linear infinite; }
+@keyframes lw-blink { 50% { opacity: 0.2; } }
+.lw-blink { animation: lw-blink 1.2s ease-in-out infinite; }
+
+/* Typing caret */
+@keyframes caret { 50% { opacity: 0; } }
+.type-caret { animation: caret 1s steps(1) infinite; }
+
+/* Marquee rows: pause on hover, focus or the pause button. The static list is
+   visually hidden while the row moves and shown under reduced motion. */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { position: relative; }
+.marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee-paused .marquee-track { animation-play-state: paused; }
+.marquee-static { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.marquee-reviews .marquee-track { animation-duration: 90s; }
+.marquee-reviews {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { display: none; }
+  .marquee-static { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; display: grid; }
+  .marquee-reviews { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* Problem cards: lift, cyan border glow and a light sweep on hover */
+.problem-card { position: relative; overflow: hidden; transition: translate 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+.problem-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(34, 211, 238, 0.08) 50%, transparent 70%);
+  transform: translateX(-100%); transition: transform 0.7s ease;
+}
+.problem-card:hover { translate: 0 -3px; border-color: rgba(34, 211, 238, 0.45); box-shadow: var(--shadow-glow); }
+.problem-card:hover::after { transform: translateX(100%); }
+@media (prefers-reduced-motion: reduce) { .problem-card:hover { translate: none; } }

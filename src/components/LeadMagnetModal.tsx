@@ -14,7 +14,7 @@ const gradientText = {
 } as const;
 
 const fieldCls =
-  "w-full bg-brand-bg border border-primary/15 text-brand-text placeholder:text-brand-muted/40 font-body text-sm px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors duration-200";
+  "w-full bg-brand-bg border border-primary/15 rounded-field text-brand-text placeholder:text-brand-muted/40 font-body text-sm px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors duration-200";
 const labelCls =
   "block font-body text-[10px] tracking-[0.2em] uppercase text-brand-muted mb-2";
 
@@ -80,7 +80,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
   }
 
   const defaultBtnCls =
-    "px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]";
+    "rounded-btn px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]";
 
   return (
     <>
@@ -103,7 +103,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
           }}
         >
           <div
-            className="w-full max-w-md bg-brand-surface border border-primary/25 relative animate-slide-up"
+            className="w-full max-w-md bg-brand-surface border border-primary/25 rounded-card overflow-hidden relative animate-slide-up"
             style={{
               boxShadow:
                 "0 32px 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(37,99,235,0.08)",
@@ -182,7 +182,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)] disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="rounded-btn w-full py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)] disabled:opacity-50 disabled:cursor-not-allowed"
                       style={gradientBg}
                     >
                       {loading ? "Sending…" : "Get Free Guide →"}
@@ -227,7 +227,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
                       href={PDF_PATH}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-3.5 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white text-center transition-all duration-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)]"
+                      className="rounded-btn w-full py-3.5 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white text-center transition-all duration-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)]"
                       style={gradientBg}
                     >
                       Open Guide Again →

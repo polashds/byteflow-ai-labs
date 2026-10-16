@@ -86,7 +86,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => trackServiceCtaClick("header", "Discuss Your Workflow")}
-            className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 shrink-0 text-brand-bg font-body"
+            className="hidden md:inline-flex items-center rounded-btn px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-200 shrink-0 text-brand-bg font-body"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
             Discuss Your Workflow
@@ -209,7 +209,7 @@ export default function Header() {
               trackServiceCtaClick("mobile_menu", "Discuss Your Workflow");
               setOpen(false);
             }}
-            className="flex items-center justify-center px-5 py-3.5 text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase"
+            className="flex items-center justify-center rounded-btn px-5 py-3.5 text-brand-bg font-body text-xs font-medium tracking-[0.15em] uppercase"
             style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
           >
             Discuss Your Workflow

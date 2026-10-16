@@ -71,7 +71,7 @@ export default function ServicesPage() {
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 hover:border-primary/35 px-3.5 py-2 transition-colors duration-200"
+                className="font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 rounded-full hover:border-primary/35 px-3.5 py-2 transition-colors duration-200"
               >
                 {String.fromCharCode(65 + i)}. {cat.title}
               </a>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
               <Link
                 key={o.slug}
                 href={`/services/${o.slug}`}
-                className="lift group block border border-primary/15 bg-brand-bg p-6"
+                className="lift group block border border-primary/15 rounded-card bg-brand-bg p-6"
               >
                 <p className="font-body text-[10px] tracking-[0.2em] text-accent/80 uppercase mb-3">
                   {o.painTag}
@@ -183,7 +183,7 @@ export default function ServicesPage() {
             {/* Section CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <ConsultationCTA
-                className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="rounded-btn inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Discuss your project
@@ -217,7 +217,7 @@ export default function ServicesPage() {
             no cost and no obligation.
           </p>
           <ConsultationCTA
-            className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation

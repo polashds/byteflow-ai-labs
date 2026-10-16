@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         {/* Meta */}
         <div className="flex items-center gap-4 mb-6">
           {post.category && (
-            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-accent border border-accent/30 px-2 py-0.5">
+            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-accent border border-accent/30 rounded-full px-2 py-0.5">
               {post.category.name}
             </span>
           )}

@@ -151,7 +151,7 @@ export default function AboutPage() {
 
             {/* Mission + Vision cards */}
             <div className="space-y-5">
-              <div className="border border-primary/15 bg-brand-bg p-8">
+              <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
                 <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-4">
                   Our Mission
                 </p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
                   human. We find it, automate it, and hand back the hours.
                 </p>
               </div>
-              <div className="border border-primary/15 bg-brand-bg p-8">
+              <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
                 <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-4">
                   Our Vision
                 </p>
@@ -192,7 +192,7 @@ export default function AboutPage() {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="border border-primary/15 bg-brand-surface p-8 sm:p-10 text-center">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-8 sm:p-10 text-center">
               <Image
                 src="/images/siddique-circle-320.webp"
                 alt="Md. Siddique Hossain, founder of ByteFlow AI Labs"
@@ -268,7 +268,7 @@ export default function AboutPage() {
             {pillars.map((p) => (
               <div
                 key={p.num}
-                className="border border-primary/15 bg-brand-bg p-7 hover:border-primary/30 transition-colors duration-300"
+                className="border border-primary/15 rounded-card lift bg-brand-bg p-7"
               >
                 <div
                   className="font-heading font-semibold text-[1.75rem] leading-none mb-5 opacity-20"
@@ -285,7 +285,7 @@ export default function AboutPage() {
           </div>
 
           {/* Trust commitments */}
-          <div className="border border-primary/15 bg-brand-bg p-8 lg:p-10">
+          <div className="border border-primary/15 rounded-card bg-brand-bg p-8 lg:p-10">
             <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-7">
               How We Protect Your Investment
             </p>
@@ -352,7 +352,7 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="border border-primary/15 bg-brand-surface p-6"
+                  className="border border-primary/15 rounded-card bg-brand-surface p-6"
                 >
                   <p className="font-body text-[10px] tracking-[0.2em] text-accent/60 uppercase mb-2">
                     {item.label}
@@ -392,7 +392,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <ConsultationCTA
-              className="px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+              className="rounded-btn px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
               style={gradientBg}
             >
               Book a Free Consultation

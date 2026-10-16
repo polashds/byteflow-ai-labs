@@ -67,14 +67,14 @@ export default function HeroContent() {
       >
         <ConsultationCTA
           location="home_hero"
-          className="px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+          className="rounded-btn px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
           style={gradientBg}
         >
           Discuss Your Workflow
         </ConsultationCTA>
         <Link
           href="/portfolio"
-          className="px-10 py-4 bg-transparent text-brand-text font-body text-[11px] font-normal tracking-[0.2em] uppercase border border-white/20 hover:border-accent hover:text-accent transition-all duration-300"
+          className="px-10 py-4 bg-transparent text-brand-text font-body text-[11px] font-normal tracking-[0.2em] uppercase border border-white/20 rounded-btn hover:border-accent hover:text-accent transition-all duration-300"
         >
           See What We&apos;ve Built →
         </Link>

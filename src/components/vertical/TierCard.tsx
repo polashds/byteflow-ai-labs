@@ -25,13 +25,13 @@ export default function TierCard({
   return (
     <Reveal index={index} className="h-full">
       <article
-        className={`lift relative flex h-full flex-col bg-brand-surface p-6 sm:p-7 ${
+        className={`lift rounded-card relative flex h-full flex-col bg-brand-surface p-6 sm:p-7 ${
           featured ? "border border-accent/60" : "border border-primary/15"
         }`}
       >
         {featured && (
           <span
-            className="absolute -top-3 left-6 px-3 py-1 font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-white"
+            className="absolute -top-3 left-6 rounded-full px-3 py-1 font-body text-[10px] font-semibold tracking-[0.2em] uppercase text-white"
             style={gradientBg}
           >
             Most complete

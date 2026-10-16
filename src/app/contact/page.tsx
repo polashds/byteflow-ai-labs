@@ -57,7 +57,7 @@ export default function ContactPage() {
       {/* Calendly direct booking — shown only if NEXT_PUBLIC_CALENDLY_URL is set */}
       {process.env.NEXT_PUBLIC_CALENDLY_URL && (
         <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8">
-          <div className="border border-primary/20 bg-brand-surface p-8 text-center">
+          <div className="border border-primary/20 rounded-card bg-brand-surface p-8 text-center">
             <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-3">
               Prefer to book directly?
             </p>
@@ -68,7 +68,7 @@ export default function ContactPage() {
               href={process.env.NEXT_PUBLIC_CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+              className="rounded-btn inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-200 hover:-translate-y-0.5"
               style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
             >
               Open Calendly →
@@ -93,7 +93,7 @@ export default function ContactPage() {
 
           {/* Contact details */}
           <aside className="space-y-6 lg:pt-14">
-            <div className="border border-primary/15 bg-brand-surface p-8 space-y-6">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-8 space-y-6">
               <div>
                 <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-2">
                   Email
@@ -145,7 +145,7 @@ export default function ContactPage() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-body text-[10px] tracking-[0.15em] uppercase text-brand-muted border border-primary/15 px-2.5 py-1.5 hover:text-accent hover:border-accent/40 transition-colors duration-200"
+                      className="font-body text-[10px] tracking-[0.15em] uppercase text-brand-muted border border-primary/15 rounded-full px-2.5 py-1.5 hover:text-accent hover:border-accent/40 transition-colors duration-200"
                     >
                       {label}
                     </a>

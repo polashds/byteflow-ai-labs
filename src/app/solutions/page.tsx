@@ -71,7 +71,7 @@ export default function SolutionsPage() {
               <a
                 key={sol.id}
                 href={`#${sol.id}`}
-                className="inline-flex items-center gap-2 font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 hover:border-primary/35 px-4 py-2 transition-colors duration-200"
+                className="inline-flex items-center gap-2 font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 rounded-full hover:border-primary/35 px-4 py-2 transition-colors duration-200"
               >
                 <span>{sol.icon}</span>
                 <span>{sol.industry}</span>
@@ -173,7 +173,7 @@ export default function SolutionsPage() {
                       <a
                         key={id}
                         href={`/services#${id}`}
-                        className="inline-flex items-center gap-1.5 font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 hover:border-primary/35 px-3 py-1.5 transition-colors duration-200"
+                        className="inline-flex items-center gap-1.5 font-body text-[11px] text-brand-muted hover:text-accent border border-primary/15 rounded-full hover:border-primary/35 px-3 py-1.5 transition-colors duration-200"
                       >
                         <span className="text-sm">{svc.icon}</span>
                         <span>{svc.title}</span>
@@ -187,7 +187,7 @@ export default function SolutionsPage() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2 border-t border-primary/10">
               <ConsultationCTA
-                className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="rounded-btn inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Book a Free Consultation
@@ -221,7 +221,7 @@ export default function SolutionsPage() {
             or money, we&apos;re worth talking to.
           </p>
           <ConsultationCTA
-            className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation
