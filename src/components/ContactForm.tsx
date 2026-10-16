@@ -32,7 +32,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="py-16 text-center border border-primary/20 bg-brand-surface">
+      <div className="py-16 text-center border border-primary/20 rounded-card bg-brand-surface">
         <div className="flex items-center justify-center gap-4 mb-4">
           <span className="h-px w-8 bg-primary/40" />
           <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase">
@@ -61,7 +61,7 @@ export default function ContactForm() {
   }
 
   const fieldCls =
-    "w-full bg-brand-bg border border-primary/15 text-brand-text font-body text-sm px-4 py-3.5 placeholder:text-brand-muted/40 focus:outline-none focus:border-primary/50 transition-colors duration-150";
+    "w-full bg-brand-bg border border-primary/15 rounded-field text-brand-text font-body text-sm px-4 py-3.5 placeholder:text-brand-muted/40 focus:outline-none focus:border-primary/50 transition-colors duration-150";
 
   const labelCls =
     "block font-body text-[11px] tracking-[0.2em] text-brand-muted uppercase mb-1.5";
@@ -162,7 +162,7 @@ export default function ContactForm() {
 
       {/* Error */}
       {error && (
-        <p className="font-body text-sm text-red-400 border border-red-400/20 bg-red-400/5 px-4 py-3">
+        <p className="font-body text-sm text-red-400 border border-red-400/20 rounded-field bg-red-400/5 px-4 py-3">
           {error}
         </p>
       )}
@@ -170,7 +170,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-opacity duration-200 disabled:opacity-60"
+        className="rounded-btn w-full py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-opacity duration-200 disabled:opacity-60"
         style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
       >
         {isPending ? "Sending…" : "Send Enquiry"}

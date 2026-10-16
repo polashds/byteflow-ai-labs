@@ -132,7 +132,7 @@ export default function ChatWidget() {
       {/* Chat panel */}
       {open && (
         <div
-          className="w-[min(320px,calc(100vw-1.5rem))] sm:w-[380px] flex flex-col bg-brand-surface border border-primary/30 overflow-hidden animate-slide-up"
+          className="w-[min(320px,calc(100vw-1.5rem))] sm:w-[380px] flex flex-col bg-brand-surface border border-primary/30 rounded-card overflow-hidden animate-slide-up"
           style={{
             height: "min(580px, calc(100dvh - 100px))",
             boxShadow: "0 24px 64px rgba(0,0,0,0.85), 0 0 0 1px rgba(37,99,235,0.08)",
@@ -219,7 +219,7 @@ export default function ChatWidget() {
                 <button
                   key={chip}
                   onClick={() => sendMessage(chip)}
-                  className="flex-shrink-0 px-3 py-1.5 bg-primary/8 border border-primary/25 text-accent font-body text-[11px] whitespace-nowrap hover:bg-primary/18 hover:border-primary/50 transition-colors duration-200"
+                  className="flex-shrink-0 px-3 py-1.5 bg-primary/8 border border-primary/25 rounded-full text-accent font-body text-[11px] whitespace-nowrap hover:bg-primary/18 hover:border-primary/50 transition-colors duration-200"
                 >
                   {chip}
                 </button>
@@ -235,13 +235,13 @@ export default function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
               placeholder="Ask about AI automation…"
-              className="flex-1 bg-brand-surface border border-primary/15 text-brand-text placeholder:text-brand-muted/40 font-body text-[13px] px-3.5 py-2.5 focus:outline-none focus:border-primary/50 transition-colors"
+              className="flex-1 bg-brand-surface border border-primary/15 rounded-field text-brand-text placeholder:text-brand-muted/40 font-body text-[13px] px-3.5 py-2.5 focus:outline-none focus:border-primary/50 transition-colors"
             />
             <button
               onClick={() => sendMessage(input)}
               disabled={loading || !input.trim()}
               aria-label="Send message"
-              className="w-10 h-10 disabled:opacity-40 text-white flex items-center justify-center flex-shrink-0 transition-opacity duration-200"
+              className="w-10 h-10 rounded-btn disabled:opacity-40 text-white flex items-center justify-center flex-shrink-0 transition-opacity duration-200"
               style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
             >
               <svg
@@ -264,7 +264,7 @@ export default function ChatWidget() {
       {/* Proactive teaser bubble */}
       {teaserVisible && !open && (
         <div
-          className="animate-slide-up flex items-start gap-2 bg-brand-surface border border-primary/30 px-4 py-3"
+          className="animate-slide-up flex items-start gap-2 bg-brand-surface border border-primary/30 rounded-card px-4 py-3"
           style={{
             maxWidth: "min(260px, calc(100vw - 5rem))",
             boxShadow: "0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(37,99,235,0.12)",

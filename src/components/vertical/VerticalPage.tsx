@@ -9,7 +9,7 @@ import { comingSoonVerticals, type Vertical } from "@/config/verticals";
 const gradientBg = { background: "linear-gradient(135deg, #2563EB, #22D3EE)" } as const;
 
 const ctaClass =
-  "inline-flex justify-center px-9 py-4 min-h-[44px] font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]";
+  "rounded-btn inline-flex justify-center px-9 py-4 min-h-[44px] font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]";
 
 /** Layout for a vertical landing page. All copy comes from the Vertical config. */
 export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
@@ -83,7 +83,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
             </ConsultationCTA>
             <a
               href="#packages"
-              className="inline-flex justify-center items-center px-9 py-4 min-h-[44px] text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 hover:border-accent hover:text-accent transition-all duration-300"
+              className="inline-flex justify-center items-center px-9 py-4 min-h-[44px] text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 rounded-btn hover:border-accent hover:text-accent transition-all duration-300"
             >
               See the packages
             </a>
@@ -156,13 +156,13 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
           </p>
           <ul className="flex flex-wrap gap-3">
             {v.notIncluded.map((item) => (
-              <li key={item} className="border border-primary/20 px-4 py-2 font-body text-sm text-brand-text">
+              <li key={item} className="border border-primary/20 rounded-full px-4 py-2 font-body text-sm text-brand-text">
                 {item}
               </li>
             ))}
           </ul>
           {v.trustNote && (
-            <p className="mt-8 border border-accent/40 bg-brand-surface p-5 font-body text-sm text-brand-text leading-relaxed">
+            <p className="mt-8 border border-accent/40 rounded-card bg-brand-surface p-5 font-body text-sm text-brand-text leading-relaxed">
               {v.trustNote}
             </p>
           )}
@@ -179,7 +179,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
               href={v.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex px-8 py-3 min-h-[44px] items-center border border-accent text-accent font-body text-[11px] tracking-[0.2em] uppercase"
+              className="inline-flex px-8 py-3 min-h-[44px] items-center border border-accent rounded-btn text-accent font-body text-[11px] tracking-[0.2em] uppercase"
             >
               Open the demo
             </a>
@@ -194,7 +194,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
           <SectionHeading eyebrow="Proof">What we&apos;ve built</SectionHeading>
           <div className="grid grid-cols-1 gap-6">
             {v.proof.map((p, i) => (
-              <Reveal key={p.title} index={i} className="border border-primary/15 bg-brand-surface p-6 sm:p-7">
+              <Reveal key={p.title} index={i} className="border border-primary/15 rounded-card bg-brand-surface p-6 sm:p-7">
                 <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">{p.label}</p>
                 <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">{p.title}</h3>
                 <p className="font-body text-sm text-brand-muted leading-relaxed">{p.body}</p>
@@ -209,7 +209,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {v.reviews.map((r, i) => (
                 <li key={`${r.platform}-${r.project}`}>
-                  <Reveal index={i} className="flex h-full flex-col border border-primary/15 bg-brand-surface p-6">
+                  <Reveal index={i} className="flex h-full flex-col border border-primary/15 rounded-card bg-brand-surface p-6">
                     <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-2">
                       {r.platform} · {r.project}
                     </p>

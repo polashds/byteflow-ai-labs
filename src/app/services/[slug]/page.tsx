@@ -168,7 +168,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
           >
             <ConsultationCTA
               location={`service_${offer.slug}_hero`}
-              className="inline-flex justify-center px-9 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+              className="rounded-btn inline-flex justify-center px-9 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
               style={gradientBg}
             >
               Discuss Your Workflow
@@ -176,7 +176,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             {caseStudy && (
               <a
                 href="#reference"
-                className="inline-flex justify-center px-9 py-4 text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 hover:border-accent hover:text-accent transition-all duration-300"
+                className="inline-flex justify-center px-9 py-4 text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 rounded-btn hover:border-accent hover:text-accent transition-all duration-300"
               >
                 See a working example
               </a>
@@ -211,7 +211,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
             {offer.painPoints.map((p, i) => (
               <Reveal key={p.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 bg-brand-surface p-7">
+                <div className="h-full border border-primary/15 rounded-card bg-brand-surface p-7">
                   <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
                     {p.title}
                   </h3>
@@ -238,7 +238,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             {offer.flow.map((step, i) => (
               <li key={step.title}>
                 <Reveal delay={i * STAGGER_MS}>
-                  <div className="h-full border border-primary/15 bg-brand-bg p-6">
+                  <div className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                     <span
                       className="block font-heading font-semibold text-2xl leading-none mb-4 opacity-60"
                       style={gradientText}
@@ -265,7 +265,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               {offer.integrations.map((tool) => (
                 <li
                   key={tool}
-                  className="font-body text-[12px] text-brand-muted border border-primary/15 px-3 py-1.5"
+                  className="font-body text-[12px] text-brand-muted border border-primary/15 rounded-full px-3 py-1.5"
                 >
                   {tool}
                 </li>
@@ -283,19 +283,19 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             <span style={gradientText}>and what is not</span>
           </SectionHeading>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="border border-primary/15 bg-brand-surface p-8">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 What you receive
               </h3>
               <BulletList items={offer.deliverables} />
             </div>
-            <div className="border border-primary/15 bg-brand-surface p-8">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 What we need from you
               </h3>
               <BulletList items={offer.customerProvides} />
             </div>
-            <div className="border border-primary/15 bg-brand-surface p-8">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 Not included
               </h3>
@@ -309,7 +309,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
       <section className="border-t border-primary/10 bg-brand-surface py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="border border-primary/15 bg-brand-bg p-8">
+            <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
               <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-3">
                 Reliability
               </p>
@@ -318,7 +318,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               </h2>
               <BulletList items={offer.reliability} />
             </div>
-            <div className="border border-primary/15 bg-brand-bg p-8">
+            <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
               <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-3">
                 Measurement
               </p>
@@ -343,9 +343,9 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               Where we have{" "}
               <span style={gradientText}>built this</span>
             </SectionHeading>
-            <div className="border border-primary/20 bg-brand-surface p-8 lg:p-10">
+            <div className="border border-primary/20 rounded-card bg-brand-surface p-8 lg:p-10">
               <div className="flex flex-wrap items-center gap-3 mb-5">
-                <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 px-2.5 py-1">
+                <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 rounded-full px-2.5 py-1">
                   {caseStudy.industry}
                 </span>
                 {caseStudy.projectType && (
@@ -382,7 +382,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             {engagementSteps.map((step, i) => (
               <li key={step.num}>
                 <Reveal delay={i * STAGGER_MS}>
-                  <div className="h-full border border-primary/15 bg-brand-bg p-6">
+                  <div className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                     <span
                       className="block font-heading font-semibold text-2xl leading-none mb-4 opacity-60"
                       style={gradientText}
@@ -515,7 +515,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
           </p>
           <ConsultationCTA
             location={`service_${offer.slug}_final`}
-            className="inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Discuss Your Workflow

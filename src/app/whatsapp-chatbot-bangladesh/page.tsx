@@ -168,14 +168,14 @@ export default function WhatsAppChatbotBangladeshPage() {
           <div className="animate-fade-up flex flex-col sm:flex-row gap-4" style={{ animationDelay: "240ms" }}>
             <ConsultationCTA
               location="whatsapp_bd_hero"
-              className="inline-flex justify-center px-9 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+              className="rounded-btn inline-flex justify-center px-9 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
               style={gradientBg}
             >
               Book a Free 30-Minute Call
             </ConsultationCTA>
             <Link
               href="/services/whatsapp-ai-assistant"
-              className="inline-flex justify-center px-9 py-4 text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 hover:border-accent hover:text-accent transition-all duration-300"
+              className="inline-flex justify-center px-9 py-4 text-brand-text font-body text-[11px] tracking-[0.2em] uppercase border border-white/20 rounded-btn hover:border-accent hover:text-accent transition-all duration-300"
             >
               Full service details →
             </Link>
@@ -206,7 +206,7 @@ export default function WhatsAppChatbotBangladeshPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {capabilities.map((c, i) => (
               <li key={c.title}>
-                <Reveal index={i} className="lift h-full border border-primary/15 bg-brand-surface p-6">
+                <Reveal index={i} className="lift h-full border border-primary/15 rounded-card bg-brand-surface p-6">
                   <h3 className="font-heading font-semibold text-brand-text text-base mb-2">{c.title}</h3>
                   <p className="font-body text-sm text-brand-muted leading-relaxed">{c.body}</p>
                 </Reveal>
@@ -224,7 +224,7 @@ export default function WhatsAppChatbotBangladeshPage() {
           </p>
           <ul className="flex flex-wrap gap-3">
             {audiences.map((a) => (
-              <li key={a} className="border border-primary/20 px-4 py-2 font-body text-sm text-brand-text">
+              <li key={a} className="border border-primary/20 rounded-full px-4 py-2 font-body text-sm text-brand-text">
                 {a}
               </li>
             ))}
@@ -242,7 +242,7 @@ export default function WhatsAppChatbotBangladeshPage() {
             Built in Bangladesh, <span style={gradientText}>running live</span>
           </SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border border-primary/15 bg-brand-surface p-7">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-7">
               <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">
                 Our own venture · Dhaka
               </p>
@@ -252,7 +252,7 @@ export default function WhatsAppChatbotBangladeshPage() {
                 and hands over to an agent. New leads trigger automatic WhatsApp and Telegram alerts.
               </p>
             </div>
-            <div className="border border-primary/15 bg-brand-surface p-7">
+            <div className="border border-primary/15 rounded-card bg-brand-surface p-7">
               <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">
                 Client project
               </p>
@@ -280,7 +280,7 @@ export default function WhatsAppChatbotBangladeshPage() {
           <ol className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {steps.map((s, i) => (
               <li key={s.title}>
-                <Reveal index={i} className="h-full border border-primary/15 bg-brand-bg p-6">
+                <Reveal index={i} className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                   <span className="font-heading text-sm" style={gradientText}>
                     0{i + 1}
                   </span>
@@ -331,7 +331,7 @@ export default function WhatsAppChatbotBangladeshPage() {
           </p>
           <ConsultationCTA
             location="whatsapp_bd_final"
-            className="inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex px-10 py-4 font-body text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free 30-Minute Call

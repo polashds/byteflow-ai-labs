@@ -86,7 +86,7 @@ export default async function BlogPage() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col border border-primary/15 bg-brand-surface hover:border-primary/35 transition-colors overflow-hidden"
+                className="lift group flex flex-col border border-primary/15 rounded-card bg-brand-surface overflow-hidden"
               >
                 {/* Featured image */}
                 {post.featuredImage ? (
@@ -119,7 +119,7 @@ export default async function BlogPage() {
                   {/* Category + date */}
                   <div className="flex items-center gap-3 mb-3">
                     {post.category && (
-                      <span className="font-body text-[9px] tracking-[0.25em] uppercase text-accent border border-accent/30 px-2 py-0.5">
+                      <span className="font-body text-[9px] tracking-[0.25em] uppercase text-accent border border-accent/30 rounded-full px-2 py-0.5">
                         {post.category.name}
                       </span>
                     )}

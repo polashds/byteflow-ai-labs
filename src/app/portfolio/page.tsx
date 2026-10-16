@@ -77,7 +77,7 @@ export default function PortfolioPage() {
             {/* Project header */}
             <div className="mb-12">
               <div className="flex flex-wrap items-center gap-3 mb-5">
-                <span className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase border border-accent/20 px-2.5 py-1">
+                <span className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase border border-accent/20 rounded-full px-2.5 py-1">
                   {cs.industry}
                 </span>
                 <span className="font-body text-[10px] text-brand-muted tracking-[0.2em] uppercase">
@@ -87,7 +87,7 @@ export default function PortfolioPage() {
                   · {cs.year}
                 </span>
                 {cs.projectType && (
-                  <span className="font-body text-[10px] font-medium tracking-[0.2em] text-brand-text/80 uppercase border border-primary/25 bg-primary/10 px-2.5 py-1">
+                  <span className="font-body text-[10px] font-medium tracking-[0.2em] text-brand-text/80 uppercase border border-primary/25 rounded-full bg-primary/10 px-2.5 py-1">
                     {projectTypeLabel[cs.projectType]}
                   </span>
                 )}
@@ -138,7 +138,7 @@ export default function PortfolioPage() {
                 {cs.technology.map((tech) => (
                   <span
                     key={tech}
-                    className="font-body text-[11px] text-brand-muted border border-primary/15 px-3 py-1.5"
+                    className="font-body text-[11px] text-brand-muted border border-primary/15 rounded-full px-3 py-1.5"
                   >
                     {tech}
                   </span>
@@ -179,7 +179,7 @@ export default function PortfolioPage() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-2 border-t border-primary/10">
               <ConsultationCTA
-                className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="rounded-btn inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Start Your Project
@@ -196,7 +196,7 @@ export default function PortfolioPage() {
       {placeholder && (
         <section className="py-20 lg:py-24 border-t border-primary/10 bg-brand-surface">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="border border-dashed border-primary/20 p-12 lg:p-16 text-center">
+            <div className="border border-dashed rounded-card border-primary/20 p-12 lg:p-16 text-center">
               <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-5">
                 Case Study · Coming Soon
               </p>
@@ -207,7 +207,7 @@ export default function PortfolioPage() {
                 {placeholder.tagline}
               </p>
               <ConsultationCTA
-                className="inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
+                className="rounded-btn inline-flex items-center px-8 py-3.5 text-white font-body text-[11px] font-medium tracking-[0.18em] uppercase transition-all duration-200 hover:-translate-y-0.5"
                 style={gradientBg}
               >
                 Start Your Project
@@ -237,7 +237,7 @@ export default function PortfolioPage() {
             properly, and document everything — so it&apos;s yours to keep.
           </p>
           <ConsultationCTA
-            className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
+            className="rounded-btn inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
             style={gradientBg}
           >
             Book a Free Consultation

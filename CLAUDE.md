@@ -28,9 +28,21 @@ production build or DB before making it.
 - Auth.js / NextAuth v5 (beta) for admin login
 - zod v4 for validation, react-hook-form + @hookform/resolvers for forms
 - lucide-react for icons; marked + react-markdown for blog content
-- No animation library (no framer-motion, no GSAP) — animation today is
-  three hand-written `@keyframes` in `globals.css` (pulse, slide-up,
-  typing-dot), all used by `ChatWidget.tsx`.
+- No animation library (no framer-motion, no GSAP). All motion is CSS in
+  `globals.css`, adapted from siddiquehossain.com:
+  - Scroll reveal: wrap content in `<Reveal index={i}>` (`.reveal`). Uses CSS
+    scroll-driven animation where supported; elsewhere `RevealObserver`
+    (in `PublicShell`) applies an IntersectionObserver fallback. Content is
+    never hidden without JS, under reduced motion, or in print.
+  - `.lift` (cards: radius, hover lift via `translate`, cyan glow), `.btn`
+    (radius + press), `.problem-card`, timeline `.tl-*`.
+  - Looping pieces for diagrams/marquees (`.wf-*`, `.lw-*`, `.marquee*`,
+    `.type-caret`): pause any off-screen loop by setting `data-loop="off"`
+    on an ancestor; at most one continuous loop visible at a time.
+  - Shape tokens in `@theme`: `rounded-card` (14px), `rounded-btn` /
+    `rounded-field` (10px), `shadow-card`, `shadow-glow`.
+  - Everything stops under `prefers-reduced-motion` (global guard). Animate
+    only transform/translate and opacity; no layout shift.
 - No i18n library — the site is English-only, no locale routing.
 
 ## Directory map
