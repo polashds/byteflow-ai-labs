@@ -130,7 +130,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "Edge-Case Routing",
-        value: "Ambiguous receipts routed to staff with full context — no case dropped",
+        value: "Ambiguous receipts flagged to staff with full context",
         isPlaceholder: false,
       },
       {

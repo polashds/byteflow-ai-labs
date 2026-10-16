@@ -60,9 +60,9 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "n8n Ongoing Management",
         description:
-          "A monthly retainer for teams who want their workflows monitored, maintained, and expanded as the business grows — without needing to manage n8n themselves.",
+          "A monthly retainer for teams who want their workflows maintained and expanded as the business grows — without needing to manage n8n themselves. Failure alerts go to a named person, with response times agreed in your contract.",
         includes: [
-          "24/7 uptime monitoring with instant alerts",
+          "Failure alerts to a named person",
           "Priority bug fixes, with response times agreed in your retainer",
           "Monthly execution & cost efficiency report",
           "Up to 8h of new workflow development per month",
@@ -426,15 +426,15 @@ export const serviceCategories: ServiceCategory[] = [
     id: "maintenance",
     icon: "🛡️",
     title: "Maintenance & Retainers",
-    tagline: "Keep everything running, monitored, and improving — without managing it yourself.",
+    tagline: "Keep everything running and improving — without managing it yourself.",
     body: "Automations break when APIs change. Traffic spikes reveal bottlenecks. New opportunities emerge monthly. Our maintenance and retainer plans ensure your systems stay healthy, stay accurate, and keep pace with your growth — with a named point of contact who knows your stack.",
     services: [
       {
         title: "Automation Monitoring & Health Checks",
         description:
-          "24/7 monitoring of your n8n workflows with instant alerts when something breaks — and fast remediation before it starts affecting your business operations.",
+          "Failure alerts on your n8n workflows go to a named person, with response times agreed in your contract, so problems are looked at before they spread through your operations.",
         includes: [
-          "Uptime monitoring with WhatsApp + email alerts",
+          "Failure alerts by WhatsApp and email",
           "Monthly execution & error-rate report",
           "Workflow failure investigation and fixes, with response times agreed in your retainer",
           "API deprecation & breaking-change alerts",

@@ -61,7 +61,7 @@ export default function ServicesPage() {
           </h1>
           <p className="font-body text-brand-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
             Eight service categories. Dozens of individual deliverables. All designed, built,
-            and deployed by a specialist team — self-hosted on your infrastructure, fully
+            and deployed by our team — self-hosted on your infrastructure, fully
             documented, and yours to keep.
           </p>
 

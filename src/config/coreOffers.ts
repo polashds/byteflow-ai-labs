@@ -378,7 +378,7 @@ export const coreOffers: CoreOffer[] = [
       },
       {
         title: "Escalate",
-        body: "Anything ambiguous goes to a person with the full context, so no case is dropped.",
+        body: "Designed to flag unclear cases to a person on your team, with the full context.",
       },
     ],
     integrations: [
@@ -415,7 +415,7 @@ export const coreOffers: CoreOffer[] = [
       "Duplicate detection runs before any confirmation is sent",
       "Every decision is recorded so it can be reviewed",
       "We test with your real receipt samples before launch",
-      "Failures raise alerts and are never silently dropped",
+      "Failures raise alerts to a named person",
     ],
     measure: [
       "Share of submissions processed automatically versus escalated",
