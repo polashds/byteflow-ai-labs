@@ -14,6 +14,9 @@ export const brand = {
     youtube: "https://www.youtube.com/@ByteFlowAILabs",
     twitter: "https://x.com/byteflowailabs",
   },
+  // Public freelance profiles, used as the source for review links.
+  upworkUrl: "https://www.upwork.com/freelancers/mshossain",
+  fiverrUrl: "https://www.fiverr.com/polashds?public_mode=true",
   nav: [
     { href: "/", label: "Home" },
     { href: "/solutions", label: "Solutions" },
