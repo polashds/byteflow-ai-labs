@@ -18,7 +18,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "n8n-infrastructure",
     icon: "⚙️",
     title: "n8n VPS Infrastructure",
-    tagline: "Self-hosted automation on your own server — 400+ integrations, no SaaS fees, yours forever.",
+    tagline: "Self-hosted automation on your own server — 400+ integrations, no SaaS fees, yours to keep.",
     body: "We install, configure, and manage n8n on your own VPS so every workflow runs on infrastructure you control. No per-automation pricing, no vendor lock-in — just your server, your data, your workflows running exactly as designed.",
     services: [
       {

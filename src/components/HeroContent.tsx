@@ -22,7 +22,7 @@ const flow = [
   { title: "Lead arrives", body: "Ad form, website or WhatsApp" },
   { title: "First reply", body: "Sent on WhatsApp straight away" },
   { title: "Scored and saved", body: "To your CRM, with its source" },
-  { title: "Team alerted", body: "The right person, instantly" },
+  { title: "Team alerted", body: "The right person is alerted" },
   { title: "Follow-up", body: "Runs until they reply or book" },
 ];
 

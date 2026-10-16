@@ -46,7 +46,7 @@ const pillars = [
   {
     num: "02",
     title: "You Own Everything",
-    body: "Every system runs on your VPS. No SaaS seat fees that scale against you, no vendor lock-in, no single-point-of-failure subscriptions. You pay once and run it forever.",
+    body: "Systems run on infrastructure you own. No SaaS seat fees that scale against you, no vendor lock-in, no single-point-of-failure subscriptions. You pay for the build once; hosting and API usage are billed to you at cost.",
   },
   {
     num: "03",
@@ -124,7 +124,7 @@ export default function AboutPage() {
               <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
                 <p>
                   ByteFlow AI Labs was founded with a single observation: businesses across
-                  Bangladesh — real estate agencies, clinics, e-commerce stores, travel
+                  Bangladesh — real estate agencies, e-commerce stores, travel
                   companies — were drowning in manual work that AI could handle in seconds.
                   Leads going cold because nobody responded fast enough. Staff copying data
                   between systems by hand. Appointments missed because reminders were never sent.
@@ -144,7 +144,7 @@ export default function AboutPage() {
                   We started with the BD market because it&apos;s our home and it&apos;s
                   underserved by quality automation agencies. But the stack we build — Next.js,
                   n8n, GPT-4o, self-hosted infrastructure — works for any business,
-                  anywhere. We now serve clients in South Asia, Latin America, and beyond.
+                  anywhere.
                 </p>
               </div>
             </div>
@@ -324,20 +324,19 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
                 <p>
-                  Our primary market is Bangladesh — real estate agencies, clinics,
+                  Our primary market is Bangladesh — real estate agencies,
                   e-commerce stores, travel companies, and local service businesses
                   across Dhaka, Chittagong, and beyond. We understand the local stack:
                   bKash, Nagad, WhatsApp, Bengali-language chatbots, and BD business
                   culture.
                 </p>
                 <p>
-                  But the systems we build travel. We work with global clients —
-                  sourced through Fiverr and Upwork — across Latin America, the
-                  Middle East, and Southeast Asia. Our deliverables are platform-agnostic
+                  Based in Bangladesh, working with businesses that sell through ads,
+                  websites and WhatsApp. Our deliverables are platform-agnostic
                   and fully documented in the client&apos;s working language where needed.
                 </p>
                 <p>
-                  Whether you&apos;re a Dhaka real estate agency or a Latin American
+                  Whether you run a real estate agency or an
                   e-commerce store, you get the same: a self-hosted, AI-native system
                   that you own outright from day one.
                 </p>
@@ -348,7 +347,6 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: "Home Market", value: "Bangladesh", sub: "BD-first stack: bKash, Nagad, WhatsApp, Bengali" },
-                { label: "Global Clients", value: "Latin America & Beyond", sub: "Fiverr & Upwork engagements, multi-language handovers" },
                 { label: "Deployment Model", value: "Self-Hosted VPS", sub: "Your server, your data, your system — always" },
                 { label: "Working Languages", value: "Bengali · English · Spanish", sub: "Documentation delivered in client's working language" },
               ].map((item) => (

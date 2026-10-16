@@ -234,7 +234,7 @@ export default function PortfolioPage() {
           </h2>
           <p className="font-body text-brand-muted text-[15px] leading-[1.85] max-w-xl mx-auto mb-10">
             Tell us what you want to automate. We&apos;ll scope it clearly, build it
-            properly, and document everything — so your business owns it forever.
+            properly, and document everything — so it&apos;s yours to keep.
           </p>
           <ConsultationCTA
             className="inline-flex items-center px-10 py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(37,99,235,0.45)]"
