@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact Us",
   description:
-    "Tell ByteFlow AI Labs where leads, messages or orders get stuck. Your enquiry reaches our workflow instantly and a person follows up to arrange a free 30-minute call.",
+    "Tell ByteFlow AI Labs where leads, messages or orders get stuck. Your enquiry reaches our workflow and a person follows up to arrange a free 30-minute call.",
   openGraph: {
     title: "Contact ByteFlow AI Labs — Book a Free Consultation",
     description:
