@@ -44,3 +44,4 @@ next-env.d.ts
 # public — keep these local and never publish them as routes. See
 # docs/website-optimization.md, "Legacy folder".
 /legacy/
+private-docs/
