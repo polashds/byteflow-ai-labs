@@ -20,7 +20,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How long does a typical project take?",
-    a: "A focused automation (one workflow, one integration) typically takes 1–2 weeks from scoping to deployment. A full AI system with multiple workflows, a custom chatbot, and a data pipeline typically runs 4–8 weeks. We'll give you a realistic timeline during the scoping call.",
+    a: "A focused automation typically takes 3–5 working days once we have your access and inputs. A full system typically takes 2–3 weeks. Larger multi-system builds take longer and are scoped individually. Your written scope confirms the timeline.",
   },
   {
     q: "How do you price your services?",

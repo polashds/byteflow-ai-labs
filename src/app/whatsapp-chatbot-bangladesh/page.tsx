@@ -249,7 +249,7 @@ export default function WhatsAppChatbotBangladeshPage() {
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">Mustaraka Properties</h3>
               <p className="font-body text-sm text-brand-muted leading-relaxed">
                 A WhatsApp agent qualifies property enquiries, books viewings against real availability
-                and hands over to an agent. New leads trigger instant WhatsApp and Telegram alerts.
+                and hands over to an agent. New leads trigger automatic WhatsApp and Telegram alerts.
               </p>
             </div>
             <div className="border border-primary/15 bg-brand-surface p-7">

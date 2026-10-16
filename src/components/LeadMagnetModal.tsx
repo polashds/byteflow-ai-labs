@@ -131,7 +131,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
                       <span style={gradientText}>BD Business Needs</span>
                     </h2>
                     <p className="font-body text-sm text-brand-muted leading-relaxed">
-                      Enter your details for instant access — no credit card, no spam.
+                      Enter your details to get the guide — no credit card, no spam.
                     </p>
                   </div>
 

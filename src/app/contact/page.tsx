@@ -111,7 +111,7 @@ export default function ContactPage() {
                   What happens next
                 </p>
                 <p className="font-body text-sm text-brand-muted">
-                  Your enquiry reaches our workflow instantly. A person reviews it and follows up
+                  Your enquiry reaches our workflow. A person reviews it and follows up
                   during business hours.
                 </p>
               </div>

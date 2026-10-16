@@ -119,13 +119,13 @@ export default function AboutPage() {
                 </p>
               </div>
               <h2 className="font-heading font-semibold text-brand-text text-[1.5rem] sm:text-3xl leading-snug mb-6">
-                Built in Bangladesh. Deployed Everywhere.
+                Built in Bangladesh.
               </h2>
               <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
                 <p>
                   ByteFlow AI Labs was founded with a single observation: businesses across
                   Bangladesh — real estate agencies, e-commerce stores, travel
-                  companies — were drowning in manual work that AI could handle in seconds.
+                  companies — were drowning in manual work that automation could handle.
                   Leads going cold because nobody responded fast enough. Staff copying data
                   between systems by hand. Appointments missed because reminders were never sent.
                 </p>
@@ -224,7 +224,7 @@ export default function AboutPage() {
               </div>
 
               <p className="font-body text-xs text-brand-muted/80 mt-6">
-                Based in Gazipur, Bangladesh (UTC+6) · working remotely
+                Based in Dhaka, Bangladesh (UTC+6) · working remotely
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-4 font-body text-sm">
@@ -347,7 +347,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: "Home Market", value: "Bangladesh", sub: "BD-first stack: bKash, Nagad, WhatsApp, Bengali" },
-                { label: "Deployment Model", value: "Self-Hosted VPS", sub: "Your server, your data, your system — always" },
+                { label: "Deployment Model", value: "Self-Hosted VPS", sub: "Your server, your data, your system" },
                 { label: "Working Languages", value: "Bengali · English · Spanish", sub: "Documentation delivered in client's working language" },
               ].map((item) => (
                 <div

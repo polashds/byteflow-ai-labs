@@ -205,7 +205,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Data enrichment (company, industry, location, LinkedIn)",
           "Duplicate detection & intelligent merge",
           "CRM routing rules by source, product, or region",
-          "Instant WhatsApp or Slack alert to assigned rep",
+          "Automatic WhatsApp or Slack alert to the assigned rep",
         ],
       },
       {

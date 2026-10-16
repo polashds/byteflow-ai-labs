@@ -247,7 +247,7 @@ export default function N8nAgencyBangladeshPage() {
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">Mustaraka Properties</h3>
               <p className="font-body text-sm text-brand-muted leading-relaxed">
                 Every lead from the website or a Meta lead ad triggers a self-hosted n8n workflow that
-                sends instant WhatsApp and Telegram alerts to agents, alongside a WhatsApp booking agent.
+                sends automatic WhatsApp and Telegram alerts to agents, alongside a WhatsApp booking agent.
               </p>
             </div>
             <div className="border border-primary/15 bg-brand-surface p-7">

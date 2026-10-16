@@ -14,7 +14,7 @@ export const industrySolutions: IndustrySolution[] = [
     id: "real-estate",
     icon: "🏢",
     industry: "Real Estate",
-    tagline: "Turn every Facebook lead into an instant WhatsApp conversation — before your competitor does.",
+    tagline: "Turn Facebook leads into WhatsApp conversations with an automatic first reply.",
     problem:
       "Real estate agents in Bangladesh run Facebook and Instagram campaigns that generate a steady flow of enquiries. But by the time an agent checks their phone or CRM, the lead has already called someone else. There's no system for prioritising hot leads over cold ones, and no way to engage a prospect at 11pm when they're browsing listings.",
     solution:
@@ -62,7 +62,7 @@ export const industrySolutions: IndustrySolution[] = [
     id: "travel-hospitality",
     icon: "✈️",
     industry: "Travel & Hospitality",
-    tagline: "Respond to every booking enquiry instantly — and let the AI close the conversation while you sleep.",
+    tagline: "Reply to booking enquiries automatically, with your team taking over when it matters.",
     problem:
       "A travel agency's most critical asset is response speed. When a customer enquires about a Cox's Bazar or Maldives package on WhatsApp at 9pm, and a competitor responds in 5 minutes while you respond in 5 hours, the booking is already lost. Manual itinerary creation and follow-up sequences don't scale as enquiry volume grows.",
     solution:
@@ -110,11 +110,11 @@ export const industrySolutions: IndustrySolution[] = [
     id: "local-services-smbs",
     icon: "🏪",
     industry: "Local Services & SMBs",
-    tagline: "Capture every lead, follow up instantly, and stay visible online — all on autopilot.",
+    tagline: "Capture leads, follow up automatically and stay visible online.",
     problem:
       "Small business owners running Facebook ads or relying on WhatsApp enquiries often have no reliable system for capturing and responding to leads. Enquiries come in at all hours, content creation is sporadic and time-consuming, and most owners simply don't have bandwidth to manage customer conversations and run the business simultaneously.",
     solution:
-      "A lightweight lead capture and follow-up system: Facebook lead forms or a landing page feed into an n8n pipeline that sends an instant WhatsApp notification to the owner and triggers an automated first-response message to the prospect within seconds. If the lead doesn't reply within a set window, a follow-up sequence continues on their behalf. An AI content pipeline keeps Facebook, Instagram, and the website updated without manual effort.",
+      "A lightweight lead capture and follow-up system: Facebook lead forms or a landing page feed into an n8n pipeline that sends an automatic WhatsApp notification to the owner and triggers an automated first-response message to the prospect within seconds. If the lead doesn't reply within a set window, a follow-up sequence continues on their behalf. An AI content pipeline keeps Facebook, Instagram, and the website updated without manual effort.",
     benefits: [
       "Every enquiry gets an automated acknowledgement, any time of day",
       "Automated first-response maintains trust before you can call back",

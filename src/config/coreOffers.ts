@@ -55,7 +55,7 @@ export const coreOffers: CoreOffer[] = [
     title: "Lead-to-CRM Automation with WhatsApp Follow-Up",
     metaTitle: "Lead-to-CRM Automation with WhatsApp",
     metaDescription:
-      "Capture leads from Facebook ads, forms and WhatsApp into one pipeline, reply instantly, score and route them to your CRM, and follow up automatically.",
+      "Capture leads from Facebook ads, forms and WhatsApp into one pipeline, send an automatic first reply, score and route them to your CRM, and follow up automatically.",
     cardSummary:
       "Every enquiry from ads, forms and WhatsApp lands in one pipeline, gets a first reply, is scored, saved to your CRM and followed up — without anyone having to remember.",
     painTag: "Leads go cold before anyone replies",
@@ -98,7 +98,7 @@ export const coreOffers: CoreOffer[] = [
       },
       {
         title: "Route and alert",
-        body: "The lead is saved to your CRM with its source and assigned to the right person, who gets an instant WhatsApp or chat alert.",
+        body: "The lead is saved to your CRM with its source and assigned to the right person, who gets an automatic WhatsApp or chat alert.",
       },
       {
         title: "Follow up",
@@ -119,7 +119,7 @@ export const coreOffers: CoreOffer[] = [
       "Lead capture from the sources you use, with source recorded on every lead",
       "Scoring rules, documented in plain language",
       "CRM pipeline stages, fields and assignment rules",
-      "Instant alerts to the assigned person",
+      "Automatic alerts to the assigned person",
       "Follow-up sequences with auto-pause on reply or booking",
       "Failure alerts, written documentation and a recorded walkthrough for your team",
       "30 days of post-launch support for what we delivered",
@@ -151,7 +151,7 @@ export const coreOffers: CoreOffer[] = [
     ],
     caseStudyId: "mustaraka-properties",
     caseStudyNote:
-      "The lead pipeline for our own real estate venture, which we built and operate: website and Meta ad leads trigger instant WhatsApp and Telegram alerts to agents, with leads tracked in a self-hosted admin CRM.",
+      "The lead pipeline for our own real estate venture, which we built and operate: website and Meta ad leads trigger automatic WhatsApp and Telegram alerts to agents, with leads tracked in a self-hosted admin CRM.",
     faqs: [
       {
         q: "Who is lead-to-CRM automation for?",
@@ -159,7 +159,7 @@ export const coreOffers: CoreOffer[] = [
       },
       {
         q: "What is included in a lead-to-CRM automation project?",
-        a: "A working lead pipeline on your own server: capture from the sources you use with the source recorded on every lead, scoring rules in plain language, CRM stages and assignment rules, instant alerts to the right person, and follow-ups that pause automatically on reply or booking. It also includes failure alerts, documentation, a recorded walkthrough and 30 days of post-launch support.",
+        a: "A working lead pipeline on your own server: capture from the sources you use with the source recorded on every lead, scoring rules in plain language, CRM stages and assignment rules, automatic alerts to the right person, and follow-ups that pause automatically on reply or booking. It also includes failure alerts, documentation, a recorded walkthrough and 30 days of post-launch support.",
       },
       {
         q: "What do you need from us to start?",
@@ -179,7 +179,7 @@ export const coreOffers: CoreOffer[] = [
       },
       {
         q: "How long does it take?",
-        a: "A focused lead pipeline typically takes 1–2 weeks from scoping to deployment; larger systems with several workflows take 4–8 weeks. We confirm a realistic timeline on the scoping call.",
+        a: "A focused automation typically takes 3–5 working days once we have your access and inputs. A full system typically takes 2–3 weeks. Larger multi-system builds take longer and are scoped individually. Your written scope confirms the timeline.",
       },
     ],
     relatedServiceIds: ["lead-scoring-crm", "whatsapp-automation", "n8n-infrastructure"],
