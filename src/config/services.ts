@@ -211,7 +211,7 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "AI Lead Scoring",
         description:
-          "Score every inbound lead 0–100 in real time based on fit, behaviour, and intent signals. Your team focuses on the top 20% — automation nurtures the rest.",
+          "Score every inbound lead 0–100 in real time based on fit, behaviour, and intent signals.",
         includes: [
           "Scoring model design & signal selection",
           "Fit signals (industry, company size, location, enquiry type)",
