@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import TypeRotator from "@/components/motion/TypeRotator";
+import LoopGate from "@/components/motion/LoopGate";
 
 /**
  * Homepage hero. Server component: the entrance animation is pure CSS
@@ -93,14 +94,17 @@ export default function HeroContent() {
       </p>
 
       {/* What the system does, in order */}
+      <LoopGate className="tl-hero">
       <ol
         aria-label="How a lead moves through the system we build"
         className="relative mt-16 grid grid-cols-1 sm:grid-cols-5 gap-5 sm:gap-3 text-left sm:text-center"
       >
         <span
           aria-hidden="true"
-          className="hidden sm:block absolute top-[15px] left-[10%] right-[10%] h-px bg-primary/20"
-        />
+          className="tl-rail hidden sm:block absolute top-[15px] left-[10%] right-[10%] h-px"
+        >
+          <span className="tl-pulse" />
+        </span>
         {flow.map((step, i) => (
           <li
             key={step.title}
@@ -108,6 +112,7 @@ export default function HeroContent() {
             style={delay(380 + i * 90)}
           >
             <span className="relative z-10 shrink-0 w-[31px] h-[31px] rounded-full border border-primary/35 bg-brand-bg flex items-center justify-center font-heading font-semibold text-xs">
+              <span aria-hidden="true" className="tl-ring" style={{ "--i": i } as React.CSSProperties} />
               <span style={gradientText}>{i + 1}</span>
             </span>
             <span>
@@ -121,6 +126,7 @@ export default function HeroContent() {
           </li>
         ))}
       </ol>
+      </LoopGate>
     </div>
   );
 }
