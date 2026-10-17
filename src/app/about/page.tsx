@@ -225,7 +225,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <p className="font-body text-xs text-brand-muted/80 mt-6">
+              <p className="font-body text-xs text-brand-muted mt-6">
                 Based in Dhaka, Bangladesh (UTC+6) · working remotely
               </p>
 
@@ -365,13 +365,13 @@ export default function AboutPage() {
                   key={item.label}
                   className="border border-primary/15 rounded-card bg-brand-surface p-6"
                 >
-                  <p className="font-body text-[10px] tracking-[0.2em] text-accent/60 uppercase mb-2">
+                  <p className="font-body text-[10px] tracking-[0.2em] text-accent uppercase mb-2">
                     {item.label}
                   </p>
                   <p className="font-heading font-semibold text-brand-text text-base mb-1.5 leading-snug">
                     {item.value}
                   </p>
-                  <p className="font-body text-[11px] text-brand-muted/70 leading-snug">
+                  <p className="font-body text-[11px] text-brand-muted leading-snug">
                     {item.sub}
                   </p>
                 </div>

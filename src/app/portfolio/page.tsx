@@ -104,7 +104,7 @@ export default function PortfolioPage() {
             {/* Challenge / Solution */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               <div
-                className={`border border-primary/15 rounded-card p-8 ${
+                className={`glow-hover border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >
@@ -117,7 +117,7 @@ export default function PortfolioPage() {
               </div>
 
               <div
-                className={`border border-primary/15 rounded-card p-8 ${
+                className={`glow-hover border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >
@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                 {cs.results.map((r) => (
                   <div
                     key={r.label}
-                    className={`border rounded-card p-6 ${
+                    className={`glow-hover border rounded-card p-6 ${
                       r.isPlaceholder
                         ? "border-dashed border-primary/20 opacity-50"
                         : "border-primary/15"
@@ -205,7 +205,7 @@ export default function PortfolioPage() {
       {placeholder && (
         <section className="py-20 lg:py-24 border-t border-primary/10 bg-brand-surface">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="border border-dashed rounded-card border-primary/20 p-12 lg:p-16 text-center">
+            <div className="glow-hover border border-dashed rounded-card border-primary/20 p-12 lg:p-16 text-center">
               <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-5">
                 Case Study · Coming Soon
               </p>

@@ -152,7 +152,7 @@ export default function ServicesPage() {
               {cat.services.map((svc) => (
                 <div
                   key={svc.title}
-                  className={`border border-primary/15 rounded-card p-7 ${
+                  className={`glow-hover border border-primary/15 rounded-card p-7 ${
                     i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                   }`}
                 >
