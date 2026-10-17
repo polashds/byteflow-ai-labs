@@ -170,7 +170,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="rounded-btn w-full py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-opacity duration-200 disabled:opacity-60"
+        className="btn rounded-btn w-full py-4 text-white font-body text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)] disabled:opacity-60 disabled:cursor-not-allowed"
         style={{ background: "linear-gradient(135deg, #2563EB, #22D3EE)" }}
       >
         {isPending ? "Sending…" : "Send Enquiry"}
