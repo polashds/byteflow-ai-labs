@@ -108,6 +108,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/ai-automation-agency-bangladesh"
+                  className="text-brand-muted text-sm hover:text-accent transition-colors duration-200"
+                >
+                  AI automation in Bangladesh
+                </Link>
+              </li>
             </ul>
           </div>
 
