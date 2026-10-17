@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
 import ConsultationCTA from "@/components/ConsultationCTA";
-import { getProject } from "@/config/projects";
+import { getProjectForCaseStudy } from "@/config/projects";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
@@ -188,9 +188,9 @@ export default function PortfolioPage() {
               <span className="font-body text-xs text-brand-muted">
                 Free 30-min scoping call · No commitment required
               </span>
-              {getProject(cs.id) && (
+              {getProjectForCaseStudy(cs.id) && (
                 <Link
-                  href={`/portfolio/${cs.id}`}
+                  href={`/portfolio/${getProjectForCaseStudy(cs.id)!.slug}`}
                   className="arrow-link inline-flex min-h-[44px] items-center font-body text-sm text-accent hover:underline underline-offset-4 sm:ml-auto"
                 >
                   See the project breakdown <span aria-hidden="true" className="arrow ml-1">→</span>

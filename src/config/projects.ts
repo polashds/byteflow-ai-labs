@@ -30,6 +30,8 @@ export interface ProjectVideo {
 
 export interface Project {
   slug: string;
+  /** Matching entry in caseStudies.ts; /portfolio links that section here. */
+  caseStudyId: string;
   /** Public name. Use a description, not a client name, unless permission is confirmed. */
   title: string;
   badge: string;
@@ -60,6 +62,7 @@ export const projectSectionLabels = {
 export const projects: Project[] = [
   {
     slug: "mustaraka-properties",
+    caseStudyId: "mustaraka-properties",
     title: "Mustaraka Properties",
     badge: "Internal system (our own venture)",
     summary:
@@ -152,14 +155,15 @@ export const projects: Project[] = [
   },
   {
     slug: "receipt-verification",
-    title: "Receipt verification on WhatsApp",
-    badge: "A digital-products store (client project)",
+    caseStudyId: "nova-digital-store",
+    title: "Receipt verification on WhatsApp — Nova Digital Store",
+    badge: "Client project · Nova Digital Store",
     summary:
       "A WhatsApp workflow that reads payment-receipt screenshots, checks them against the order ledger, catches repeat submissions and confirms or rejects the customer, with staff alerted for edge cases.",
     meta: {
-      title: "Receipt Verification on WhatsApp — Client Project",
+      title: "Receipt Verification on WhatsApp — Nova Digital Store (Client Project)",
       description:
-        "A 69-node n8n workflow built for a digital-products store: OCR on payment-receipt screenshots, ledger check, duplicate detection and staff review for edge cases.",
+        "A 69-node n8n workflow built for Nova Digital Store, a digital-products store: OCR on payment-receipt screenshots, ledger check, duplicate detection and staff review for edge cases.",
     },
     problem:
       "Customers sent payment-receipt screenshots on WhatsApp to complete their purchases. Staff checked each image by hand, matched the reference number against the order records and approved or rejected the order, which was slow on busy days.",
@@ -199,4 +203,8 @@ export const projects: Project[] = [
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+export function getProjectForCaseStudy(caseStudyId: string): Project | undefined {
+  return projects.find((p) => p.caseStudyId === caseStudyId);
 }
