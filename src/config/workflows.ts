@@ -55,7 +55,7 @@ export const paymentWorkflow: Workflow = {
     { title: "Screenshot received", note: "The customer sends it on WhatsApp" },
     { title: "Read", note: "Amount and transaction reference" },
     { title: "Matched to order", note: "Checked against your order records" },
-    { title: "Duplicate check", note: "The reference has not been used before" },
+    { title: "Duplicate check", note: "Checks the reference hasn't been used before" },
     { title: "Confirmed or sent to staff", note: "Unclear cases go to a person" },
   ],
 };

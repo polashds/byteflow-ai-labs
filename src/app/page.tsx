@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import WorkflowSection from "@/components/motion/WorkflowSection";
 import Link from "next/link";
+import { Clock, MessageCircle, MessagesSquare, Receipt, ReceiptText, Unplug, UsersRound } from "lucide-react";
+import ReviewsMarquee from "@/components/motion/ReviewsMarquee";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
 import HeroContent from "@/components/HeroContent";
@@ -10,6 +12,7 @@ import { coreOffers, engagementSteps as steps } from "@/config/coreOffers";
 import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
 import { faqs, homeFaqIndexes } from "@/config/faqs";
 import { afterContactSteps, supportTerms } from "@/config/contact";
+import { reviewsCopy } from "@/config/reviews";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -40,6 +43,15 @@ const gradientBg = { background: "linear-gradient(135deg, #2563EB, #22D3EE)" } a
 
 /** Reveal stagger: short, so the last card in a row is never far behind. */
 const STAGGER_MS = 90;
+
+/** Bento layout on lg: 6 columns, wide–narrow / narrow–wide. */
+const painSpans = ["lg:col-span-4", "lg:col-span-2", "lg:col-span-2", "lg:col-span-4"];
+const painIcons = [Clock, MessagesSquare, Receipt, Unplug];
+const offerIcons: Record<string, typeof UsersRound> = {
+  "lead-to-crm-automation": UsersRound,
+  "whatsapp-ai-assistant": MessageCircle,
+  "order-payment-automation": ReceiptText,
+};
 
 const painPoints = [
   {
@@ -118,18 +130,36 @@ export default function HomePage() {
             <span style={gradientText}>get lost</span>
           </SectionHeading>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {painPoints.map((p, i) => (
-              <Reveal key={p.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 rounded-card lift bg-brand-bg p-7">
-                  <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
-                    {p.title}
-                  </h3>
-                  <p className="font-body text-sm text-brand-muted leading-relaxed">{p.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
+            {painPoints.map((p, i) => {
+              const Icon = painIcons[i];
+              const wide = painSpans[i] === "lg:col-span-4";
+              return (
+                <li key={p.title} className={painSpans[i]}>
+                  <Reveal index={i}>
+                    <div className="problem-card h-full rounded-card border border-primary/15 bg-brand-bg p-7">
+                      {wide && (
+                        <span
+                          aria-hidden="true"
+                          className="grid-dots pointer-events-none absolute inset-y-0 right-0 hidden w-2/5 opacity-60 lg:block [mask-image:linear-gradient(90deg,transparent,#000)]"
+                        />
+                      )}
+                      <span
+                        aria-hidden="true"
+                        className="relative mb-5 inline-flex size-11 items-center justify-center rounded-field border border-accent/25 bg-accent/10 text-accent"
+                      >
+                        <Icon className="size-5" />
+                      </span>
+                      <h3 className={`relative font-heading font-semibold text-brand-text leading-snug mb-3 ${wide ? "text-xl lg:max-w-md" : "text-lg"}`}>
+                        {p.title}
+                      </h3>
+                      <p className={`relative font-body text-sm text-brand-muted leading-relaxed ${wide ? "lg:max-w-lg" : ""}`}>{p.body}</p>
+                    </div>
+                  </Reveal>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
@@ -144,23 +174,39 @@ export default function HomePage() {
             <span style={gradientText}>each fixing one problem</span>
           </SectionHeading>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
-            {coreOffers.map((offer, i) => (
-              <Reveal key={offer.slug} delay={i * STAGGER_MS}>
+          {/* Bento on lg: the first system is a tall card, the other two stack beside it. */}
+          <ul className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-6 mb-10">
+            {coreOffers.map((offer, i) => {
+              const Icon = offerIcons[offer.slug] ?? UsersRound;
+              return (
+              <li key={offer.slug} className={i === 0 ? "lg:row-span-2" : ""}>
+              <Reveal index={i}>
                 <Link
                   href={`/services/${offer.slug}`}
-                  className="lift group flex h-full flex-col border border-primary/15 rounded-card bg-brand-surface p-8"
+                  className={`lift group relative flex h-full flex-col overflow-hidden border border-primary/15 rounded-card bg-brand-surface ${i === 0 ? "p-8 lg:p-10" : "p-8"}`}
                 >
-                  <p className="font-body text-[10px] font-medium tracking-[0.25em] text-accent/80 uppercase mb-4">
+                  {i === 0 && (
+                    <span
+                      aria-hidden="true"
+                      className="grid-dots pointer-events-none absolute inset-x-0 bottom-0 h-1/2 opacity-50 [mask-image:linear-gradient(180deg,transparent,#000)]"
+                    />
+                  )}
+                  <span
+                    aria-hidden="true"
+                    className={`relative mb-6 inline-flex items-center justify-center rounded-field border border-accent/25 bg-accent/10 text-accent ${i === 0 ? "size-14" : "size-11"}`}
+                  >
+                    <Icon className={i === 0 ? "size-6" : "size-5"} />
+                  </span>
+                  <p className="relative font-body text-[10px] font-medium tracking-[0.25em] text-accent/80 uppercase mb-4">
                     {offer.painTag}
                   </p>
-                  <h3 className="font-heading font-semibold text-brand-text text-xl leading-snug mb-4">
+                  <h3 className={`relative font-heading font-semibold text-brand-text leading-snug mb-4 ${i === 0 ? "text-2xl lg:text-3xl" : "text-xl"}`}>
                     {offer.shortTitle}
                   </h3>
-                  <p className="font-body text-sm text-brand-muted leading-relaxed mb-6">
+                  <p className={`relative font-body text-brand-muted leading-relaxed mb-6 ${i === 0 ? "text-base max-w-md" : "text-sm"}`}>
                     {offer.cardSummary}
                   </p>
-                  <span className="mt-auto font-body text-[11px] text-accent tracking-[0.18em] uppercase">
+                  <span className="relative mt-auto font-body text-[11px] text-accent tracking-[0.18em] uppercase">
                     How it works{" "}
                     <span aria-hidden="true" className="arrow">
                       →
@@ -168,8 +214,10 @@ export default function HomePage() {
                   </span>
                 </Link>
               </Reveal>
-            ))}
-          </div>
+              </li>
+              );
+            })}
+          </ul>
 
           <p className="text-center font-body text-sm text-brand-muted">
             Need something these don&apos;t cover — a voice agent, tracking, or a custom integration?{" "}
@@ -283,6 +331,11 @@ export default function HomePage() {
           <p className="text-center font-body text-xs text-brand-muted">
             We publish what was built and what it does. Results appear only once they have been measured.
           </p>
+
+          <div className="mt-20">
+            <SectionHeading eyebrow={reviewsCopy.eyebrow}>{reviewsCopy.heading}</SectionHeading>
+            <ReviewsMarquee />
+          </div>
         </div>
       </section>
 
