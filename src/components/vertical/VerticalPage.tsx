@@ -198,7 +198,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
           <SectionHeading eyebrow="Proof">What we&apos;ve built</SectionHeading>
           <div className="grid grid-cols-1 gap-6">
             {v.proof.map((p, i) => (
-              <Reveal key={p.title} index={i} className="border border-primary/15 rounded-card bg-brand-surface p-6 sm:p-7">
+              <Reveal key={p.title} index={i} className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-6 sm:p-7">
                 <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">{p.label}</p>
                 <h3 className="font-heading font-semibold text-brand-text text-lg mb-3">{p.title}</h3>
                 <p className="font-body text-sm text-brand-muted leading-relaxed">{p.body}</p>
@@ -213,7 +213,7 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {v.reviews.map((r, i) => (
                 <li key={`${r.platform}-${r.project}`}>
-                  <Reveal index={i} className="flex h-full flex-col border border-primary/15 rounded-card bg-brand-surface p-6">
+                  <Reveal index={i} className="glow-hover flex h-full flex-col border border-primary/15 rounded-card bg-brand-surface p-6">
                     <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-2">
                       {r.platform} · {r.project}
                     </p>

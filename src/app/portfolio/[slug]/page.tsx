@@ -77,11 +77,11 @@ export default async function ProjectPage({ params }: { params: Params }) {
       {/* ── Problem / what we built ───────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Reveal index={0} className="h-full rounded-card border border-primary/15 bg-brand-bg p-7">
+          <Reveal index={0} className="glow-hover h-full rounded-card border border-primary/15 bg-brand-bg p-7">
             <p className={label}>{L.problem}</p>
             <p className="font-body text-sm text-brand-muted leading-relaxed">{p.problem}</p>
           </Reveal>
-          <Reveal index={1} className="h-full rounded-card border border-primary/15 bg-brand-bg p-7">
+          <Reveal index={1} className="glow-hover h-full rounded-card border border-primary/15 bg-brand-bg p-7">
             <p className={label}>{L.built}</p>
             <p className="font-body text-sm text-brand-text leading-relaxed mb-3">{p.built.intro}</p>
             <ul className="space-y-2">
@@ -117,7 +117,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
       {/* ── Errors and handoff / stack ────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 rounded-card border border-primary/15 bg-brand-bg p-7">
+          <div className="glow-hover lg:col-span-2 rounded-card border border-primary/15 bg-brand-bg p-7">
             <p className={label}>{L.handling}</p>
             <ul className="space-y-3">
               {p.handling.map((h) => (
@@ -128,7 +128,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
               ))}
             </ul>
           </div>
-          <div className="rounded-card border border-primary/15 bg-brand-bg p-7">
+          <div className="glow-hover rounded-card border border-primary/15 bg-brand-bg p-7">
             <p className={label}>{L.stack}</p>
             <ul className="flex flex-wrap gap-2">
               {p.stack.map((s) => (

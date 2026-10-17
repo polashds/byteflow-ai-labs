@@ -207,7 +207,7 @@ export default function BkashPaymentVerificationPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {capabilities.map((c, i) => (
               <li key={c.title}>
-                <Reveal index={i} className="h-full border border-primary/15 rounded-card bg-brand-surface p-6">
+                <Reveal index={i} className="glow-hover h-full border border-primary/15 rounded-card bg-brand-surface p-6">
                   <h3 className="font-heading font-semibold text-brand-text text-base mb-2">{c.title}</h3>
                   <p className="font-body text-sm text-brand-muted leading-relaxed">{c.body}</p>
                 </Reveal>
@@ -246,7 +246,7 @@ export default function BkashPaymentVerificationPage() {
             Built and <span style={gradientText}>delivered</span>
           </SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-7">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-7">
               <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">
                 What you get
               </p>
@@ -256,7 +256,7 @@ export default function BkashPaymentVerificationPage() {
                 route to staff, failure alerts, documentation and a recorded walkthrough.
               </p>
             </div>
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-7">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-7">
               <p className="font-body text-[10px] tracking-[0.3em] text-accent uppercase mb-3">
                 Client project
               </p>
@@ -284,7 +284,7 @@ export default function BkashPaymentVerificationPage() {
           <ol className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {steps.map((s, i) => (
               <li key={s.title}>
-                <Reveal index={i} className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
+                <Reveal index={i} className="glow-hover h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                   <span className="font-heading text-sm" style={gradientText}>
                     0{i + 1}
                   </span>
