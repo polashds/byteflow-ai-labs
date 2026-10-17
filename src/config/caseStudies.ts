@@ -57,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
       "Prisma + PostgreSQL",
       "n8n (self-hosted)",
       "OpenRouter (LLM API)",
-      "Evolution API (WhatsApp Business)",
+      "WhatsApp Cloud API",
       "Auth.js (admin authentication)",
       "Docker + Traefik",
       "Let's Encrypt SSL",
@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "Lead Pipeline",
-        value: "Every submission → automatic WhatsApp + Telegram alert",
+        value: "Each submission → automatic WhatsApp + Telegram alert",
         isPlaceholder: false,
       },
       {
