@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/db";
 import { PostStatus } from "@prisma/client";
 import { coreOffers } from "@/config/coreOffers";
+import { projects } from "@/config/projects";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,11 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE}/real-estate-automation`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/solutions`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/portfolio`, changeFrequency: "monthly", priority: 0.8 },
+  ...projects.map((p) => ({
+    url: `${BASE}/portfolio/${p.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  })),
   { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
   { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.7 },
   { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.7 },

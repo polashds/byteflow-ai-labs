@@ -3,6 +3,8 @@ import WorkflowSection from "@/components/motion/WorkflowSection";
 import Link from "next/link";
 import { Clock, MessageCircle, MessagesSquare, Receipt, ReceiptText, Unplug, UsersRound } from "lucide-react";
 import ReviewsMarquee from "@/components/motion/ReviewsMarquee";
+import VideoEmbed from "@/components/project/VideoEmbed";
+import { introVideo } from "@/config/videos";
 import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
 import HeroContent from "@/components/HeroContent";
@@ -121,6 +123,19 @@ export default function HomePage() {
         />
         <HeroContent />
       </section>
+
+      {/* ── Intro video (hidden until a video id is set in src/config/videos.ts) ── */}
+      {introVideo.youtubeId && (
+        <section className="bg-brand-bg border-t border-primary/10 py-20 lg:py-24">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <SectionHeading eyebrow={introVideo.eyebrow}>{introVideo.heading}</SectionHeading>
+            <figure>
+              <VideoEmbed youtubeId={introVideo.youtubeId} title={introVideo.title} poster={introVideo.poster} />
+              <figcaption className="mt-3 text-center font-body text-xs text-brand-muted">{introVideo.caption}</figcaption>
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* ── Pain points ───────────────────────────────────────────────────── */}
       <section className="bg-brand-surface border-t border-primary/10 py-24 lg:py-32">
