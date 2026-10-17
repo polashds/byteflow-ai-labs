@@ -113,7 +113,7 @@ export default function SolutionsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               {/* Problem */}
               <div
-                className={`border border-primary/15 p-8 ${
+                className={`glow-hover border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >
@@ -127,7 +127,7 @@ export default function SolutionsPage() {
 
               {/* Solution */}
               <div
-                className={`border border-primary/15 p-8 ${
+                className={`glow-hover border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >

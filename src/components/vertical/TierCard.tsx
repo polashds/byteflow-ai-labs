@@ -25,7 +25,7 @@ export default function TierCard({
   return (
     <Reveal index={index} className="h-full">
       <article
-        className={`lift rounded-card relative flex h-full flex-col bg-brand-surface p-6 sm:p-7 ${
+        className={`rounded-card relative flex h-full flex-col bg-brand-surface p-6 sm:p-7 ${
           featured ? "border border-accent/60" : "border border-primary/15"
         }`}
       >
