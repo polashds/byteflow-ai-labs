@@ -57,7 +57,7 @@ export default function ContactPage() {
       {/* Calendly direct booking — shown only if NEXT_PUBLIC_CALENDLY_URL is set */}
       {process.env.NEXT_PUBLIC_CALENDLY_URL && (
         <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-8">
-          <div className="border border-primary/20 rounded-card bg-brand-surface p-8 text-center">
+          <div className="border border-primary/20 rounded-card glow-hover bg-brand-surface p-8 text-center">
             <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-3">
               Prefer to book directly?
             </p>
@@ -93,7 +93,7 @@ export default function ContactPage() {
 
           {/* Contact details */}
           <aside className="space-y-6 lg:pt-14">
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-8 space-y-6">
+            <div className="border border-primary/15 rounded-card glow-hover bg-brand-surface p-8 space-y-6">
               <div>
                 <p className="font-body text-[10px] tracking-[0.25em] text-accent uppercase mb-2">
                   Email

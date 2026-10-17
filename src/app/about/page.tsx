@@ -153,7 +153,7 @@ export default function AboutPage() {
 
             {/* Mission + Vision cards */}
             <div className="space-y-5">
-              <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
+              <div className="border border-primary/15 rounded-card glow-hover bg-brand-bg p-8">
                 <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-4">
                   Our Mission
                 </p>
@@ -162,7 +162,7 @@ export default function AboutPage() {
                   human. We find it, automate it, and hand back the hours.
                 </p>
               </div>
-              <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
+              <div className="border border-primary/15 rounded-card glow-hover bg-brand-bg p-8">
                 <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-4">
                   Our Vision
                 </p>
@@ -194,7 +194,7 @@ export default function AboutPage() {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-8 sm:p-10 text-center">
+            <div className="border border-primary/15 rounded-card glow-hover bg-brand-surface p-8 sm:p-10 text-center">
               <Image
                 src="/images/siddique-circle-320.webp"
                 alt="Md. Siddique Hossain, founder of ByteFlow AI Labs"
@@ -279,7 +279,7 @@ export default function AboutPage() {
             {pillars.map((p) => (
               <div
                 key={p.num}
-                className="border border-primary/15 rounded-card bg-brand-bg p-7"
+                className="border border-primary/15 rounded-card glow-hover bg-brand-bg p-7"
               >
                 <div
                   className="font-heading font-semibold text-[1.75rem] leading-none mb-5 opacity-20"
@@ -296,7 +296,7 @@ export default function AboutPage() {
           </div>
 
           {/* Trust commitments */}
-          <div className="border border-primary/15 rounded-card bg-brand-bg p-8 lg:p-10">
+          <div className="border border-primary/15 rounded-card glow-hover bg-brand-bg p-8 lg:p-10">
             <p className="font-body text-[10px] font-medium tracking-[0.35em] text-accent uppercase mb-7">
               How We Protect Your Investment
             </p>
@@ -363,7 +363,7 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="border border-primary/15 rounded-card bg-brand-surface p-6"
+                  className="border border-primary/15 rounded-card glow-hover bg-brand-surface p-6"
                 >
                   <p className="font-body text-[10px] tracking-[0.2em] text-accent uppercase mb-2">
                     {item.label}
