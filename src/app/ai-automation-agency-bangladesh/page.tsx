@@ -40,12 +40,12 @@ const areas = [
   {
     href: "/whatsapp-chatbot-bangladesh",
     title: "WhatsApp chatbots",
-    body: "AI WhatsApp assistants that answer customers in Bengali and English, take bookings and hand over to your team with the full chat.",
+    body: "AI WhatsApp assistants designed to answer customers in Bengali and English, take bookings and hand over to your team with the full chat.",
   },
   {
     href: "/bkash-payment-verification-automation",
     title: "bKash and Nagad payment verification",
-    body: "Reads payment screenshots, matches them to the order, catches duplicates and confirms the customer on WhatsApp.",
+    body: "Designed to read payment screenshots, match them to the order, flag reused ones and confirm the customer on WhatsApp.",
   },
   {
     href: "/n8n-automation-agency-bangladesh",
