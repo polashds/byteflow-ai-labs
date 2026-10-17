@@ -13,6 +13,13 @@ export const introVideo: ProjectVideo & { eyebrow: string; heading: string; capt
   caption: "A short walkthrough of how we build and hand over an automation.",
 };
 
+/** Founder introduction on /about. Empty youtubeId = the section is not rendered. */
+export const founderVideo: ProjectVideo & { caption: string } = {
+  youtubeId: "",
+  title: "Meet the founder",
+  caption: "A short introduction from Siddique.",
+};
+
 /** Text used by the click-to-load player. */
 export const videoUi = {
   play: "Play video",

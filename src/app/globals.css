@@ -136,7 +136,8 @@
     transform-origin: left;
     animation: tl-draw-x linear both;
     animation-timeline: --tl;
-    animation-range: entry 70% cover 50%;
+    /* Finish early so the line reaches the last step once the section is comfortably in view. */
+    animation-range: entry 70% cover 35%;
   }
   .tl-badge {
     animation: tl-badge linear both;

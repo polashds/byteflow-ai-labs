@@ -104,7 +104,7 @@ export default function PortfolioPage() {
             {/* Challenge / Solution */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               <div
-                className={`border border-primary/15 p-8 ${
+                className={`border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >
@@ -117,7 +117,7 @@ export default function PortfolioPage() {
               </div>
 
               <div
-                className={`border border-primary/15 p-8 ${
+                className={`border border-primary/15 rounded-card p-8 ${
                   i % 2 === 0 ? "bg-brand-surface" : "bg-brand-bg"
                 }`}
               >
@@ -156,7 +156,7 @@ export default function PortfolioPage() {
                 {cs.results.map((r) => (
                   <div
                     key={r.label}
-                    className={`border p-6 ${
+                    className={`border rounded-card p-6 ${
                       r.isPlaceholder
                         ? "border-dashed border-primary/20 opacity-50"
                         : "border-primary/15"

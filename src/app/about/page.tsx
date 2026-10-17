@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import VideoEmbed from "@/components/project/VideoEmbed";
+import { founderVideo } from "@/config/videos";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -240,6 +242,15 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+
+          {/* Founder video: hidden until founderVideo.youtubeId is set in src/config/videos.ts */}
+          {founderVideo.youtubeId && (
+            <figure className="mx-auto mt-14 max-w-3xl">
+              <h3 className="mb-5 text-center font-heading font-semibold text-brand-text text-2xl">{founderVideo.title}</h3>
+              <VideoEmbed youtubeId={founderVideo.youtubeId} title={founderVideo.title} poster={founderVideo.poster} />
+              <figcaption className="mt-3 text-center font-body text-xs text-brand-muted">{founderVideo.caption}</figcaption>
+            </figure>
+          )}
         </div>
       </section>
 
@@ -268,7 +279,7 @@ export default function AboutPage() {
             {pillars.map((p) => (
               <div
                 key={p.num}
-                className="border border-primary/15 rounded-card lift bg-brand-bg p-7"
+                className="border border-primary/15 rounded-card bg-brand-bg p-7"
               >
                 <div
                   className="font-heading font-semibold text-[1.75rem] leading-none mb-5 opacity-20"

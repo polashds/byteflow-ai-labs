@@ -204,7 +204,7 @@ export default function N8nAgencyBangladeshPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {capabilities.map((c, i) => (
               <li key={c.title}>
-                <Reveal index={i} className="lift h-full border border-primary/15 rounded-card bg-brand-surface p-6">
+                <Reveal index={i} className="h-full border border-primary/15 rounded-card bg-brand-surface p-6">
                   <h3 className="font-heading font-semibold text-brand-text text-base mb-2">{c.title}</h3>
                   <p className="font-body text-sm text-brand-muted leading-relaxed">{c.body}</p>
                 </Reveal>
