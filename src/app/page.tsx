@@ -9,6 +9,7 @@ import ConsultationCTA from "@/components/ConsultationCTA";
 import LeadMagnetModal from "@/components/LeadMagnetModal";
 import HeroContent from "@/components/HeroContent";
 import Reveal from "@/components/Reveal";
+import LoopGate from "@/components/motion/LoopGate";
 import SectionHeading from "@/components/SectionHeading";
 import { coreOffers, engagementSteps as steps } from "@/config/coreOffers";
 import { caseStudies, projectTypeLabel } from "@/config/caseStudies";
@@ -265,8 +266,10 @@ export default function HomePage() {
             <span style={gradientText}>a system that runs</span>
           </SectionHeading>
 
-          <div className="tl relative">
-            <div aria-hidden="true" className="tl-line hidden lg:block absolute top-[22px] left-[13%] right-[13%] h-px bg-primary/25" />
+          <LoopGate className="tl relative">
+            <div aria-hidden="true" className="tl-line hidden lg:block absolute top-[22px] left-[13%] right-[13%] h-px">
+              <span className="tl-pulse" />
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
               {steps.map((step, i) => (
@@ -275,6 +278,7 @@ export default function HomePage() {
                     <div
                       className="tl-badge w-11 h-11 rounded-full flex items-center justify-center mb-7 relative z-10 lg:mx-auto border border-primary/30 bg-brand-surface"
                     >
+                      <span aria-hidden="true" className="tl-ring" style={{ "--i": i } as React.CSSProperties} />
                       <span style={gradientText} className="font-heading font-semibold text-sm">
                         {step.num}
                       </span>
@@ -289,7 +293,7 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
-          </div>
+          </LoopGate>
 
           <div className="glow-hover mt-16 border border-primary/15 rounded-card bg-brand-bg p-7 lg:p-9">
             <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-5">

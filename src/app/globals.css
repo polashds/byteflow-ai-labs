@@ -157,6 +157,38 @@
   }
 }
 
+/* Timeline signal: a cyan pulse travels from step 01 to 04 and each badge
+   lights as it passes. 4s loop, desktop only (the rail is hidden below lg),
+   paused off-screen by LoopGate, off under reduced motion and in print.
+   Badge k is reached at 0.76 * k/3 of the cycle, hence the 1.013s steps. */
+.tl-line { background: linear-gradient(90deg, rgba(37, 99, 235, 0.45), rgba(34, 211, 238, 0.45)); }
+.tl-pulse {
+  position: absolute; top: -1px; left: 0; height: 3px; width: 16%;
+  border-radius: 9999px; opacity: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent, #22D3EE, transparent);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.7);
+}
+.tl-ring {
+  position: absolute; inset: -1px; border-radius: 9999px; opacity: 0; pointer-events: none;
+  border: 1px solid #22D3EE; box-shadow: 0 0 16px rgba(34, 211, 238, 0.55);
+}
+@keyframes tl-pulse-run {
+  0% { transform: translateX(-50%); opacity: 0; }
+  6% { opacity: 1; }
+  76% { transform: translateX(575%); opacity: 1; }
+  84%, 100% { transform: translateX(575%); opacity: 0; }
+}
+@keyframes tl-ring-on {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  22%, 100% { opacity: 0; }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .tl-pulse { animation: tl-pulse-run 4s linear infinite; }
+  .tl-ring { animation: tl-ring-on 4s linear infinite; animation-delay: calc(var(--i, 0) * 1.013s); }
+}
+@media print { .tl-pulse, .tl-ring { display: none; } }
+
 /* Visible keyboard focus everywhere (links, buttons, form fields, summaries) */
 :where(a, button, input, select, textarea, summary):focus-visible {
   outline: 2px solid var(--color-accent);
