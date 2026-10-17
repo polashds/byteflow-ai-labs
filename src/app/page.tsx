@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: { absolute: "WhatsApp & Lead Automation Agency — ByteFlow AI Labs" },
   description:
-    "ByteFlow AI Labs builds lead-to-CRM, WhatsApp AI assistant and order-verification systems for businesses that sell through ads, websites and WhatsApp.",
+    "ByteFlow AI Labs builds lead-to-CRM, WhatsApp AI assistant and order-verification systems for businesses in Bangladesh and abroad that sell through ads, websites and WhatsApp.",
   openGraph: {
     title: "WhatsApp & Lead Automation Agency — ByteFlow AI Labs",
     description:
@@ -244,6 +244,13 @@ export default function HomePage() {
             or{" "}
             <Link href="/contact#contact-form" className="text-accent underline underline-offset-2 hover:text-brand-text">
               describe your workflow
+            </Link>
+            .
+          </p>
+          <p className="mt-4 text-center font-body text-sm text-brand-muted">
+            Based in Bangladesh: see our{" "}
+            <Link href="/ai-automation-agency-bangladesh" className="text-accent underline underline-offset-2 hover:text-brand-text">
+              AI automation for Bangladeshi businesses
             </Link>
             .
           </p>

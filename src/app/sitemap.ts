@@ -16,6 +16,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "monthly" as const,
     priority: 0.9,
   })),
+  { url: `${BASE}/ai-automation-agency-bangladesh`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/whatsapp-chatbot-bangladesh`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/bkash-payment-verification-automation`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${BASE}/n8n-automation-agency-bangladesh`, changeFrequency: "monthly", priority: 0.9 },
