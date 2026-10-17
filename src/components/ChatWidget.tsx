@@ -261,10 +261,11 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Proactive teaser bubble */}
+      {/* Proactive teaser bubble. Absolutely positioned above the launcher so
+          it takes no space in the container: showing it never moves the button. */}
       {teaserVisible && !open && (
         <div
-          className="animate-slide-up flex items-start gap-2 bg-brand-surface border border-primary/30 rounded-card px-4 py-3"
+          className="animate-slide-up absolute bottom-full right-0 mb-4 w-max flex items-start gap-2 bg-brand-surface border border-primary/30 rounded-card px-4 py-3"
           style={{
             maxWidth: "min(260px, calc(100vw - 5rem))",
             boxShadow: "0 8px 32px rgba(0,0,0,0.7), 0 0 0 1px rgba(37,99,235,0.12)",

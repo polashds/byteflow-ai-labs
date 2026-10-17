@@ -229,6 +229,10 @@
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
+/* Keyboard users tabbing into the (visually hidden) static list see it as a
+   grid instead of the moving row, so focus is never on an invisible link. */
+.marquee-reviews:focus-within .marquee-track { display: none; }
+.marquee-reviews:focus-within .marquee-static { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; display: grid; }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { display: none; }
   .marquee-static { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; display: grid; }
