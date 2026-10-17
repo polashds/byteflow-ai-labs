@@ -291,7 +291,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-16 border border-primary/15 rounded-card bg-brand-bg p-7 lg:p-9">
+          <div className="glow-hover mt-16 border border-primary/15 rounded-card bg-brand-bg p-7 lg:p-9">
             <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-5">
               Included in every core-system engagement
             </p>
@@ -374,7 +374,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {reliability.map((r, i) => (
               <Reveal key={r.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 rounded-card bg-brand-bg p-7">
+                <div className="glow-hover h-full border border-primary/15 rounded-card bg-brand-bg p-7">
                   <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
                     {r.title}
                   </h3>
@@ -521,7 +521,7 @@ export default function HomePage() {
           </p>
           <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-10">
             {afterContactSteps.map((s, i) => (
-              <li key={s.title} className="border border-primary/15 rounded-card bg-brand-surface p-5">
+              <li key={s.title} className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-5">
                 <span className="block font-heading font-semibold text-xs mb-2" style={gradientText}>
                   {String(i + 1).padStart(2, "0")}
                 </span>

@@ -10,7 +10,7 @@ export default function ComingSoonBlock({ items }: { items: ComingSoonVertical[]
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {items.map((item, i) => (
             <li key={item.name}>
-              <Reveal index={i} className="h-full border border-primary/10 rounded-card bg-brand-surface/60 p-6">
+              <Reveal index={i} className="glow-hover h-full border border-primary/10 rounded-card bg-brand-surface/60 p-6">
                 <span className="inline-block mb-3 border border-primary/20 rounded-full px-2.5 py-1 font-body text-[10px] tracking-[0.2em] text-brand-muted uppercase">
                   Coming soon
                 </span>

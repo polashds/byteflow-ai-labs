@@ -211,7 +211,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
             {offer.painPoints.map((p, i) => (
               <Reveal key={p.title} delay={i * STAGGER_MS}>
-                <div className="h-full border border-primary/15 rounded-card bg-brand-surface p-7">
+                <div className="glow-hover h-full border border-primary/15 rounded-card bg-brand-surface p-7">
                   <h3 className="font-heading font-semibold text-brand-text text-lg leading-snug mb-3">
                     {p.title}
                   </h3>
@@ -238,7 +238,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             {offer.flow.map((step, i) => (
               <li key={step.title}>
                 <Reveal delay={i * STAGGER_MS}>
-                  <div className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
+                  <div className="glow-hover h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                     <span
                       className="block font-heading font-semibold text-2xl leading-none mb-4 opacity-60"
                       style={gradientText}
@@ -283,19 +283,19 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             <span style={gradientText}>and what is not</span>
           </SectionHeading>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 What you receive
               </h3>
               <BulletList items={offer.deliverables} />
             </div>
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 What we need from you
               </h3>
               <BulletList items={offer.customerProvides} />
             </div>
-            <div className="border border-primary/15 rounded-card bg-brand-surface p-8">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-surface p-8">
               <h3 className="font-heading font-semibold text-brand-text text-lg mb-5">
                 Not included
               </h3>
@@ -309,7 +309,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
       <section className="border-t border-primary/10 bg-brand-surface py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-bg p-8">
               <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-3">
                 Reliability
               </p>
@@ -318,7 +318,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               </h2>
               <BulletList items={offer.reliability} />
             </div>
-            <div className="border border-primary/15 rounded-card bg-brand-bg p-8">
+            <div className="glow-hover border border-primary/15 rounded-card bg-brand-bg p-8">
               <p className="font-body text-[10px] font-medium tracking-[0.3em] text-accent uppercase mb-3">
                 Measurement
               </p>
@@ -343,7 +343,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
               Where we have{" "}
               <span style={gradientText}>built this</span>
             </SectionHeading>
-            <div className="border border-primary/20 rounded-card bg-brand-surface p-8 lg:p-10">
+            <div className="glow-hover border border-primary/20 rounded-card bg-brand-surface p-8 lg:p-10">
               <div className="flex flex-wrap items-center gap-3 mb-5">
                 <span className="font-body text-[10px] font-medium tracking-[0.25em] text-accent uppercase border border-accent/20 rounded-full px-2.5 py-1">
                   {caseStudy.industry}
@@ -382,7 +382,7 @@ export default async function CoreOfferPage({ params }: { params: Params }) {
             {engagementSteps.map((step, i) => (
               <li key={step.num}>
                 <Reveal delay={i * STAGGER_MS}>
-                  <div className="h-full border border-primary/15 rounded-card bg-brand-bg p-6">
+                  <div className="glow-hover h-full border border-primary/15 rounded-card bg-brand-bg p-6">
                     <span
                       className="block font-heading font-semibold text-2xl leading-none mb-4 opacity-60"
                       style={gradientText}
