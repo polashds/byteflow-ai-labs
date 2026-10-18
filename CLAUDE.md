@@ -127,6 +127,24 @@ editing the relevant `config/*.ts` file over hardcoding strings in a page.
   site (e.g. CSS transitions / IntersectionObserver over pulling in
   framer-motion or GSAP) unless a task specifically needs more.
 
+## Page titles and meta (SEO + AI search) — required for every new page
+- **Every public page title names what it is in buyer words and includes a
+  primary keyword** ("AI automation", "AI agent", "WhatsApp automation",
+  "n8n", "bKash", "Bangladesh" — whichever is true for the page). Never a
+  bare label like "Blog" or "About".
+- **Lead with the keyword, end with the brand.** The layout template appends
+  "— ByteFlow AI Labs", so set `title` to the part before it
+  (e.g. `"AI Automation FAQ"`). Pages using `title: { absolute: … }` write the
+  full string themselves (e.g. homepage:
+  "AI Automation Agency for WhatsApp, Leads & Payments — ByteFlow AI Labs").
+- **Keep the full title ≤ 70 characters** so Google and browser tabs don't cut
+  the keyword.
+- **One page per primary keyword.** "AI Automation Agency in Bangladesh" belongs
+  to `/ai-automation-agency-bangladesh`; don't reuse it as another page's title.
+- **openGraph and twitter titles match the page title.** Meta description
+  ~140–160 chars, keyword once, "designed to" wording, no banned words.
+- Always write "ByteFlow AI Labs" in full (other companies use "ByteFlow").
+
 ## Gotchas
 - `Header.tsx` calls `usePathname()` but never uses the result — there's no
   active-state styling on the current nav link.

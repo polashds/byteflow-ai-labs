@@ -6,7 +6,7 @@ import { getProjectForCaseStudy } from "@/config/projects";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
-  title: "Portfolio and Case Studies",
+  title: "AI Automation Portfolio and Case Studies",
   description:
     "Real projects, honest outcomes. ByteFlow AI Labs case studies: AI real estate platforms, WhatsApp automation, and more.",
   keywords: [
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     "AI agency work examples",
   ],
   openGraph: {
-    title: "Portfolio — ByteFlow AI Labs",
+    title: "AI Automation Portfolio — ByteFlow AI Labs",
     description:
       "Real projects, honest outcomes. Case studies covering AI real estate platforms, WhatsApp automation for e-commerce, and more — no fabricated metrics.",
     url: "/portfolio",
   },
   twitter: {
-    title: "Portfolio — ByteFlow AI Labs",
+    title: "AI Automation Portfolio — ByteFlow AI Labs",
     description:
       "Real AI automation projects with honest results. Case studies for real estate, e-commerce, and more.",
   },

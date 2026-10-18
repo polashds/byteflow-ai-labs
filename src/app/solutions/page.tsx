@@ -6,7 +6,7 @@ import ConsultationCTA from "@/components/ConsultationCTA";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/solutions" },
-  title: "Automation Solutions by Industry",
+  title: "AI Automation Solutions by Industry",
   description:
     "AI automation solutions by industry: real estate, e-commerce, travel, healthcare, and local services. Lead capture, WhatsApp bots, voice agents, and more.",
   keywords: [
