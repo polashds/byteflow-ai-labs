@@ -65,11 +65,15 @@ const organizationSchema = {
   alternateName: "ByteFlow",
   foundingDate: "2025",
   url: brand.siteUrl,
-  logo: `${brand.siteUrl}/logo_byteflowailabs.png`,
-  image: `${brand.siteUrl}/logo_byteflowailabs.png`,
+  logo: `${brand.siteUrl}/logo-square.png`,
+  image: `${brand.siteUrl}/logo-square.png`,
   description: brand.description,
   email: brand.email,
-  areaServed: [{ "@type": "Country", name: "Bangladesh" }, "Worldwide"],
+  areaServed: [
+    { "@type": "Country", name: "Bangladesh" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United States" },
+  ],
   knowsAbout: [
     "AI automation",
     "n8n workflow automation",
