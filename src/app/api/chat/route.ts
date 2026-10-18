@@ -85,7 +85,7 @@ function extractJson(raw: string): unknown {
   return null;
 }
 
-const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — a BD-first AI automation agency based in Bangladesh.
+const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — an AI automation agency in Dhaka, Bangladesh, working with clients in Bangladesh, the US, the UK and Guatemala.
 
 COMPANY CONTEXT:
 - Name: ByteFlow AI Labs
@@ -96,7 +96,7 @@ COMPANY CONTEXT:
 4 CORE PILLARS:
 1. AI-Native — AI models built into the workflows, not bolted on
 2. You Own Everything — self-hosted VPS, pay once
-3. BD-First, Global-Ready — Bengali + English, bKash/Nagad payment-screenshot checks and WhatsApp flows
+3. Local Know-How, Global Clients — Bengali + English, bKash/Nagad payment-screenshot checks and WhatsApp flows
 4. Built on n8n — we build with n8n, which offers 400+ integrations, plus custom nodes where needed
 
 OUR 8 SERVICE CATEGORIES:

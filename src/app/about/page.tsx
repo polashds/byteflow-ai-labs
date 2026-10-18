@@ -9,24 +9,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About Us — AI Automation Agency in Dhaka",
   description:
-    "ByteFlow AI Labs is a BD-first AI automation agency. We build self-hosted, AI-native systems on n8n, GPT-4o, and Claude so businesses automate operations without hiring more staff.",
+    "ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, building self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and Guatemala.",
   keywords: [
     "ByteFlow AI Labs",
     "AI automation agency Bangladesh",
     "n8n automation agency",
     "self-hosted AI automation",
-    "BD-first AI agency",
+    "AI automation agency Dhaka",
   ],
   openGraph: {
-    title: "About ByteFlow AI Labs — BD-First AI Automation Agency",
+    title: "About Us — AI Automation Agency in Dhaka — ByteFlow AI Labs",
     description:
-      "We build self-hosted AI automation systems on n8n + GPT-4o/Claude. No SaaS lock-in — clients own every system we build. Based in Bangladesh, serving clients globally.",
+      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and Guatemala. You own what we build.",
     url: "/about",
   },
   twitter: {
-    title: "About ByteFlow AI Labs",
+    title: "About Us — AI Automation Agency in Dhaka — ByteFlow AI Labs",
     description:
-      "BD-first AI automation agency. Self-hosted n8n systems, GPT-4o & Claude, Bengali + English — you own everything we build.",
+      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n systems in Bengali and English for clients in Bangladesh, the US, the UK and Guatemala.",
   },
 };
 
@@ -52,7 +52,7 @@ const pillars = [
   },
   {
     num: "03",
-    title: "BD-First, Global-Ready",
+    title: "Local Know-How, Global Clients",
     body: "Bengali and English natively. bKash, Nagad, and WhatsApp built into every relevant workflow. Designed for the Bangladeshi market — architecture that works anywhere in the world.",
   },
   {
@@ -101,7 +101,8 @@ export default function AboutPage() {
             <span style={gradientText}>Systems You Actually Own</span>
           </h1>
           <p className="font-body text-brand-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            ByteFlow AI Labs is a BD-first AI automation agency. We design, build, and deploy
+            ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, working with
+            clients in Bangladesh, the US, the UK and Guatemala. We design, build, and deploy
             self-hosted AI systems that help businesses automate their operations, close more
             leads, and grow without hiring more staff.
           </p>
@@ -335,14 +336,15 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
                 <p>
-                  Our primary market is Bangladesh — real estate agencies,
+                  We work with businesses in Bangladesh, the US, the UK and
+                  Guatemala. In Bangladesh that means real estate agencies,
                   e-commerce stores, travel companies, and local service businesses
                   across Dhaka, Chittagong, and beyond. We understand the local stack:
                   bKash, Nagad, WhatsApp, Bengali-language chatbots, and BD business
                   culture.
                 </p>
                 <p>
-                  Based in Bangladesh, working with businesses that sell through ads,
+                  Based in Dhaka and working remotely with businesses that sell through ads,
                   websites and WhatsApp. Our deliverables are platform-agnostic
                   and fully documented in the client&apos;s working language where needed.
                 </p>
@@ -357,7 +359,7 @@ export default function AboutPage() {
             {/* Reach stats */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Home Market", value: "Bangladesh", sub: "BD-first stack: bKash, Nagad, WhatsApp, Bengali" },
+                { label: "Home Market", value: "Bangladesh", sub: "Local stack: bKash, Nagad, WhatsApp, Bengali" },
                 { label: "Deployment Model", value: "Self-Hosted VPS", sub: "Your server, your data, your system" },
                 { label: "Working Languages", value: "Bengali · English · Spanish", sub: "Documentation delivered in client's working language" },
               ].map((item) => (

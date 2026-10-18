@@ -73,6 +73,7 @@ const organizationSchema = {
     { "@type": "Country", name: "Bangladesh" },
     { "@type": "Country", name: "United Kingdom" },
     { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Guatemala" },
   ],
   knowsAbout: [
     "AI automation",
