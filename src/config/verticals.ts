@@ -1,3 +1,4 @@
+import type { LeadMagnetKey } from "@/config/leadMagnets";
 import { brand } from "@/config/branding";
 import type { WorkflowKey } from "@/config/workflows";
 
@@ -67,6 +68,8 @@ export interface Vertical {
   analyticsKey: "vertical_real_estate" | "vertical_ecommerce";
   /** Illustrative animated workflow shown after the pain points. */
   workflow?: WorkflowKey;
+  /** Downloadable checklist shown above the final CTA. */
+  leadMagnet?: LeadMagnetKey;
 }
 
 export interface ComingSoonVertical {
@@ -255,5 +258,6 @@ export const realEstate: Vertical = {
   demoUrl: "",
   demoFullUrl: "",
   analyticsKey: "vertical_real_estate",
+  leadMagnet: "realEstate",
   workflow: "lead",
 };

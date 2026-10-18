@@ -4,6 +4,7 @@ import ConsultationCTA from "@/components/ConsultationCTA";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import WorkflowSection from "@/components/motion/WorkflowSection";
+import LeadMagnetSection from "@/components/LeadMagnetSection";
 import { brand } from "@/config/branding";
 
 /*
@@ -321,6 +322,9 @@ export default function BkashPaymentVerificationPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Downloadable checklist ────────────────────────────────────────── */}
+      <LeadMagnetSection guide="ecommerce" />
 
       {/* ── Final CTA ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden border-t border-primary/10 bg-brand-surface py-24">
