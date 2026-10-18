@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { prisma } from "@/lib/db";
 import { LeadStatus } from "@prisma/client";
 import LeadStatusButton from "./_components/LeadStatusButton";
+import LeadDeleteButton from "./_components/LeadDeleteButton";
 
 export const metadata: Metadata = { title: "Leads — Admin" };
 
@@ -115,7 +116,10 @@ export default async function AdminLeadsPage() {
                     {lead.createdAt.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                   </td>
                   <td className="px-4 py-4">
-                    <LeadStatusButton id={lead.id} current={lead.status} />
+                    <div className="flex items-center gap-4">
+                      <LeadStatusButton id={lead.id} current={lead.status} />
+                      <LeadDeleteButton id={lead.id} name={lead.name} />
+                    </div>
                   </td>
                 </tr>
               ))}
