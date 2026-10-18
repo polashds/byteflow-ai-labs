@@ -156,5 +156,9 @@ editing the relevant `config/*.ts` file over hardcoding strings in a page.
   "AI Automation for Modern Business," while the homepage's `<meta>`
   description/title say "AI Automation Agency." Not a bug, just inconsistent
   copy if you're auditing SEO text.
+- `src/app/favicon.ico` must contain RGBA images (PNG colour type 6). An RGB
+  ICO makes Turbopack fail the production build ("The PNG is not in RGBA
+  format!"). `npx next dev` shows the same error on `/`, so check there
+  before committing a new icon.
 - No i18n and no animation library are present yet — if a task asks for
   either, it's a real addition, not a config toggle.
