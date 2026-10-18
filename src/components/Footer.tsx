@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks } from "@/lib/nav";
+import { solutionGroups, companyLinks } from "@/config/navigation";
 import { brand } from "@/config/branding";
 import { COMPANY_EMAIL } from "@/lib/constants";
 
@@ -58,9 +58,9 @@ export default function Footer() {
   return (
     <footer className="bg-brand-bg border-t border-primary/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-10">
           {/* Brand */}
-          <div className="space-y-5 sm:col-span-2 md:col-span-1">
+          <div className="space-y-5 col-span-2 sm:col-span-3 lg:col-span-1">
             {/* Logo lockup */}
             <Link href="/">
               <Image
@@ -92,45 +92,33 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="space-y-5">
-            <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
-              Navigate
-            </h2>
-            <ul className="space-y-3">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-brand-muted text-sm hover:text-accent transition-colors duration-200"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/ai-automation-agency-bangladesh"
-                  className="text-brand-muted text-sm hover:text-accent transition-colors duration-200"
-                >
-                  AI automation in Bangladesh
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Solutions: industries, needs and Bangladesh pages */}
+          {solutionGroups.map((g) => (
+            <div key={g.title} className="space-y-5">
+              <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
+                {g.title}
+              </h2>
+              <ul className="space-y-3">
+                {g.items.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href} className="text-brand-muted text-sm hover:text-accent transition-colors duration-200">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-          {/* Legal */}
+          {/* Company */}
           <div className="space-y-5">
             <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase">
-              Legal
+              Company
             </h2>
             <ul className="space-y-3">
-              {legalLinks.map(({ href, label }) => (
+              {companyLinks.map(({ href, label }) => (
                 <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-brand-muted text-sm hover:text-accent transition-colors duration-200"
-                  >
+                  <Link href={href} className="text-brand-muted text-sm hover:text-accent transition-colors duration-200">
                     {label}
                   </Link>
                 </li>
@@ -152,6 +140,18 @@ export default function Footer() {
                   {COMPANY_EMAIL}
                 </a>
               </li>
+            </ul>
+            <h2 className="font-body text-accent text-xs font-medium tracking-[0.25em] uppercase pt-4">
+              Legal
+            </h2>
+            <ul className="space-y-3">
+              {legalLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="text-brand-muted text-sm hover:text-accent transition-colors duration-200">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
