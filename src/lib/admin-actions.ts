@@ -54,6 +54,16 @@ export async function updateLeadStatus(id: number, status: LeadStatus) {
   revalidatePath("/admin");
 }
 
+// ── Delete lead (permanent) ───────────────────────────────────────────────────
+
+export async function deleteLead(id: number) {
+  await requireAdmin();
+  if (!Number.isInteger(id) || id <= 0) return;
+  await prisma.lead.delete({ where: { id } });
+  revalidatePath("/admin/leads");
+  revalidatePath("/admin");
+}
+
 // ── Post validation ───────────────────────────────────────────────────────────
 
 const PostSchema = z.object({
