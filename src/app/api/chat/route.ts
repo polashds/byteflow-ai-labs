@@ -85,7 +85,7 @@ function extractJson(raw: string): unknown {
   return null;
 }
 
-const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — an AI automation agency in Dhaka, Bangladesh, working with clients in Bangladesh, the US, the UK and Guatemala.
+const systemInstruction = `You are the AI assistant for ByteFlow AI Labs — an AI automation agency in Dhaka, Bangladesh, working with clients in Bangladesh, the US, the UK and beyond.
 
 COMPANY CONTEXT:
 - Name: ByteFlow AI Labs

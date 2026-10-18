@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About Us — AI Automation Agency in Dhaka",
   description:
-    "ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, building self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and Guatemala.",
+    "ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, building self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and beyond.",
   keywords: [
     "ByteFlow AI Labs",
     "AI automation agency Bangladesh",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Us — AI Automation Agency in Dhaka — ByteFlow AI Labs",
     description:
-      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and Guatemala. You own what we build.",
+      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n and AI systems for clients in Bangladesh, the US, the UK and beyond. You own what we build.",
     url: "/about",
   },
   twitter: {
     title: "About Us — AI Automation Agency in Dhaka — ByteFlow AI Labs",
     description:
-      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n systems in Bengali and English for clients in Bangladesh, the US, the UK and Guatemala.",
+      "AI automation agency in Dhaka, Bangladesh. Self-hosted n8n systems in Bengali and English for clients in Bangladesh, the US, the UK and beyond.",
   },
 };
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
           </h1>
           <p className="font-body text-brand-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, working with
-            clients in Bangladesh, the US, the UK and Guatemala. We design, build, and deploy
+            clients in Bangladesh, the US, the UK and beyond. We design, build, and deploy
             self-hosted AI systems that help businesses automate their operations, close more
             leads, and grow without hiring more staff.
           </p>
@@ -337,9 +337,9 @@ export default function AboutPage() {
               <div className="space-y-4 font-body text-sm text-brand-muted leading-relaxed">
                 <p>
                   We work with businesses in Bangladesh, the US, the UK and
-                  Guatemala. In Bangladesh that means real estate agencies,
+                  beyond. In Bangladesh that means real estate agencies,
                   e-commerce stores, travel companies, and local service businesses
-                  across Dhaka, Chittagong, and beyond. We understand the local stack:
+                  across Dhaka, Chittagong and other cities. We understand the local stack:
                   bKash, Nagad, WhatsApp, Bengali-language chatbots, and BD business
                   culture.
                 </p>
