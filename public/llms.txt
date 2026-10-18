@@ -1,6 +1,6 @@
 # ByteFlow AI Labs
 
-> AI automation agency. We build lead-to-CRM, WhatsApp AI assistant and order/payment-verification automation for businesses that sell through Facebook and Instagram ads, websites and WhatsApp. Based in Bangladesh, working with clients remotely.
+> ByteFlow AI Labs is an AI automation agency in Dhaka, Bangladesh, serving businesses in Bangladesh, the UK and the US. We build lead-to-CRM, WhatsApp AI assistant and order/payment-verification automation for businesses that sell through Facebook and Instagram ads, websites and WhatsApp, and work with clients remotely. Clients so far are in Bangladesh, the US, the UK and Guatemala.
 
 Founder: Md. Siddique Hossain (Founder, AI Systems Architect & Automation Consultant).
 Contact: hello@byteflowailabs.com or https://byteflowailabs.com/contact (free 30-minute call).

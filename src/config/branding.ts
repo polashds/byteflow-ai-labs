@@ -3,7 +3,7 @@ export const brand = {
   tagline: "AI Automation That Runs Real Business Operations",
   motto: "Automate · Scale · Grow",
   description:
-    "Lead-to-CRM, WhatsApp AI assistant and order-verification automation for businesses that sell through ads, websites and WhatsApp.",
+    "AI automation agency in Dhaka, Bangladesh, building WhatsApp AI assistants, lead-to-CRM and payment-verification systems for businesses in Bangladesh, the UK and the US.",
   logo: "/assets/logo.png",
   email: "hello@byteflowailabs.com",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://byteflowailabs.com",

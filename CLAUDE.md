@@ -2,8 +2,8 @@
 
 ## What this is
 The marketing/agency website for ByteFlow AI Labs — an AI automation agency
-(n8n workflows, WhatsApp chatbots, AI voice agents, lead scoring) serving
-Bangladesh-first, global-ready clients. Public site + a small admin panel
+(n8n workflows, WhatsApp chatbots, AI voice agents, lead scoring) based in
+Dhaka, serving businesses in Bangladesh, the UK and the US. Public site + a small admin panel
 for blog and lead management.
 
 ## CRITICAL working rule
