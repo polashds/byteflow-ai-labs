@@ -7,7 +7,7 @@ import { founderVideo } from "@/config/videos";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
-  title: "About Us",
+  title: "About Us — AI Automation Agency in Dhaka",
   description:
     "ByteFlow AI Labs is a BD-first AI automation agency. We build self-hosted, AI-native systems on n8n, GPT-4o, and Claude so businesses automate operations without hiring more staff.",
   keywords: [

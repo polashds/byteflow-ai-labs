@@ -19,17 +19,17 @@ import { reviewsCopy } from "@/config/reviews";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: { absolute: "WhatsApp & Lead Automation Agency — ByteFlow AI Labs" },
+  title: { absolute: "AI Automation Agency for WhatsApp, Leads & Payments — ByteFlow AI Labs" },
   description:
     "ByteFlow AI Labs builds lead-to-CRM, WhatsApp AI assistant and order-verification systems for businesses in Bangladesh and abroad that sell through ads, websites and WhatsApp.",
   openGraph: {
-    title: "WhatsApp & Lead Automation Agency — ByteFlow AI Labs",
+    title: "AI Automation Agency for WhatsApp, Leads & Payments — ByteFlow AI Labs",
     description:
       "Capture and answer every lead, hand repeat WhatsApp questions to an AI assistant, and verify orders and payments automatically — on infrastructure you own.",
     url: "/",
   },
   twitter: {
-    title: "WhatsApp & Lead Automation Agency — ByteFlow AI Labs",
+    title: "AI Automation Agency for WhatsApp, Leads & Payments — ByteFlow AI Labs",
     description:
       "Lead-to-CRM, WhatsApp AI assistant and order-verification automation for businesses that sell through ads, websites and WhatsApp.",
   },

@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
-  title: "Blog",
+  title: "AI Automation Blog",
   description:
     "Insights, tutorials, and case studies on AI automation, n8n workflows, WhatsApp bots, and AI agent development from the ByteFlow AI Labs team.",
   keywords: [
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "AI consulting insights",
   ],
   openGraph: {
-    title: "Blog — ByteFlow AI Labs",
+    title: "AI Automation Blog — ByteFlow AI Labs",
     description:
       "Practical insights on AI automation, n8n, WhatsApp bots, and AI agent development.",
     url: "/blog",
   },
   twitter: {
-    title: "Blog — ByteFlow AI Labs",
+    title: "AI Automation Blog — ByteFlow AI Labs",
     description:
       "Practical insights on AI automation, n8n workflows, and WhatsApp bots from ByteFlow AI Labs.",
   },

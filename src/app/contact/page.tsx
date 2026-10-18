@@ -5,7 +5,7 @@ import { brand } from "@/config/branding";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
-  title: "Contact Us",
+  title: "Contact Us — Free AI Automation Consultation",
   description:
     "Tell ByteFlow AI Labs where leads, messages or orders get stuck. Your enquiry reaches our workflow and a person follows up to arrange a free 30-minute call.",
   openGraph: {
