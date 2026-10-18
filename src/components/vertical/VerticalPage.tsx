@@ -4,6 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import WorkflowSection from "@/components/motion/WorkflowSection";
 import ComingSoonBlock from "@/components/vertical/ComingSoonBlock";
 import TierCard from "@/components/vertical/TierCard";
+import LeadMagnetSection from "@/components/LeadMagnetSection";
 import { brand } from "@/config/branding";
 import { comingSoonVerticals, type Vertical } from "@/config/verticals";
 
@@ -266,6 +267,9 @@ export default function VerticalPage({ vertical: v }: { vertical: Vertical }) {
 
       {/* ── Coming soon ───────────────────────────────────────────────────── */}
       <ComingSoonBlock items={comingSoonVerticals} />
+
+      {/* ── Downloadable checklist ────────────────────────────────────────── */}
+      {v.leadMagnet && <LeadMagnetSection guide={v.leadMagnet} />}
 
       {/* ── Final CTA ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden border-t border-primary/10 bg-brand-surface py-24">

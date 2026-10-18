@@ -3,11 +3,13 @@ import { prisma } from "@/lib/db";
 import { LeadSource } from "@prisma/client";
 import { z } from "zod";
 import { sendCapiLead } from "@/lib/capi";
+import { leadMagnets, leadMagnetKeys } from "@/config/leadMagnets";
 
 const Schema = z.object({
   name: z.string().min(1, "Name is required."),
   email: z.string().email("A valid email address is required."),
   eventId: z.string().optional(),
+  guide: z.enum(leadMagnetKeys).optional().default("general"),
 });
 
 function fireWebhook(payload: Record<string, unknown>) {
@@ -39,7 +41,7 @@ export async function POST(req: NextRequest) {
       data: {
         name: parsed.data.name,
         email: parsed.data.email,
-        service: "Lead Magnet: 10 AI Automations",
+        service: leadMagnets[parsed.data.guide].service,
         source: LeadSource.LeadMagnet,
       },
     });
@@ -49,6 +51,7 @@ export async function POST(req: NextRequest) {
       name: lead.name,
       email: lead.email,
       service: lead.service,
+      guide: parsed.data.guide,
       source: lead.source,
       createdAt: lead.createdAt,
     });

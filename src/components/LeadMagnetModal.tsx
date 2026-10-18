@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
-
-const PDF_PATH = "/ByteFlow-10-AI-Automations-Every-Business-Needs.pdf";
+import { leadMagnets, type LeadMagnetKey } from "@/config/leadMagnets";
 
 const gradientBg = { background: "linear-gradient(135deg, #2563EB, #22D3EE)" } as const;
 const gradientText = {
@@ -22,9 +21,13 @@ interface Props {
   /** Override the trigger button label. Defaults to "Download Free". */
   label?: string;
   className?: string;
+  /** Which guide this button gives out. Defaults to the general guide. */
+  guide?: LeadMagnetKey;
 }
 
-export default function LeadMagnetModal({ label = "Download Free", className }: Props) {
+export default function LeadMagnetModal({ label = "Download Free", className, guide = "general" }: Props) {
+  const g = leadMagnets[guide];
+  const PDF_PATH = g.pdf;
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -59,7 +62,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
       const res = await fetch("/api/lead-magnet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), eventId }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), eventId, guide }),
       });
       const data: { success: boolean; error?: string } = await res.json();
 
@@ -124,11 +127,11 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
                   {/* Header */}
                   <div className="mb-6">
                     <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-3">
-                      Free Guide
+                      {g.eyebrow}
                     </p>
                     <h2 className="font-heading font-semibold text-brand-text text-[1.4rem] leading-snug mb-2">
-                      10 AI Automations Every{" "}
-                      <span style={gradientText}>Business Needs</span>
+                      {g.titleStart}{" "}
+                      <span style={gradientText}>{g.titleHighlight}</span>
                     </h2>
                     <p className="font-body text-sm text-brand-muted leading-relaxed">
                       Enter your details to get the guide — no credit card, no spam.
