@@ -403,11 +403,11 @@ export default function HomePage() {
               </div>
               <h2 className="font-heading font-semibold text-brand-text text-[1.75rem] sm:text-4xl lg:text-5xl leading-tight mb-5">
                 10 AI Automations{" "}
-                <span style={gradientText}>Every BD Business Needs</span>
+                <span style={gradientText}>Every Business Needs</span>
               </h2>
               <p className="font-body text-brand-muted text-[15px] leading-relaxed mb-8 max-w-lg">
-                Not ready to talk yet? A practical playbook of automations used by growing
-                businesses in Bangladesh — free, no credit card required.
+                Not ready to talk yet? Ten practical automations grouped by industry, with the
+                first step for each — free, no credit card required.
               </p>
               <LeadMagnetModal />
             </div>
@@ -439,7 +439,7 @@ export default function HomePage() {
                     10 AI Automations
                   </h3>
                   <p className="font-heading text-brand-muted text-base leading-snug">
-                    Every BD Business Needs
+                    Every Business Needs
                   </p>
                 </div>
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { trackGA4Lead, trackPixelLead } from "@/lib/analytics";
 
-const PDF_PATH = "/ByteFlow-10-AI-Automations-Every-BD-Business-Needs.pdf";
+const PDF_PATH = "/ByteFlow-10-AI-Automations-Every-Business-Needs.pdf";
 
 const gradientBg = { background: "linear-gradient(135deg, #2563EB, #22D3EE)" } as const;
 const gradientText = {
@@ -128,7 +128,7 @@ export default function LeadMagnetModal({ label = "Download Free", className }: 
                     </p>
                     <h2 className="font-heading font-semibold text-brand-text text-[1.4rem] leading-snug mb-2">
                       10 AI Automations Every{" "}
-                      <span style={gradientText}>BD Business Needs</span>
+                      <span style={gradientText}>Business Needs</span>
                     </h2>
                     <p className="font-body text-sm text-brand-muted leading-relaxed">
                       Enter your details to get the guide — no credit card, no spam.
