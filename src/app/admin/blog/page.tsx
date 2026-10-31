@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { requireAdmin } from "@/lib/auth-guard";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { PostStatus } from "@prisma/client";
@@ -14,6 +15,7 @@ async function getPosts() {
 }
 
 export default async function AdminBlogPage() {
+  await requireAdmin();
   const posts = await getPosts();
 
   return (

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { requireAdmin } from "@/lib/auth-guard";
 import { prisma } from "@/lib/db";
 import { LeadStatus } from "@prisma/client";
 import LeadStatusButton from "./_components/LeadStatusButton";
@@ -19,6 +20,7 @@ const statusColors: Record<LeadStatus, string> = {
 };
 
 export default async function AdminLeadsPage() {
+  await requireAdmin();
   const leads = await getLeads();
 
   const byStatus = {
