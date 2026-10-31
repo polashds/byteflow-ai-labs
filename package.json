@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "create-admin": "tsx scripts/create-admin.ts"
+    "create-admin": "tsx scripts/create-admin.ts",
+    "test:security": "node --import tsx --test tests/security.test.ts",
+    "check:security": "node scripts/security-check.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -18,14 +20,14 @@
     "bcryptjs": "^3.0.3",
     "lucide-react": "^1.17.0",
     "marked": "^18.0.5",
-    "next": "16.2.7",
-    "next-auth": "^5.0.0-beta.31",
+    "next": "16.4.3",
+    "next-auth": "^5.0.0-beta.32",
     "pg": "^8.21.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.77.0",
     "react-markdown": "^10.1.0",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -35,7 +37,7 @@
     "@types/react-dom": "^19",
     "dotenv": "^17.4.2",
     "eslint": "^9",
-    "eslint-config-next": "16.2.7",
+    "eslint-config-next": "16.4.3",
     "prisma": "^7.8.0",
     "tailwindcss": "^4",
     "tsx": "^4.22.4",

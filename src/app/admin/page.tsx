@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { requireAdmin } from "@/lib/auth-guard";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { LeadStatus } from "@prisma/client";
@@ -24,6 +25,7 @@ async function getRecentLeads() {
 }
 
 export default async function AdminDashboard() {
+  await requireAdmin();
   const [stats, recentLeads] = await Promise.all([
     getStats(),
     getRecentLeads(),
