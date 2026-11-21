@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ChatWidget from "./ChatWidget";
 import RevealObserver from "./RevealObserver";
+import PageViewTracker from "./PageViewTracker";
 
 export default function PublicShell({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment();
@@ -21,6 +22,7 @@ export default function PublicShell({ children }: { children: React.ReactNode })
       <Footer />
       <ChatWidget />
       <RevealObserver />
+      <PageViewTracker />
     </>
   );
 }

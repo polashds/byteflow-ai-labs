@@ -8,6 +8,7 @@ const navItems = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/leads", label: "Leads" },
+  { href: "/admin/stats", label: "Stats" },
   { href: "/", label: "View Site", external: true },
 ];
 

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "create-admin": "tsx scripts/create-admin.ts",
-    "test:security": "node --import tsx --test tests/security.test.ts",
+    "test:security": "node --import tsx --test tests/security.test.ts tests/pageviews.test.ts",
     "check:security": "node scripts/security-check.mjs"
   },
   "dependencies": {
