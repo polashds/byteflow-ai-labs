@@ -2,19 +2,37 @@ import { brand } from "@/config/branding";
 
 /*
  * Client reviews shown in the homepage reviews row. Quotes are verbatim from
- * the public Upwork and Fiverr profiles (same source as siddiquehossain.com).
- * Client names are not shown: each review is attributed to the platform and
- * the project. Do not edit the quotes, and add no review without the source.
+ * the public Upwork and Fiverr profiles (same source as siddiquehossain.com)
+ * and from LinkedIn recommendations. Client names are shown only where the
+ * client agreed to be named (`name`/`role`); otherwise the review is
+ * attributed to the platform and the project. Do not edit the quotes, and add
+ * no review without the source.
  */
 
 export interface Review {
-  platform: "Upwork" | "Fiverr";
+  platform: "Upwork" | "Fiverr" | "LinkedIn";
   project: string;
   quote: string;
-  link: string;
+  /** Public profile where the review can be seen. Omit if there is no public link to give. */
+  link?: string;
+  /** Only with the client's permission to be named. */
+  name?: string;
+  role?: string;
+  /** Matching entry in caseStudies.ts: the review is also shown on that project page. */
+  caseStudyId?: string;
 }
 
 export const reviews: Review[] = [
+  {
+    // LinkedIn recommendation, 9 Nov 2026. Named with permission (21 Nov 2026).
+    platform: "LinkedIn",
+    project: "Dental clinic website & booking",
+    name: "Dr. Md. Shahadat Hossain",
+    role: "Shifa Advanced Dental Care & Implant Center · Consultant at Dhaka Imperial Hospital PLC",
+    caseStudyId: "shifa-advanced-dental",
+    quote:
+      "I had a great experience working with Siddique Hossain and ByteFlow AI Labs on the digital transformation of Shifa Advanced Dental Care & Implants Centre.\n\nSiddique demonstrated a strong understanding of how modern technology can support healthcare businesses. His work goes beyond traditional website development, focusing on building an AI-ready digital presence with capabilities such as AI automation, appointment booking systems, AI-powered chatbots, and intelligent customer engagement.\n\nI particularly appreciate his forward-thinking approach to SEO, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and AI-driven search optimization (AIO), helping businesses prepare for the evolving digital landscape.\n\nHis professionalism, technical knowledge, and commitment to delivering practical business solutions make him a valuable technology partner.\n\nI would happily recommend Siddique Hossain and ByteFlow AI Labs to businesses looking to strengthen their digital presence and embrace AI-powered growth.",
+  },
   {
     platform: "Upwork",
     project: "n8n CRM & lead-gen workflow",
@@ -49,8 +67,14 @@ export const reviews: Review[] = [
 export const reviewsCopy = {
   eyebrow: "Client reviews",
   heading: "What clients say about our work",
-  note: "Verbatim reviews left for our founder, Siddique, on Upwork and Fiverr. Client names are not shown; each review links to the public profile where it was left.",
+  note: "Verbatim reviews left for our founder, Siddique, on Upwork, Fiverr and LinkedIn. Clients are named only where they agreed to be; Upwork and Fiverr reviews link to the public profile where they were left.",
   pause: "Pause reviews",
   play: "Play reviews",
   viewOn: "View on",
+  readFull: "Read the full recommendation",
+  sectionHeading: "What the client said",
 } as const;
+
+export function getReviewsForCaseStudy(caseStudyId: string): Review[] {
+  return reviews.filter((r) => r.caseStudyId === caseStudyId);
+}

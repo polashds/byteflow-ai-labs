@@ -28,6 +28,15 @@ export interface ProjectVideo {
   poster?: string;
 }
 
+export interface ProjectScreenshot {
+  /** Image under /public. */
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+}
+
 export interface Project {
   slug: string;
   /** Matching entry in caseStudies.ts; /portfolio links that section here. */
@@ -44,6 +53,8 @@ export interface Project {
   handling: string[];
   stack: string[];
   demo: ProjectVideo;
+  /** Screenshots the client agreed to show. Omit for none. */
+  screenshots?: ProjectScreenshot[];
 }
 
 export const projectSectionLabels = {
@@ -54,12 +65,92 @@ export const projectSectionLabels = {
   handling: "Errors and human handoff",
   stack: "Stack",
   demo: "Demo",
+  screenshots: "Screenshots",
+  screenshotsHeading: "The live site",
   ctaHeading: "Want something like this for your business?",
   ctaBody: "A free 30-minute consultation. Tell us where enquiries or orders get stuck, and we will tell you honestly what is worth automating.",
   ctaButton: "Book a free 30-minute consultation",
 } as const;
 
 export const projects: Project[] = [
+  {
+    slug: "shifa-advanced-dental",
+    caseStudyId: "shifa-advanced-dental",
+    title: "Shifa Advanced Dental Care — Clinic Website and Online Booking",
+    badge: "Client project · Shifa Advanced Dental Care & Implant Center",
+    summary:
+      "A bilingual website for a dental and implant clinic in Tongi, with an online booking form that saves each request to the clinic's own Google Sheet and alerts the doctor on Telegram.",
+    meta: {
+      title: "Dental Clinic Website & Booking Automation",
+      description:
+        "A bilingual dental clinic website in Tongi with n8n booking, designed to send each request to the clinic's Google Sheet and alert the doctor on Telegram.",
+    },
+    problem:
+      "The clinic had no website of its own; patients found it through Facebook and word of mouth. There was no way to ask for an appointment outside phone hours and no record of who had asked. Nothing was set up for Google search or AI answer engines, and patients search in both Bengali and English.",
+    built: {
+      intro: "A clinic website and a booking workflow, with the clinic owning its own data:",
+      points: [
+        "A mobile-first website in English and Bengali: services, the doctor's profile, contact and location, FAQ and patient-education articles",
+        "WhatsApp, call and directions buttons on each page",
+        "An online booking form that saves each request to a sheet in the clinic's own Google account",
+        "A Telegram alert to the doctor for each booking, with the patient's number to tap and call back",
+        "Structured data for the clinic, the doctor and articles; a sitemap verified in Google Search Console; an llms.txt file for AI assistants",
+        "Google Business Profile and Facebook page updated, with a redrawn high-resolution logo, cover and profile images",
+      ],
+      note: "Named with the client's permission. The full booking path was tested before launch, and the first real patient booking (14 Nov 2026) was saved and both alerts were sent. Booking and search figures will be added after the first monthly report.",
+    },
+    diagrams: [
+      {
+        title: "Booking intake",
+        steps: [
+          { title: "Booking Request Webhook", note: "Webhook (POST) from the website form" },
+          { title: "Is Secret Valid", note: "IF — a missing or wrong key gets Respond Unauthorized" },
+          { title: "Normalize Booking", note: "Set" },
+          { title: "Is Booking Valid", note: "IF — an incomplete request gets Respond Invalid Booking" },
+          { title: "Save Booking to Clinic Sheet", note: "Google Sheets (append)" },
+          { title: "Respond Booking Saved", note: "Respond to Webhook" },
+          { title: "Notify Clinic New Booking", note: "Telegram, to the doctor" },
+          { title: "Notify ByteFlow New Booking", note: "Telegram, to ByteFlow AI Labs" },
+        ],
+      },
+      {
+        title: "If the booking cannot be saved",
+        steps: [
+          { title: "Save Booking to Clinic Sheet", note: "Error output" },
+          { title: "Respond Save Failed", note: "Respond to Webhook" },
+          { title: "Alert Booking Save Failed", note: "Telegram, urgent alert to ByteFlow AI Labs" },
+        ],
+      },
+    ],
+    diagramCaption: "Node names from the live n8n workflow (Shifa Booking Intake v2); credentials and settings removed.",
+    handling: [
+      "Requests without the shared secret key are refused, so fake submissions do not reach the sheet.",
+      "Incomplete requests are rejected with a clear response instead of being saved.",
+      "If a booking fails to save, ByteFlow AI Labs gets an urgent Telegram alert, so the patient can still be called back.",
+      "The website stores no patient data. Bookings are deleted weekly and kept no longer than 14 days.",
+      "Analytics loads only after the visitor accepts cookies (Google Consent Mode v2), and the data is kept for 2 months.",
+      "Each change goes to a password-protected staging copy first and reaches the live site only after approval, with the previous version kept ready to restore.",
+    ],
+    stack: [
+      "Next.js",
+      "n8n (self-hosted)",
+      "Google Sheets",
+      "Telegram Bot API",
+      "GA4 + Consent Mode v2",
+      "Google Search Console",
+      "Docker + Traefik",
+    ],
+    demo: { youtubeId: "", title: "Shifa booking demo" },
+    screenshots: [
+      {
+        src: "/images/portfolio/shifa-dental-homepage.webp",
+        alt: "Homepage of shifaadvanceddental.com: the heading 'Dental care and implant treatment in Tongi' with buttons to book an appointment, call and message on WhatsApp",
+        width: 1220,
+        height: 676,
+        caption: "Homepage of shifaadvanceddental.com (November 2026). The clinic labels the photo as an illustrative image.",
+      },
+    ],
+  },
   {
     slug: "mustaraka-properties",
     caseStudyId: "mustaraka-properties",

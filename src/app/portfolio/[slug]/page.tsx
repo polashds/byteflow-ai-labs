@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import ReviewCard from "@/components/ReviewCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import VideoEmbed from "@/components/project/VideoEmbed";
 import WorkflowDiagram from "@/components/project/WorkflowDiagram";
 import { brand } from "@/config/branding";
 import { getProject, projectSectionLabels as L, projects } from "@/config/projects";
+import { getReviewsForCaseStudy, reviewsCopy } from "@/config/reviews";
 
 type Params = Promise<{ slug: string }>;
 
@@ -38,6 +41,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) notFound();
+  const projectReviews = getReviewsForCaseStudy(p.caseStudyId);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -97,6 +101,34 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </div>
       </section>
 
+      {/* ── Screenshots (only those the client agreed to show) ─────────────── */}
+      {p.screenshots && p.screenshots.length > 0 && (
+        <section className="border-t border-primary/10 bg-brand-bg py-16 lg:py-24">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+            <SectionHeading eyebrow={L.screenshots} align="left">
+              {L.screenshotsHeading}
+            </SectionHeading>
+            <div className="space-y-8">
+              {p.screenshots.map((img) => (
+                <figure key={img.src}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    sizes="(min-width: 1024px) 960px, 100vw"
+                    className="h-auto w-full rounded-card border border-primary/15"
+                  />
+                  {img.caption && (
+                    <figcaption className="mt-3 font-body text-xs text-brand-muted">{img.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Workflow diagram(s) ───────────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-bg py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -140,6 +172,22 @@ export default async function ProjectPage({ params }: { params: Params }) {
           </div>
         </div>
       </section>
+
+      {/* ── Client review (verbatim, from reviews.ts) ──────────────────────── */}
+      {projectReviews.length > 0 && (
+        <section className="border-t border-primary/10 bg-brand-bg py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6 lg:px-8">
+            <SectionHeading eyebrow={reviewsCopy.eyebrow} align="left">
+              {reviewsCopy.sectionHeading}
+            </SectionHeading>
+            <div className="space-y-5">
+              {projectReviews.map((r) => (
+                <ReviewCard key={r.project} r={r} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Demo (hidden until a video id is set in config) ───────────────── */}
       {p.demo.youtubeId && (
