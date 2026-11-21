@@ -70,3 +70,14 @@ model Post {
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
 }
+
+/// Aggregate page-view counts for /admin/stats: one row per page per day
+/// (Asia/Dhaka). No cookies, IPs, user agents or other personal data.
+model PageViewDaily {
+  day   DateTime @db.Date
+  path  String   @db.VarChar(200)
+  views Int      @default(0)
+
+  @@id([day, path])
+  @@index([day])
+}
