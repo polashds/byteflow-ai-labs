@@ -6,11 +6,11 @@ import type { ProjectVideo } from "@/config/projects";
  * sound on page load, and request captions (cc_load_policy=1).
  */
 export const introVideo: ProjectVideo & { eyebrow: string; heading: string; caption: string } = {
-  youtubeId: "",
+  youtubeId: "kzMcsRxn0Ik",
   title: "ByteFlow AI Labs intro video",
   eyebrow: "Watch",
-  heading: "See how a system is built",
-  caption: "A short walkthrough of how we build and hand over an automation.",
+  heading: "Meet ByteFlow AI Labs",
+  caption: "A short introduction to ByteFlow AI Labs.",
 };
 
 /** Founder introduction on /about. Empty youtubeId = the section is not rendered. */
