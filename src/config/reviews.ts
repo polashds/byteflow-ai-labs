@@ -30,6 +30,7 @@ export const reviews: Review[] = [
     name: "Dr. Md. Shahadat Hossain",
     role: "Shifa Advanced Dental Care & Implant Center · Consultant at Dhaka Imperial Hospital PLC",
     caseStudyId: "shifa-advanced-dental",
+    link: "https://www.linkedin.com/in/siddique-ai-automation/details/recommendations/",
     quote:
       "I had a great experience working with Siddique Hossain and ByteFlow AI Labs on the digital transformation of Shifa Advanced Dental Care & Implants Centre.\n\nSiddique demonstrated a strong understanding of how modern technology can support healthcare businesses. His work goes beyond traditional website development, focusing on building an AI-ready digital presence with capabilities such as AI automation, appointment booking systems, AI-powered chatbots, and intelligent customer engagement.\n\nI particularly appreciate his forward-thinking approach to SEO, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and AI-driven search optimization (AIO), helping businesses prepare for the evolving digital landscape.\n\nHis professionalism, technical knowledge, and commitment to delivering practical business solutions make him a valuable technology partner.\n\nI would happily recommend Siddique Hossain and ByteFlow AI Labs to businesses looking to strengthen their digital presence and embrace AI-powered growth.",
   },
