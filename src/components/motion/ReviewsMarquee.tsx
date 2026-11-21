@@ -1,27 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { reviews, reviewsCopy, type Review } from "@/config/reviews";
-
-function ReviewCard({ r, focusable = true }: { r: Review; focusable?: boolean }) {
-  return (
-    <figure className="flex h-full flex-col rounded-card border border-primary/15 bg-brand-surface p-6">
-      <figcaption className="mb-3 font-body text-[10px] uppercase tracking-[0.22em] text-accent">
-        {r.platform} · {r.project}
-      </figcaption>
-      <blockquote className="flex-1 font-body text-sm leading-relaxed text-brand-text">&ldquo;{r.quote}&rdquo;</blockquote>
-      <a
-        href={r.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        tabIndex={focusable ? undefined : -1}
-        className="arrow-link mt-4 inline-flex min-h-[44px] items-center font-body text-sm text-accent hover:underline underline-offset-4"
-      >
-        {reviewsCopy.viewOn} {r.platform} <span aria-hidden="true" className="arrow ml-1">→</span>
-      </a>
-    </figure>
-  );
-}
+import { reviews, reviewsCopy } from "@/config/reviews";
+import ReviewCard from "@/components/ReviewCard";
 
 /**
  * Reviews in one slow, endless row (adapted from siddiquehossain.com).
@@ -45,7 +26,7 @@ export default function ReviewsMarquee() {
   const row = (copy: number) =>
     reviews.map((r) => (
       <li key={`${copy}-${r.project}`} className="w-[19rem] shrink-0 pr-5 sm:w-[24rem]">
-        <ReviewCard r={r} focusable={false} />
+        <ReviewCard r={r} focusable={false} compact />
       </li>
     ));
 
@@ -59,7 +40,7 @@ export default function ReviewsMarquee() {
         <ul className="marquee-static gap-5 md:grid-cols-2">
           {reviews.map((r) => (
             <li key={r.project}>
-              <ReviewCard r={r} />
+              <ReviewCard r={r} compact />
             </li>
           ))}
         </ul>

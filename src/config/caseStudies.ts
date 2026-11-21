@@ -38,6 +38,42 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    // Named with the client's permission (given 21 Nov 2026).
+    id: "shifa-advanced-dental",
+    projectType: "client",
+    client: "Shifa Advanced Dental Care & Implant Center",
+    industry: "Dental Clinic",
+    location: "Tongi, Gazipur, Bangladesh",
+    year: "2026",
+    tagline:
+      "A bilingual clinic website with online booking that goes straight to the doctor: n8n saves each request to the clinic's own Google Sheet and sends a Telegram alert.",
+    challenge:
+      "The clinic had no website of its own; patients found it through Facebook and word of mouth. There was no way to ask for an appointment outside phone hours and no record of who had asked. Nothing was set up for Google search or AI answer engines, and patients search in both Bengali and English.",
+    solution:
+      "We built a mobile-first clinic website in English and Bengali, with pages for services, the doctor's profile, contact and location, and patient-education articles, and WhatsApp, call and directions buttons on each page. The booking form sends each request to an n8n workflow that checks a shared secret key, validates the details, saves the request to a sheet in the clinic's own Google account and sends the doctor a Telegram alert he can tap to call the patient back. If a booking fails to save, ByteFlow AI Labs gets an urgent alert. The website stores no patient data, bookings are deleted weekly and kept no longer than 14 days, and analytics loads only after the visitor accepts cookies. We added structured data, a sitemap verified in Google Search Console, an llms.txt file for AI assistants, and updated the clinic's Google Business Profile and Facebook page with a redrawn logo, cover and profile images. The site runs on our server in Docker, with a password-protected staging copy and a rollback for each release.",
+    technology: [
+      "Next.js",
+      "n8n (self-hosted)",
+      "Google Sheets",
+      "Telegram Bot API",
+      "GA4 with Consent Mode v2",
+      "Google Search Console",
+      "Docker + Traefik",
+    ],
+    results: [
+      { label: "Website", value: "Live in English and Bengali (Nov 2026)" },
+      { label: "Online Booking", value: "First real patient booking saved and both alerts sent (14 Nov 2026)" },
+      { label: "Failure Alert", value: "A booking that fails to save alerts ByteFlow AI Labs, so it can be followed up" },
+      { label: "Search", value: "Sitemap verified and submitted in Google Search Console" },
+      {
+        label: "Bookings & Search Traffic",
+        value: "To be added after the first monthly report (December 2026)",
+        isPlaceholder: true,
+      },
+    ],
+  },
+
+  {
     id: "mustaraka-properties",
     projectType: "internal",
     client: "Mustaraka Properties",
