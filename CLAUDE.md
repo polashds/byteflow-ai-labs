@@ -59,9 +59,8 @@ production build or DB before making it.
 - `src/lib/` — `db.ts` (Prisma client), `actions.ts` / `admin-actions.ts`
   (server actions), `analytics.ts` / `capi.ts` (GA4 + Meta CAPI), `nav.ts`,
   `constants.ts`.
-- `src/auth.ts` — NextAuth config. `proxy.ts` — Next.js 16's replacement for
-  middleware, protects `/admin/:path*` (see Gotchas — this file is
-  duplicated).
+- `src/auth.ts` — NextAuth config. `src/proxy.ts` — Next.js 16's replacement
+  for middleware, protects `/admin/:path*` (see Gotchas).
 - `prisma/schema.prisma` — models: `User` (admin auth), `Lead` (source:
   Contact/Chatbot/LeadMagnet), `Category` + `Post` (blog).
 - `scripts/create-admin.ts` — CLI to create an admin user.
@@ -148,10 +147,10 @@ editing the relevant `config/*.ts` file over hardcoding strings in a page.
 ## Gotchas
 - `Header.tsx` calls `usePathname()` but never uses the result — there's no
   active-state styling on the current nav link.
-- `proxy.ts` exists **twice**, byte-for-byte identical, at both the repo
-  root (`./proxy.ts`) and `./src/proxy.ts`. Only one is actually picked up
-  by Next.js — worth confirming which before editing either, so you don't
-  edit the dead copy.
+- `src/proxy.ts` is the only proxy (a dead root copy was removed in the
+  security PR after testing showed Next.js uses `src/`). Admin pages and
+  server actions also call `requireAdmin()` from `src/lib/auth-guard.ts`;
+  never rely on the proxy alone. `npm run test:security` checks this.
 - Two slightly different taglines are in circulation: `branding.ts` says
   "AI Automation for Modern Business," while the homepage's `<meta>`
   description/title say "AI Automation Agency." Not a bug, just inconsistent

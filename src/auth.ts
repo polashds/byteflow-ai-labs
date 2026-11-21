@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";
 import { z } from "zod";
+import { isAdminSession } from "@/lib/admin-role";
 
 const CredentialsSchema = z.object({
   email: z.string().email(),
@@ -44,10 +45,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // Always allow the login page through
       if (isLoginPage) return true;
 
-      // Every other /admin/* route requires a session
+      // Every other /admin/* route requires an ADMIN session
       if (!isLoggedIn) return false; // next-auth redirects to pages.signIn
-
-      return true;
+      return isAdminSession(session);
     },
     jwt({ token, user }) {
       if (user) {

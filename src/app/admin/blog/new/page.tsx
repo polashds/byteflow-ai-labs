@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+import { requireAdmin } from "@/lib/auth-guard";
 import Link from "next/link";
 import PostForm from "../_components/PostForm";
 
 export const metadata: Metadata = { title: "New Post — Admin" };
 
-export default function NewPostPage() {
+export default async function NewPostPage() {
+  await requireAdmin();
   return (
     <div className="space-y-8">
       <div>

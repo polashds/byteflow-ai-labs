@@ -6,16 +6,17 @@ import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { randomUUID } from "crypto";
 import { prisma } from "@/lib/db";
-import { auth, signOut } from "@/auth";
+import { signOut } from "@/auth";
+import { requireAdmin } from "@/lib/auth-guard";
 import { LeadStatus, PostStatus } from "@prisma/client";
 import { z } from "zod";
 
-async function requireAdmin() {
-  const session = await auth();
-  if (!session?.user) redirect("/admin/login");
-}
 
 // ── Image upload ─────────────────────────────────────────────────────────────
+
+const ALLOWED_UPLOAD_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+const ALLOWED_UPLOAD_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
 export async function uploadImages(formData: FormData): Promise<string[]> {
   await requireAdmin();
@@ -28,7 +29,15 @@ export async function uploadImages(formData: FormData): Promise<string[]> {
 
   for (const file of files) {
     if (!file.size) continue;
-    const ext = path.extname(file.name) || ".jpg";
+    // Raster images only. SVG and HTML are refused because files in
+    // public/uploads are served as-is from the site's own origin.
+    const ext = path.extname(file.name).toLowerCase();
+    if (!ALLOWED_UPLOAD_EXTENSIONS.has(ext) || !ALLOWED_UPLOAD_TYPES.has(file.type)) {
+      throw new Error("Only JPG, PNG, WebP or GIF images can be uploaded.");
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      throw new Error("Each image must be 5 MB or smaller.");
+    }
     const filename = `${randomUUID()}${ext}`;
     const filepath = path.join(uploadDir, filename);
     const bytes = await file.arrayBuffer();

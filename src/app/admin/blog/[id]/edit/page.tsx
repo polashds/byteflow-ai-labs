@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { requireAdmin } from "@/lib/auth-guard";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
@@ -9,6 +10,7 @@ type Params = Promise<{ id: string }>;
 export const metadata: Metadata = { title: "Edit Post — Admin" };
 
 export default async function EditPostPage({ params }: { params: Params }) {
+  await requireAdmin();
   const { id } = await params;
   const post = await prisma.post.findUnique({
     where: { id: Number(id) },
