@@ -18,7 +18,7 @@ Typical stack: n8n (self-hosted), WhatsApp Business via Evolution API, OpenRoute
 
 ## Work
 
-- [Portfolio](https://byteflowailabs.com/portfolio): Shifa Advanced Dental Care & Implant Center (client, Tongi: bilingual clinic website, n8n online booking to the clinic's own Google Sheet with Telegram alerts, search and AI-search setup; https://byteflowailabs.com/portfolio/shifa-advanced-dental), Mustaraka Properties (our own real estate venture in Dhaka: website, listings-aware AI chatbot, WhatsApp viewing-booking agent, n8n lead alerts, admin CRM) and Nova Digital Store (client: 69-node n8n WhatsApp receipt-verification workflow with OCR and duplicate detection).
+- [Portfolio](https://byteflowailabs.com/portfolio): Shifa Advanced Dental Care & Implant Center (client, Tongi: bilingual clinic website, n8n online booking to the clinic's own Google Sheet with Telegram alerts, search and AI-search setup; https://byteflowailabs.com/portfolio/shifa-advanced-dental), Pustihaat (client, Bangladesh e-commerce: WooCommerce orders to Steadfast Courier, WhatsApp replies to Facebook lead ads, abandoned-cart recovery emails; https://byteflowailabs.com/portfolio/pustihaat-ecommerce-automation), Mustaraka Properties (our own real estate venture in Dhaka: website, listings-aware AI chatbot, WhatsApp viewing-booking agent, n8n lead alerts, admin CRM) and Nova Digital Store (client: 69-node n8n WhatsApp receipt-verification workflow with OCR and duplicate detection).
 
 ## More
 

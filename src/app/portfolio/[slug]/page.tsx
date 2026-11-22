@@ -149,18 +149,22 @@ export default async function ProjectPage({ params }: { params: Params }) {
       {/* ── Errors and handoff / stack ────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="glow-hover lg:col-span-2 rounded-card border border-primary/15 bg-brand-bg p-7">
-            <p className={label}>{L.handling}</p>
-            <ul className="space-y-3">
-              {p.handling.map((h) => (
-                <li key={h} className="flex gap-2.5 font-body text-sm text-brand-muted leading-relaxed">
-                  <span aria-hidden="true" className="mt-[7px] size-[5px] shrink-0 rounded-full bg-accent" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="glow-hover rounded-card border border-primary/15 bg-brand-bg p-7">
+          {p.handling.length > 0 && (
+            <div className="glow-hover lg:col-span-2 rounded-card border border-primary/15 bg-brand-bg p-7">
+              <p className={label}>{L.handling}</p>
+              <ul className="space-y-3">
+                {p.handling.map((h) => (
+                  <li key={h} className="flex gap-2.5 font-body text-sm text-brand-muted leading-relaxed">
+                    <span aria-hidden="true" className="mt-[7px] size-[5px] shrink-0 rounded-full bg-accent" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div
+            className={`glow-hover rounded-card border border-primary/15 bg-brand-bg p-7 ${p.handling.length > 0 ? "" : "lg:col-span-3"}`}
+          >
             <p className={label}>{L.stack}</p>
             <ul className="flex flex-wrap gap-2">
               {p.stack.map((s) => (

@@ -50,6 +50,7 @@ export interface Project {
   built: { intro: string; points: string[]; note?: string };
   diagrams: ProjectDiagram[];
   diagramCaption: string;
+  /** Error handling, handoff and limits. Leave empty until confirmed; the section is then hidden. */
   handling: string[];
   stack: string[];
   demo: ProjectVideo;
@@ -150,6 +151,57 @@ export const projects: Project[] = [
         caption: "Homepage of shifaadvanceddental.com (November 2026). The clinic labels the photo as an illustrative image.",
       },
     ],
+  },
+  {
+    slug: "pustihaat-ecommerce-automation",
+    caseStudyId: "pustihaat",
+    title: "Pustihaat — E-commerce Order, Lead and Cart Automation",
+    badge: "Client project · Pustihaat",
+    summary:
+      "Three automations for an online store in Bangladesh: WooCommerce orders sent to Steadfast Courier, WhatsApp replies to Facebook lead-ad enquiries, and abandoned-cart recovery emails. Live since September 2026.",
+    meta: {
+      title: "WooCommerce, Steadfast & WhatsApp Automation",
+      description:
+        "E-commerce automation for Pustihaat, designed to send WooCommerce orders to Steadfast Courier, reply to Facebook lead ads on WhatsApp and email abandoned carts.",
+    },
+    problem:
+      "Pustihaat sells online through a WooCommerce store. The goal was to take three repetitive jobs off the team: booking each order with the courier, replying to enquiries from Facebook lead ads, and following up shoppers who leave items in their cart.",
+    built: {
+      intro: "Three n8n automations that work alongside the store team:",
+      points: [
+        "New WooCommerce orders sent to Steadfast Courier to book the parcel",
+        "A WhatsApp reply to each new Facebook lead-ad enquiry",
+        "Abandoned-cart recovery emails to shoppers who leave items in their cart",
+      ],
+      note: "Named with the client's permission. Delivered in September 2026 and still running (November 2026). Order, reply and recovery figures will be added when available.",
+    },
+    diagrams: [
+      {
+        title: "Order to courier",
+        steps: [
+          { title: "New order", note: "WooCommerce" },
+          { title: "Book the parcel", note: "Steadfast Courier" },
+        ],
+      },
+      {
+        title: "Lead-ad reply",
+        steps: [
+          { title: "New lead-ad enquiry", note: "Facebook Lead Ads" },
+          { title: "Reply to the enquiry", note: "WhatsApp" },
+        ],
+      },
+      {
+        title: "Cart recovery",
+        steps: [
+          { title: "Cart left without checkout", note: "WooCommerce" },
+          { title: "Recovery email", note: "Email" },
+        ],
+      },
+    ],
+    diagramCaption: "Simplified view of the three live workflows; node names, credentials and settings not shown.",
+    handling: [],
+    stack: ["n8n", "WooCommerce", "Steadfast Courier", "Facebook Lead Ads", "WhatsApp", "Email"],
+    demo: { youtubeId: "", title: "Pustihaat automation demo" },
   },
   {
     slug: "mustaraka-properties",
