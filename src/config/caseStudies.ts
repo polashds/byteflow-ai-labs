@@ -74,6 +74,33 @@ export const caseStudies: CaseStudy[] = [
   },
 
   {
+    // Named with the client's permission (given 22 Nov 2026).
+    id: "pustihaat",
+    projectType: "client",
+    client: "Pustihaat",
+    industry: "E-commerce",
+    location: "Bangladesh",
+    year: "2026",
+    tagline:
+      "Three automations for an online store: WooCommerce orders sent to Steadfast Courier, WhatsApp replies to Facebook lead ads, and abandoned-cart recovery emails.",
+    challenge:
+      "Pustihaat sells online through a WooCommerce store. The goal was to take three repetitive jobs off the team: booking each order with the courier, replying to enquiries from Facebook lead ads, and following up shoppers who leave items in their cart.",
+    solution:
+      "We built three n8n automations that work alongside the store team. New WooCommerce orders are sent to Steadfast Courier to book the parcel. Each new Facebook lead-ad enquiry gets a reply on WhatsApp. Shoppers who leave items in their cart receive a recovery email. The automations were delivered in September 2026 and are still running.",
+    technology: ["n8n", "WooCommerce", "Steadfast Courier", "Facebook Lead Ads", "WhatsApp", "Email"],
+    results: [
+      { label: "Courier Booking", value: "New orders sent to Steadfast Courier (live since Sep 2026)" },
+      { label: "Lead-Ad Replies", value: "WhatsApp reply to each new Facebook lead-ad enquiry" },
+      { label: "Cart Recovery", value: "Recovery emails for abandoned carts" },
+      {
+        label: "Orders, Replies & Recovered Carts",
+        value: "To be added when figures are available",
+        isPlaceholder: true,
+      },
+    ],
+  },
+
+  {
     id: "mustaraka-properties",
     projectType: "internal",
     client: "Mustaraka Properties",
