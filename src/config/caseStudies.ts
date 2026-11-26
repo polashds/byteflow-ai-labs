@@ -101,6 +101,55 @@ export const caseStudies: CaseStudy[] = [
   },
 
   {
+    // Named with the client's permission (given 26 Nov 2026).
+    id: "km-apparels",
+    projectType: "client",
+    client: "KM Apparels Ltd",
+    industry: "Apparel Buying House",
+    location: "Bangladesh",
+    year: "2026",
+    tagline:
+      "A WordPress website for an apparel sourcing and manufacturing company: services, product ranges, compliance and enquiries with file attachments.",
+    challenge:
+      "KM Apparels Ltd sources and manufactures sweaters, knitwear, woven garments and denim. It needed a website that explains its services and product ranges to buyers, shows its compliance, and makes it easy to send an enquiry with files.",
+    solution:
+      "We designed and built a custom WordPress website with pages for the company, its history, services, product ranges and compliance. Buyers can send an enquiry through a contact form that accepts file attachments, or start a chat on WhatsApp. The site has a Google map, mobile and tablet layouts, HTTPS, a Wordfence firewall and weekly UpdraftPlus backups. We handed it over in February 2026 with a written guide and 60 days of support.",
+    technology: ["WordPress", "Custom theme", "Contact Form 7", "WhatsApp chat widget", "Wordfence", "UpdraftPlus"],
+    results: [
+      { label: "Website", value: "Live at kmapparelsltd.com (launched Jan 2026)" },
+      { label: "Enquiries", value: "Contact form with file attachments, plus WhatsApp chat" },
+      { label: "Handover", value: "Written guide and 60 days of support (Feb 2026)" },
+      { label: "Walkthrough", value: "Recorded demo on the project page" },
+    ],
+  },
+
+  {
+    // Named with the client's permission (given 26 Nov 2026).
+    id: "h2-fashion-bd",
+    projectType: "client",
+    client: "H2 Fashion BD",
+    industry: "Fashion (Denim)",
+    location: "Bangladesh",
+    year: "2026",
+    tagline:
+      "A WordPress website for a denim brand, with a product showcase and WhatsApp chat, plus an optimised Facebook page.",
+    challenge:
+      "H2 Fashion BD, a denim brand, needed a website to present its products and take enquiries, and a Facebook page that matched it.",
+    solution:
+      "We designed and built a WordPress website with a homepage slider, about, denim products and contact pages, a Google map and a WhatsApp chat widget, secured with HTTPS and a Wordfence firewall, and handed it over with a written guide. We also optimised the brand's Facebook page.",
+    technology: ["WordPress", "Custom theme", "WhatsApp chat widget", "Wordfence", "Facebook page optimisation"],
+    results: [
+      { label: "Website", value: "Delivered February 2026" },
+      { label: "Facebook", value: "Page optimised by ByteFlow AI Labs" },
+      {
+        label: "Current Status",
+        value: "The site is offline because hosting was not renewed by the client",
+        isPlaceholder: true,
+      },
+    ],
+  },
+
+  {
     id: "mustaraka-properties",
     projectType: "internal",
     client: "Mustaraka Properties",

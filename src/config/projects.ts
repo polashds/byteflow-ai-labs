@@ -52,6 +52,8 @@ export interface Project {
   diagramCaption: string;
   /** Error handling, handoff and limits. Leave empty until confirmed; the section is then hidden. */
   handling: string[];
+  /** Heading for the handling box when "errors and handoff" doesn't fit (e.g. a website project). */
+  handlingLabel?: string;
   stack: string[];
   demo: ProjectVideo;
   /** Screenshots the client agreed to show. Omit for none. */
@@ -202,6 +204,42 @@ export const projects: Project[] = [
     handling: [],
     stack: ["n8n", "WooCommerce", "Steadfast Courier", "Facebook Lead Ads", "WhatsApp", "Email"],
     demo: { youtubeId: "", title: "Pustihaat automation demo" },
+  },
+  {
+    slug: "km-apparels-website",
+    caseStudyId: "km-apparels",
+    title: "KM Apparels Ltd — Buying House Website",
+    badge: "Client project · KM Apparels Ltd",
+    summary:
+      "A WordPress website for an apparel sourcing and manufacturing company in Bangladesh: services, product ranges, compliance and a contact form that takes file attachments, with a WhatsApp chat widget. Launched January 2026.",
+    meta: {
+      title: "Apparel Buying House Website in Bangladesh",
+      description:
+        "A WordPress website for KM Apparels Ltd, an apparel buying house, designed to present its services, product ranges and compliance and take enquiries with files.",
+    },
+    problem:
+      "KM Apparels Ltd sources and manufactures sweaters, knitwear, woven garments and denim. It needed a website that explains its services and product ranges to buyers, shows its compliance, and makes it easy to send an enquiry with files such as tech packs.",
+    built: {
+      intro: "A custom WordPress website, designed and built by ByteFlow AI Labs:",
+      points: [
+        "Pages for the company, its history, services (R&D, design, production, quality, technical support), product ranges (sweater, knit, denim, woven) and compliance",
+        "A contact form that accepts file attachments, with a Google map and business details",
+        "A WhatsApp chat widget on the site",
+        "A homepage image slider, mobile and tablet layouts, and HTTPS",
+        "A handover document covering editing, backups, security and troubleshooting",
+      ],
+      note: "Named with the client's permission. Launched in January 2026 and handed over in February 2026 with 60 days of support. A recorded walkthrough of the site is below.",
+    },
+    diagrams: [],
+    diagramCaption: "",
+    handlingLabel: "Security and backups",
+    handling: [
+      "Wordfence firewall and a custom admin login address.",
+      "Weekly UpdraftPlus backups of the database, files, plugins and themes, keeping the last four.",
+      "A written handover guide so the client's team can edit pages, upload media and update WordPress safely.",
+    ],
+    stack: ["WordPress", "Custom theme", "Contact Form 7", "WhatsApp chat widget", "Wordfence", "UpdraftPlus", "WP-Optimize"],
+    demo: { youtubeId: "0pJHWhio3xg", title: "KM Apparels website walkthrough" },
   },
   {
     slug: "mustaraka-properties",

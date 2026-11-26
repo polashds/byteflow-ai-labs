@@ -129,7 +129,8 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </section>
       )}
 
-      {/* ── Workflow diagram(s) ───────────────────────────────────────────── */}
+      {/* ── Workflow diagram(s), hidden for projects without one (e.g. websites) ── */}
+      {p.diagrams.length > 0 && (
       <section className="border-t border-primary/10 bg-brand-bg py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <SectionHeading eyebrow="Workflow" align="left">
@@ -145,13 +146,14 @@ export default async function ProjectPage({ params }: { params: Params }) {
           </figure>
         </div>
       </section>
+      )}
 
       {/* ── Errors and handoff / stack ────────────────────────────────────── */}
       <section className="border-t border-primary/10 bg-brand-surface py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {p.handling.length > 0 && (
             <div className="glow-hover lg:col-span-2 rounded-card border border-primary/15 bg-brand-bg p-7">
-              <p className={label}>{L.handling}</p>
+              <p className={label}>{p.handlingLabel ?? L.handling}</p>
               <ul className="space-y-3">
                 {p.handling.map((h) => (
                   <li key={h} className="flex gap-2.5 font-body text-sm text-brand-muted leading-relaxed">
